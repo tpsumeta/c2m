@@ -1,5 +1,7 @@
 # c2m
-C2M business system php mysql CI3
+
+<center>
+<h2>C2M business system php mysql CI3</h2>
 
 <b>ระบบ POS ขายหน้าร้าน  , Food ร้านอาหร </b>
 <br />
@@ -30,5 +32,5 @@ C2M business system php mysql CI3
 
 
 
-
+</center>
 
