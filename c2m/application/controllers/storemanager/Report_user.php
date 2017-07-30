@@ -11,7 +11,7 @@ public function __construct()
         $this->load->model('storemanager/store_user_owner_model');
         $this->load->model('storemanager/store_reportuser_model');
 
-     if(!isset($_SESSION['store_manager_id'])){
+ if(!isset($_SESSION['store_manager_id']) || $_SESSION['store_type']!='0'){
             header( "location: ".$this->base_url."/storemanager/login" );
         }
         

@@ -10,7 +10,7 @@ public function __construct()
         $this->load->database();
         $this->load->model('foodmanager/store_user_owner_model');
 
-     if(!isset($_SESSION['store_manager_id'])){
+if(!isset($_SESSION['store_manager_id']) || $_SESSION['store_type']!='1'){
             header( "location: ".$this->base_url."/storemanager/login" );
         }
         

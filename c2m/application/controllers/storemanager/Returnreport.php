@@ -10,7 +10,7 @@ class Returnreport extends MY_Controller {
         $this->load->database();
         $this->load->model('storemanager/returnreport_model');
 
-     if(!isset($_SESSION['store_manager_id'])){
+ if(!isset($_SESSION['store_manager_id']) || $_SESSION['store_type']!='0'){
             header( "location: ".$this->base_url."/storemanager/login" );
         }
         
