@@ -26,7 +26,7 @@
 			    	<form accept-charset="UTF-8" role="form" action="login_submit" method="post">
                     <fieldset>
 			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="อีเมล์" name="email" type="email" style="height: 50px;font-size: 20px;" required>
+			    		    <input class="form-control" placeholder="อีเมล์" name="email" type="text" style="height: 50px;font-size: 20px;" required>
 			    		</div>
 			    		<div class="form-group">
 			    			<input class="form-control" placeholder="รหัสผ่าน" name="password" type="password" value="" style="height: 50px;font-size: 20px;" required>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2017 at 03:52 PM
+-- Generation Time: Jul 31, 2017 at 07:55 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -69,6 +69,59 @@ CREATE TABLE `affiliate_withdraw` (
   `w_bankaccount` varchar(255) CHARACTER SET utf8 NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `apartment_brand`
+--
+
+CREATE TABLE `apartment_brand` (
+  `apartment_brand_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  `apartment_brand_name` varchar(255) NOT NULL,
+  `apartment_brand_address` varchar(255) NOT NULL,
+  `apartment_brand_tax_number` varchar(100) NOT NULL,
+  `apartment_brand_tel` varchar(20) NOT NULL,
+  `add_time` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `apartment_order`
+--
+
+CREATE TABLE `apartment_order` (
+  `apartment_order_id` int(11) NOT NULL,
+  `apartment_order_customer_name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `apartment_order_customer_tel` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `apartment_order_num` int(11) NOT NULL,
+  `apartment_order_price` int(11) NOT NULL,
+  `apartment_room_id` int(11) NOT NULL,
+  `apartment_order_status` int(1) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `apartment_brand_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  `create_date` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `apartment_room`
+--
+
+CREATE TABLE `apartment_room` (
+  `apartment_room_id` int(11) NOT NULL,
+  `apartment_room_name` varchar(255) NOT NULL,
+  `apartment_room_num` int(11) NOT NULL,
+  `apartment_room_price` int(11) NOT NULL,
+  `apartment_room_status` int(1) NOT NULL COMMENT '0=ว่าง,1=จอง,2=เช็คอิน',
+  `user_id` int(11) NOT NULL,
+  `apartment_brand_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -10667,7 +10720,8 @@ CREATE TABLE `user_owner` (
   `user_password` varchar(255) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `store_type` int(1) NOT NULL COMMENT '0=pos , 1=ร้านอาหาร',
-  `food_brand_id` int(11) NOT NULL
+  `food_brand_id` int(11) NOT NULL,
+  `apartment_brand_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -10763,6 +10817,24 @@ ALTER TABLE `affiliate_user`
 --
 ALTER TABLE `affiliate_withdraw`
   ADD PRIMARY KEY (`w_id`);
+
+--
+-- Indexes for table `apartment_brand`
+--
+ALTER TABLE `apartment_brand`
+  ADD PRIMARY KEY (`apartment_brand_id`);
+
+--
+-- Indexes for table `apartment_order`
+--
+ALTER TABLE `apartment_order`
+  ADD PRIMARY KEY (`apartment_order_id`);
+
+--
+-- Indexes for table `apartment_room`
+--
+ALTER TABLE `apartment_room`
+  ADD PRIMARY KEY (`apartment_room_id`);
 
 --
 -- Indexes for table `contact`
@@ -11028,6 +11100,21 @@ ALTER TABLE `affiliate_user`
 ALTER TABLE `affiliate_withdraw`
   MODIFY `w_id` int(10) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `apartment_brand`
+--
+ALTER TABLE `apartment_brand`
+  MODIFY `apartment_brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `apartment_order`
+--
+ALTER TABLE `apartment_order`
+  MODIFY `apartment_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `apartment_room`
+--
+ALTER TABLE `apartment_room`
+  MODIFY `apartment_room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
@@ -11086,7 +11173,7 @@ ALTER TABLE `customer_sex`
 -- AUTO_INCREMENT for table `food_brand`
 --
 ALTER TABLE `food_brand`
-  MODIFY `food_brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `food_brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `food_category`
 --
@@ -11161,7 +11248,7 @@ ALTER TABLE `sale_list_header`
 -- AUTO_INCREMENT for table `store_manager`
 --
 ALTER TABLE `store_manager`
-  MODIFY `store_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `store_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `supplier`
 --
@@ -11211,7 +11298,7 @@ ALTER TABLE `type_owner`
 -- AUTO_INCREMENT for table `user_owner`
 --
 ALTER TABLE `user_owner`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `wh_importproduct_detail`
 --
@@ -11231,7 +11318,7 @@ ALTER TABLE `wh_product_category`
 -- AUTO_INCREMENT for table `wh_product_list`
 --
 ALTER TABLE `wh_product_list`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -53,6 +53,7 @@ foreach ($query->result() as $row) {
         # code...
         $owner_id = $row->owner_id;
         $food_brand_id = $row->food_brand_id;
+        $apartment_brand_id = $row->apartment_brand_id;
         $user_id = $row->user_id;
         $store_id = $row->store_id;
         $store_type = $row->store_type;
@@ -124,6 +125,39 @@ foreach ($query_owner->result() as $row) {
         'food_brand_address' => $food_brand_address,
         'food_brand_tel' => $food_brand_tel,
         'food_brand_tax_number' => $food_brand_tax_number,
+       // 'owner_add_time' => $owner_add_time,
+       // 'owner_end_time' => $owner_end_time,
+        'logged_in' => TRUE
+);
+
+
+}else if($store_type == '2'){
+
+$query_owner =  $this->db->get_where('apartment_brand' , array('apartment_brand_id' => $apartment_brand_id));
+
+
+foreach ($query_owner->result() as $row) {
+ 
+         $apartment_brand_name = $row->apartment_brand_name;
+         $apartment_brand_address = $row->apartment_brand_address;
+         $apartment_brand_tel = $row->apartment_brand_tel;
+         //$food_brand_email = $row->food_brand_email;
+         $apartment_brand_tax_number = $row->apartment_brand_tax_number;
+}
+
+      $newdata = array(
+        //'owner_id' => $owner_id,
+        'apartment_brand_id' => $apartment_brand_id,
+        'user_id' => $user_id,
+        'name' => $name,
+        'store_id' => $store_id,
+        'store_type' => $store_type,
+        //'food_brand_email'     => $food_brand_email,
+        'apartment_brand_name' => $apartment_brand_name,
+        'owner_name' => $apartment_brand_name,
+        'apartment_brand_address' => $apartment_brand_address,
+        'apartment_brand_tel' => $apartment_brand_tel,
+        'apartment_brand_tax_number' => $apartment_brand_tax_number,
        // 'owner_add_time' => $owner_add_time,
        // 'owner_end_time' => $owner_end_time,
         'logged_in' => TRUE

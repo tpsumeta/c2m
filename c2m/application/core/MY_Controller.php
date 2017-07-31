@@ -230,6 +230,33 @@ $this->load->view('layout/foodbrand/header.php',$data);
 
 
 
+public function apartmentmanagerlayout($view,$data) {
+  
+
+$data['base_url'] = $this->base_url;
+
+$this->load->view('layout/apartmentmanager/header.php',$data);
+ $this->load->view('layout/apartmentmanager/left.php',$data);
+   $this->load->view($view,$data);
+ $this->load->view('layout/apartmentmanager/right.php',$data);
+ $this->load->view('layout/web/footer.php',$data);
+ }
+
+
+
+ public function apartmentlayout($view,$data) {
+  
+
+$data['base_url'] = $this->base_url;
+
+$this->load->view('layout/apartment/header.php',$data);
+ $this->load->view('layout/apartment/left.php',$data);
+   $this->load->view($view,$data);
+ $this->load->view('layout/apartment/right.php',$data);
+ $this->load->view('layout/web/footer.php',$data);
+ }
+
+
 public function to_excel($array, $filename) {
 	header('Content-Encoding: UTF-8');
     header('Content-Disposition: attachment; filename='.$filename.'.xls');

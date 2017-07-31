@@ -37,6 +37,12 @@ $data['tab'] = 'deshboard';
 $data['title'] = 'ร้านอาหาร - หน้าจัดการ';
 		$this->deshboardlayout('deshboard/food',$data);
 
+}else if(isset($_SESSION['store_type']) && $_SESSION['store_type']=='2'){
+
+$data['tab'] = 'deshboard';
+$data['title'] = 'เช่าที่พัก - หน้าจัดการ';
+		$this->deshboardlayout('deshboard/apartment',$data);
+
 }else{
 	header("Location: ".$this->base_url."/login");
 		$data['title'] = 'C2M ระบบพัฒนาธุรกิจและการค้าขาย';

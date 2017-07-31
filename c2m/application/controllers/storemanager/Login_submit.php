@@ -43,6 +43,11 @@ if($_SESSION['store_type']=='1'){
 }
 
 
+if($_SESSION['store_type']=='2'){
+    header( "location: ".$this->base_url."/apartmentmanager/user_owner" );
+}
+
+
 
             }
             else

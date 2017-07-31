@@ -33,6 +33,7 @@
 			<td>
 <span ng-if="x.store_type == '0'" style="color: orange;">POS ขายหน้าร้าน</span>
 <span ng-if="x.store_type == '1'" style="color: green;">Food ร้านอาหาร</span>
+<span ng-if="x.store_type == '2'" style="color: red;">Apartment เช่าที่พัก</span>
 </td>
 			<td>
 				<button class="btn btn-warning btn-xs" ng-click="Openmodaledit(x)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
@@ -93,6 +94,7 @@
 <select ng-model="store_type" ng-hide="foredit" class="form-control"  style="height: 50px;font-size: 20px;">
 		<option value="0">POS ขายหน้าร้าน </option>
 		<option value="1">Food ร้านอาหาร </option>
+		<option value="2">Apartment เช่าที่พัก </option>
 	</select>
 </div>
 
@@ -102,6 +104,8 @@
 <h2>
 <span ng-if="store_type == '0'" style="color: orange;">POS ขายหน้าร้าน</span>
 <span ng-if="store_type == '1'" style="color: green;">Food ร้านอาหาร</span>
+<span ng-if="store_type == '2'" style="color: green;">Apartment เช่าที่พัก</span>
+
 </h2>
 </center>
 
