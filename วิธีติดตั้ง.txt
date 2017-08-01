@@ -1,7 +1,7 @@
-﻿fb: https://www.facebook.com/cus2merpage
-
-ชมวีดีโอสาธิตการติดตั้งและใช้งานเบื้องต้น
-https://www.youtube.com/watch?v=eED4JpPPLuU
+﻿วิธีติดตั้งโปรแกรม
+--------------------
+หลังจากติดตั้งเสร็จแล้ว วิธีการใช้งานจะอยู่ในไฟล์ : 
+วิธีการใช้งาน C2M และ คำอธิบาย 
 
 --------------------
 ความต้องการของระบบ
@@ -38,10 +38,6 @@ http://localhost/c2m
 ***  
 แก้ไขค่าต่างๆ กรณีติดตั้งเซิฟเวอร์เอง เช่น ฐานข้อมูลและ url
 - ฐานข้อมูล  แก้ที่ไฟล์  application\config\database.php
-- url  แก้ที่ไฟล์   application\core\MY_Controller.php
+- url, domain, ลิ้งค์  แก้ที่ไฟล์   application\core\MY_Controller.php
 
 --------------------
-
-ติดต่อเรา ผู้พัฒนา C2M
-https://www.facebook.com/cus2merpage
-
