@@ -280,10 +280,11 @@ Morris.Bar({
   barColors: function (row, series, type) {
     if (type === 'bar') {
      var letters = '0123456789ABCDEF';
-    var color = '#';
+    var color = '#f0ad4e';
+    /*var color = '#';
     for (var i = 0; i < 6; i++ ) {
         color += letters[Math.floor(Math.random() * 16)];
-    }
+    }*/
     return color;
     }
   }

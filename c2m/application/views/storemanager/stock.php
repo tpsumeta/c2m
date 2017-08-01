@@ -47,8 +47,8 @@
 	
 
 		<tr ng-repeat="x in list">
-			<td ng-show="selectpage=='1'" class="text-center">{{($index+1)}}</td>
-			<td ng-show="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</td>
+			<td class="text-center">{{($index+1)}}</td>
+			
 			<td align="center">{{x.product_code}}</td>
 
 
@@ -71,27 +71,6 @@
 </table>
 
 
-<form class="form-inline">
-<div class="form-group">
-แสดง
-<select class="form-control" name="" id="" ng-model="perpage" ng-change="getlist(searchtext,'1',perpage,owner_id)">
-	<option value="10">10</option>
-	<option value="20">20</option>
-	<option value="30">30</option>
-	<option value="50">50</option>
-	<option value="100">100</option>
-	<option value="200">200</option>
-	<option value="300">300</option>
-</select>
-
-หน้า
-<select name="" id="" class="form-control" ng-model="selectthispage"  ng-change="getlist(searchtext,selectthispage,perpage)">
-	<option  ng-repeat="i in pagealladd" value="{{i.a}}">{{i.a}}</option>
-</select>
-</div>
-
-
-</form>
 
 <hr />
 
