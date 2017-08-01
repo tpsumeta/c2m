@@ -48,8 +48,13 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="x in list">
-			<td ng-show="selectpage=='1'" class="text-center">{{($index+1)}}</td>
-			<td ng-show="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</td>
+
+<td>
+			<span ng-if="selectpage=='1'" class="text-center">{{($index+1)}}</span>
+
+			<span ng-if="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</span>
+
+</td>
 			<td><button class="btn btn-default btn-sm" ng-click="Getone(x)">{{x.sale_runno}}</button></td>
 			<td>{{x.cus_name}}</td>
 			<td  align="right">{{x.sumsale_num | number}}</td>
