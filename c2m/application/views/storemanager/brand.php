@@ -63,7 +63,7 @@
 
 <fieldset>
                     <div class="form-group">
-			    		    <input class="form-control" minlength="4" placeholder="ชื่อสาขา" ng-model="owner_name" type="text" style="height: 50px;font-size: 20px;">
+			    		    <input class="form-control" placeholder="ชื่อสาขา" ng-model="owner_name" type="text" style="height: 50px;font-size: 20px;">
 			    		</div>
 
 <div class="form-group">
