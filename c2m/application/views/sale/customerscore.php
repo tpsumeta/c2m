@@ -69,8 +69,8 @@
 
 
 		<tr ng-repeat="x in mycustomer">
-			<td ng-show="selectpage=='1'" class="text-center visible-sm visible-md visible-lg">{{($index+1)}}</td>
-			<td ng-show="selectpage!='1'" class="text-center visible-sm visible-md visible-lg">{{($index+1)+(perpage*(selectpage-1))}}</td>
+			<td ng-if="selectpage=='1'" class="text-center visible-sm visible-md visible-lg">{{($index+1)}}</td>
+			<td ng-if="selectpage!='1'" class="text-center visible-sm visible-md visible-lg">{{($index+1)+(perpage*(selectpage-1))}}</td>
 
 
 <td align="right">{{x.cus_add_time}}</td>
