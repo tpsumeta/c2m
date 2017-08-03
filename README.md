@@ -6,7 +6,7 @@
 <b>ระบบ POS ขายหน้าร้าน  , Food ร้านอาหาร ,  Apartment ระบบเช่าที่พัก </b>
 <br />
 
-<a href="https://www.youtube.com/watch?v=ppCAQTFy5II" >
+<a href="https://www.youtube.com/watch?v=ppCAQTFy5II" target="_blank">
 <h2>Video วีดีโอ เริ่มต้นใช้งาน โปรแกรม C2M พัฒนาธุรกิจและค้าขาย https://www.youtube.com/watch?v=ppCAQTFy5II </h2>
 </a>
 
