@@ -3,7 +3,7 @@
 <center>
 <h2>C2M business system php mysql CI3 </h2>
 
-<h1>Mutiple Language etc Thai, English ...  You can create your Language.</h1>
+<h2>Mutiple Language etc Thai, English ... <br /> You can create your Language.
 
 POS System , Restaurant System , Apartment Room System
 <br />
@@ -13,7 +13,7 @@ POS System , Restaurant System , Apartment Room System
 <br />
 <b>สนับสนุน ธนาคารไทยพาณิชย์ นายอาณัติ ปัสสาสัย  106-243314-8</b>
 <br />
-<b>Anat Passasai </b>
+<b>Anat Passasai </b></h2>
 <br />
 <a href="https://www.paypal.me/yogolas" width="200px">
 <img src="https://cus2mer.co/pic/donate.jpg">
