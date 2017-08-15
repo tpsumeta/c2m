@@ -1,7 +1,9 @@
 # c2m
 
 <center>
-<h2>C2M business system php mysql CI3</h2>
+<h2>C2M business system php mysql CI3 </h2>
+
+<h1>Mutiple Language etc Thai, English ...  You can create your Language.</h1>
 
 POS System , Restaurant System , Apartment Room System
 <br />
