@@ -35,7 +35,7 @@ class Salereport extends MY_Controller {
 		
 
 $data['tab'] = 'salereport';
-$data['title'] = 'รายงานการขาย';
+$data['title'] = 'Sale Report';
 		$this->salelayout('sale/salereport',$data);
 }
 

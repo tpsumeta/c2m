@@ -7,18 +7,19 @@
 
 
 <div style="float: right;">
-	<input type="checkbox" ng-model="showdeletcbut"> แสดงปุ่มลบ
+	<input type="checkbox" ng-model="showdeletcbut"> <?=$lang_showdel?>
 </div>
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="ค้นหาจากชื่อลูกค้า, Run No">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="
+<?=$lang_search?>">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 
 </form>
@@ -30,20 +31,20 @@
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-			<th>ลำดับ</th>
-			<th>Run No.</th>
-			<th>ชื่อลูกค้า</th>
-			<th>จำนวนสินค้า</th>
-			<th>ราคาที่ซื้อ</th>
+			<th><?=$lang_rank?></th>
+			<th><?=$lang_runno?></th>
+			<th><?=$lang_cusname?></th>
+			<th><?=$lang_productnum?></th>
+			<th><?=$lang_pricesale?></th>
 			
 			
-			<th>vat/บาท</th>
-			<th>รวม vat/บาท</th>
+			<th><?=$lang_vat?></th>
+			<th><?=$lang_pricesumvat?></th>
 
-			<th>รับเงิน</th>
-			<th>ทอนเงิน</th>
-			<th>วันที่</th>
-			<th  ng-show="showdeletcbut" style="width: 50px;">ลบ</th>
+			<th><?=$lang_getmoney?></th>
+			<th><?=$lang_moneychange?></th>
+			<th><?=$lang_day?></th>
+			<th  ng-show="showdeletcbut" style="width: 50px;"><?=$lang_delete?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -71,7 +72,8 @@
 			<td  align="right">{{x.money_from_customer | number:2}}</td>
 			<td  align="right">{{x.money_changeto_customer | number:2}}</td>
 			<td>{{x.adddate}}</td>
-			<td ng-show="showdeletcbut" align="center"><button class="btn btn-xs btn-danger" ng-click="Deletelist(x)" id="delbut{{x.ID}}">ลบ</button></td>
+			<td ng-show="showdeletcbut" align="center"><button class="btn btn-xs btn-danger" ng-click="Deletelist(x)" id="delbut{{x.ID}}">
+			<?=$lang_delete?></button></td>
 		</tr>
 	</tbody>
 </table>
@@ -81,7 +83,7 @@
 
 <form class="form-inline">
 <div class="form-group">
-แสดง
+<?=$lang_show?>
 <select class="form-control" name="" id="" ng-model="perpage" ng-change="getlist(searchtext,'1',perpage)">
 	<option value="10">10</option>
 	<option value="20">20</option>
@@ -92,7 +94,7 @@
 	<option value="300">300</option>
 </select>
 
-หน้า
+<?=$lang_page?>
 <select name="" id="" class="form-control" ng-model="selectthispage"  ng-change="getlist(searchtext,selectthispage,perpage)">
 	<option  ng-repeat="i in pagealladd" value="{{i.a}}">{{i.a}}</option>
 </select>
@@ -103,7 +105,9 @@
 
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?>
+ </button>
 
 
 
@@ -113,20 +117,20 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">รายการขายสินค้า</h4>
+				<h4 class="modal-title"><?=$lang_saleproductlist?></h4>
 			</div>
 			<div class="modal-body">
-	Runno:{{sale_runno}} , ชื่อลูกค้า: {{cus_name}}	, ที่อยู่: {{cus_address_all}}		
+	Runno:{{sale_runno}} , <?=$lang_cusname?>: {{cus_name}}	, <?=$lang_address?>: {{cus_address_all}}		
 <table class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-			<th>ลำดับ</th>
-			<th>ชื่อสินค้า</th>
-			<th>รหัสสินค้า</th>
-			<th>ราคาขาย/บาท</th>
-			<th>ส่วนลดต่อหน่วย/บาท</th>
-			<th>จำนวน</th>
-			<th>ราคารวม/บาท</th>
+			<th><?=$lang_rank?></th>
+			<th><?=$lang_productname?></th>
+			<th><?=$lang_barcode?></th>
+			<th><?=$lang_pricesale?></th>
+			<th><?=$lang_discountperunit?></th>
+			<th><?=$lang_qty?></th>
+			<th><?=$lang_all?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -140,7 +144,8 @@
 			<td align="right">{{(x.product_price - x.product_price_discount) * x.product_sale_num | number:2}}</td>
 		</tr>
 		<tr>
-			<td colspan="5"  align="right" style="font-weight: bold;">รวม</td>
+			<td colspan="5"  align="right" style="font-weight: bold;">
+			<?=$lang_all?></td>
 			
 			<td align="right" style="font-weight: bold;">{{sumsale_num | number}}</td>
 			<td align="right" style="font-weight: bold;">{{sumsale_price | number:2}}</td>
@@ -150,13 +155,13 @@
 		</tr>
 
 <tr ng-if="vat3 > '0'">
-<td align="right" colspan="6">vat {{vat3}} %</td>
+<td align="right" colspan="6"><?=$lang_vat?> {{vat3}} %</td>
 		<td  style="font-weight: bold;" align="right">
 		{{sumsale_price * (vat3/100) | number:2}}</td>
 		</tr>
 
 		<tr ng-if="vat3 > '0'">
-		<td align="right" colspan="6">ราคารวม vat</td>
+		<td align="right" colspan="6"><?=$lang_pricesumvat?></td>
 		<td style="font-weight: bold;" align="right">
 		{{ParsefloatFunc(sumsale_price)  * (ParsefloatFunc(vat3)/100) + ParsefloatFunc(sumsale_price) | number:2}}</td>
 		</tr>

@@ -9,9 +9,9 @@
 
 <input type="text" class="form-control" style="width: 200px;" value="admin" readonly="">
 <br />
-<input type="text" ng-model="admin_password" class="form-control" style="width: 200px;" placeholder="รหัสผ่านใหม่">
+<input type="text" ng-model="admin_password" class="form-control" style="width: 200px;" placeholder="<?=$lang_newpassword?>">
 <br />
-<button class="btn btn-success" ng-click="Changepass()">บันทึก</button>
+<button class="btn btn-success" ng-click="Changepass()"><?=$lang_save?></button>
 
 
 	</div>
@@ -39,12 +39,12 @@ $http.post("Change_password/Edit",{
 admin_password: $scope.admin_password
 
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 
         });	
 
 	}else{
-	toastr.warning('กรุณากรอกรหัสผ่าน');
+	toastr.warning('<?=$lang_passwordplz?>');
 }
 
 

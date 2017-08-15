@@ -6,10 +6,10 @@
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" ng-model="importproduct_header_refcode" placeholder="รหัสอ้างอิง" class="form-control" style="width: 200px;">
+<input type="text" ng-model="importproduct_header_refcode" placeholder="<?=$lang_refnumber?>" class="form-control" style="width: 200px;">
 </div>
 <div class="form-group">
-<input class="form-control" style="width: 500px;" ng-model="importproduct_header_remark" placeholder="หมายเหตุ">
+<input class="form-control" style="width: 500px;" ng-model="importproduct_header_remark" placeholder="<?=$lang_remark?>">
 </div>
 </form>
 
@@ -20,16 +20,16 @@
 			<td>
 			<form class="form-inline">
 <div class="form-group">
-				<input type="text" class="form-control" id="product_code" ng-model="product_code" style="font-size: 20px;text-align: right;height: 47px;width: 300px;background-color:#dff0d8;" placeholder="รหัสสินค้า หรือ Scan Barcode">
+				<input type="text" class="form-control" id="product_code" ng-model="product_code" style="font-size: 20px;text-align: right;height: 47px;width: 300px;background-color:#dff0d8;" placeholder="<?=$lang_barcode?>">
 				</div>
 				<div class="form-group">
-				<button type="submit" ng-click="Addpushproductcode(product_code)" class="btn btn-default btn-lg">Enter</button>
+				<button type="submit" ng-click="Addpushproductcode(product_code)" class="btn btn-default btn-lg"><?=$lang_enter?></button>
 				</div>
 				<div class="form-group" ng-show="cannotfindproduct" style="color: red;">
-					ไม่พบสินค้า
+					<?=$lang_cannotfoundproduct?>
 				</div>
 	<div class="form-group">
-<button ng-click="Refresh()" class="btn btn-default btn-lg" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button ng-click="Refresh()" class="btn btn-default btn-lg" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 				</form>
 
@@ -37,7 +37,8 @@
 			<td align="right">
 				
 <button type="submit" ng-click="Openfull()" class="btn btn-default btn-lg">
-<span class="glyphicon glyphicon-resize-full" aria-hidden="true"> จอใหญ่
+<span class="glyphicon glyphicon-resize-full" aria-hidden="true"> 
+<?=$lang_fullscreen?>
 </button>
 				
 			</td>
@@ -53,14 +54,14 @@
 <table class="table table-hover table-bordered">
 <thead>
 	<tr class="trheader">
-	<th style="text-align: center;width: 50px;">ลำดับ</th>
-		<th style="text-align: center;">สินค้า</th>
-		<th style="text-align: center;">รหัสสินค้า</th>
-		<th style="text-align: center;">ที่จัดเก็บ</th>
-		<th style="text-align: center;">ราคาทุนต่อหน่วย/บาท</th>
-		<th style="text-align: center;">จำนวนหน่วย</th>
-		<th style="text-align: center;">รวมราคา/บาท</th>
-		<th style="text-align: center;">ลบ</th>
+	<th style="text-align: center;width: 50px;"><?=$lang_rank?></th>
+		<th style="text-align: center;"><?=$lang_productname?></th>
+		<th style="text-align: center;"><?=$lang_barcode?></th>
+		<th style="text-align: center;"><?=$lang_wherestore?></th>
+		<th style="text-align: center;"><?=$lang_costperunit?></th>
+		<th style="text-align: center;"><?=$lang_unit?></th>
+		<th style="text-align: center;"><?=$lang_allprice?></th>
+		<th style="text-align: center;"><?=$lang_delete?></th>
 	</tr>
 </thead>
 	<tbody>
@@ -83,19 +84,19 @@
 
 
 			<td>
-				<input style="text-align: right;" type="text" ng-model="x.importproduct_detail_pricebase" class="form-control" placeholder="ราคาทุนต่อหน่วย/บาท">
+				<input style="text-align: right;" type="text" ng-model="x.importproduct_detail_pricebase" class="form-control" placeholder="<?=$lang_costperunit?>">
 			</td>
 			<td>
-				<input style="text-align: right;" type="text" ng-model="x.importproduct_detail_num" class="form-control" placeholder="จำนวน">
+				<input style="text-align: right;" type="text" ng-model="x.importproduct_detail_num" class="form-control" placeholder="<?=$lang_unit?>">
 			</td>
 			<td>
 				<input style="text-align: right;" type="text" value="{{x.importproduct_detail_pricebase * x.importproduct_detail_num | number:2 }}" class="form-control" readonly>
 			</td>
-			<td><button  class="btn btn-sm btn-danger" ng-click="Deletepush($index)">ลบ</button></td>
+			<td><button  class="btn btn-sm btn-danger" ng-click="Deletepush($index)"><?=$lang_delete?></button></td>
 		</tr>
 
 		<tr>
-			<td colspan="4" align="right">รวม</td><td align="right" style="font-weight: bold;">{{Sumnum() | number}}</td>
+			<td colspan="5" align="right"><?=$lang_all?></td><td align="right" style="font-weight: bold;">{{Sumnum() | number}}</td>
 			<td align="right" style="font-weight: bold;">{{Sumpricebasenum() | number:2}}</td>
 			<td></td>
 		</tr>
@@ -106,7 +107,7 @@
 
 
 
-<button id="Saveimportproduct" class="btn btn-success btn-lg" style="float: right;" ng-click="Saveimportproduct()">บันทึก</button>
+<button id="Saveimportproduct" class="btn btn-success btn-lg" style="float: right;" ng-click="Saveimportproduct()"><?=$lang_save?></button>
 
 
 
@@ -120,18 +121,18 @@
 
 
 <div style="float: right;">
-	<input type="checkbox" ng-model="showdeletcbut"> แสดงปุ่มลบ
+	<input type="checkbox" ng-model="showdeletcbut"> <?=$lang_showdel?>
 </div>
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="รหัสอ้างอิง หรือ หมายเหตุ">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="<?=$lang_search?>">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 
 </form>
@@ -139,21 +140,22 @@
 <table class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-			<th style="text-align: center;width: 20px;">ลำดับ</th>
+			<th style="text-align: center;width: 20px;"><?=$lang_rank?></th>
 			<th style="text-align: center;">Run No.</th>
-			<th style="text-align: center;">รหัสอ้างอิง</th>
+			<th style="text-align: center;"><?=$lang_refnumber?></th>
 
-			<th style="text-align: center;">จำนวนสินค้า</th>
-			<th style="text-align: center;">รวมราคา/บาท</th>
-			<th style="text-align: center;">หมายเหตุ</th>
-			<th style="text-align: center;">วันที่</th>
-			<th style="text-align: center;width: 20px;" ng-show="showdeletcbut" >ลบ</th>
+			<th style="text-align: center;"><?=$lang_productnum?></th>
+			<th style="text-align: center;"><?=$lang_allprice?></th>
+			<th style="text-align: center;"><?=$lang_remark?></th>
+			<th style="text-align: center;"><?=$lang_day?></th>
+			<th style="text-align: center;width: 20px;" ng-show="showdeletcbut" >
+			<?=$lang_delete?></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="x in list">
-			<td ng-show="selectpage=='1'" class="text-center">{{($index+1)}}</td>
-			<td ng-show="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</td>
+			<td ng-if="selectpage=='1'" class="text-center">{{($index+1)}}</td>
+			<td ng-if="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</td>
 			<td align="center"><button class="btn btn-default btn-sm" ng-click="Getimportone(x)">{{x.importproduct_header_code}}</button></td>
 			<td align="center">{{x.importproduct_header_refcode}}</td>
 			
@@ -161,7 +163,7 @@
 			<td align="right">{{x.importproduct_header_amount | number:2}}</td>
 			<td align="center">{{x.importproduct_header_remark}}</td>
 			<td align="center">{{x.importproduct_header_date2}}</td>
-			<td ng-show="showdeletcbut" align="center"><button class="btn btn-xs btn-danger" ng-click="Deleteimportlist(x)" id="delbut{{x.importproduct_header_id}}">ลบ</button></td>
+			<td ng-show="showdeletcbut" align="center"><button class="btn btn-xs btn-danger" ng-click="Deleteimportlist(x)" id="delbut{{x.importproduct_header_id}}"><?=$lang_delete?></button></td>
 		</tr>
 	</tbody>
 </table>
@@ -170,7 +172,7 @@
 
 <form class="form-inline">
 <div class="form-group">
-แสดง
+<?=$lang_show?>
 <select class="form-control" name="" id="" ng-model="perpage" ng-change="getlist(searchtext,'1',perpage)">
 	<option value="10">10</option>
 	<option value="20">20</option>
@@ -181,7 +183,7 @@
 	<option value="300">300</option>
 </select>
 
-หน้า
+<?=$lang_page?>
 <select name="" id="" class="form-control" ng-model="selectthispage"  ng-change="getlist(searchtext,selectthispage,perpage)">
 	<option  ng-repeat="i in pagealladd" value="{{i.a}}">{{i.a}}</option>
 </select>
@@ -206,10 +208,10 @@
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" ng-model="importproduct_header_refcode" placeholder="รหัสอ้างอิง" class="form-control" style="width: 200px;">
+<input type="text" ng-model="importproduct_header_refcode" placeholder="<?=$lang_refnumber?>" class="form-control" style="width: 200px;">
 </div>
 <div class="form-group">
-<input class="form-control" style="width: 500px;" ng-model="importproduct_header_remark" placeholder="หมายเหตุ">
+<input class="form-control" style="width: 500px;" ng-model="importproduct_header_remark" placeholder="<?=$lang_remark?>">
 </div>
 </form>
 
@@ -222,16 +224,16 @@
 			<td>
 			<form class="form-inline">
 <div class="form-group">
-				<input type="text" class="form-control" ng-model="product_code" style="font-size: 20px;text-align: right;height: 47px;width: 300px;background-color:#dff0d8;" placeholder="รหัสสินค้า หรือ Scan Barcode">
+				<input type="text" class="form-control" ng-model="product_code" style="font-size: 20px;text-align: right;height: 47px;width: 300px;background-color:#dff0d8;" placeholder="<?=$lang_barcode?>">
 				</div>
 				<div class="form-group">
-				<button type="submit" ng-click="Addpushproductcode(product_code)" class="btn btn-default btn-lg">Enter</button>
+				<button type="submit" ng-click="Addpushproductcode(product_code)" class="btn btn-default btn-lg"><?=$lang_enter?></button>
 				</div>
 				<div class="form-group" ng-show="cannotfindproduct" style="color: red;">
-					ไม่พบสินค้า
+					<?=$lang_cannotfoundproduct?>
 				</div>
 				<div class="form-group">
-<button ng-click="Refresh()" class="btn btn-default btn-lg" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button ng-click="Refresh()" class="btn btn-default btn-lg" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 				</form>
 
@@ -253,13 +255,13 @@
 <table class="table table-hover table-bordered">
 <thead>
 	<tr class="trheader">
-	<th style="text-align: center;width: 50px;">ลำดับ</th>
-		<th style="text-align: center;">สินค้า</th>
-		<th style="text-align: center;">รหัสสินค้า</th>
-		<th style="text-align: center;">ราคาทุนต่อหน่วย/บาท</th>
-		<th style="text-align: center;">จำนวนหน่วย</th>
-		<th style="text-align: center;">รวมราคา/บาท</th>
-		<th style="text-align: center;">ลบ</th>
+	<th style="text-align: center;width: 50px;"><?=$lang_rank?></th>
+		<th style="text-align: center;"><?=$lang_productname?></th>
+		<th style="text-align: center;"><?=$lang_barcode?></th>
+		<th style="text-align: center;"><?=$lang_costperunit?></th>
+		<th style="text-align: center;"><?=$lang_unit?></th>
+		<th style="text-align: center;"><?=$lang_allprice?></th>
+		<th style="text-align: center;"><?=$lang_delete?></th>
 	</tr>
 </thead>
 	<tbody>
@@ -276,15 +278,15 @@
 			</td>
 
 			<td>
-				<input style="text-align: right;" type="text" ng-model="x.importproduct_detail_pricebase" class="form-control" placeholder="ราคาทุนต่อหน่วย/บาท">
+				<input style="text-align: right;" type="text" ng-model="x.importproduct_detail_pricebase" class="form-control" placeholder="<?=$lang_costperunit?>">
 			</td>
 			<td>
-				<input style="text-align: right;" type="text" ng-model="x.importproduct_detail_num" class="form-control" placeholder="จำนวน">
+				<input style="text-align: right;" type="text" ng-model="x.importproduct_detail_num" class="form-control" placeholder="<?=$lang_unit?>">
 			</td>
 			<td>
 				<input style="text-align: right;" type="text" value="{{x.importproduct_detail_pricebase * x.importproduct_detail_num | number:2 }}" class="form-control" readonly>
 			</td>
-			<td><button  class="btn btn-sm btn-danger" ng-click="Deletepush($index)">ลบ</button></td>
+			<td><button  class="btn btn-sm btn-danger" ng-click="Deletepush($index)"><?=$lang_delete?></button></td>
 		</tr>
 
 		
@@ -296,8 +298,8 @@
 
 <table width="100%">
 	<tr>
-			<td align="center" style="font-size: 16px;">รวม จำนวน <span style="font-weight: bold;">{{Sumnum() | number}}</span>
-			 ราคา <span style="font-weight: bold;">{{Sumpricebasenum() | number:2}}</span></td>
+			<td align="center" style="font-size: 16px;"><?=$lang_salenumall?> <span style="font-weight: bold;">{{Sumnum() | number}}</span>
+			 <?=$lang_allprice?> <span style="font-weight: bold;">{{Sumpricebasenum() | number:2}}</span></td>
 			
 		</tr>
 </table>
@@ -305,7 +307,7 @@
 
 <table width="100%">
 <tr><td align="right">
-<button id="Saveimportproduct2" class="btn btn-success btn-lg" style="float: right;" ng-click="Saveimportproduct()">บันทึก</button>
+<button id="Saveimportproduct2" class="btn btn-success btn-lg" style="float: right;" ng-click="Saveimportproduct()"><?=$lang_save?></button>
 </td></tr>
 </table>
 
@@ -328,15 +330,15 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				<h4 class="modal-title">
-				รายการสินค้านำเข้า </h4>
+				<?=$lang_productlistimport?> </h4>
 <table class="table table-responsive">
 	<tr>
 	<td align="right">Run No:</td><td>{{importproduct_header_code}}</td>
-	<td align="right">วันที่:</td><td>{{importproduct_header_date2}}</td>
+	<td align="right"><?=$lang_day?>:</td><td>{{importproduct_header_date2}}</td>
 	</tr>
 	<tr>
-	<td align="right">รหัสอ้างอิง:</td><td>{{importproduct_header_refcode2}}</td>
-	<td align="right">หมายเหตุ:</td><td>{{importproduct_header_remark2}}</td></tr>
+	<td align="right"><?=$lang_refnumber?>:</td><td>{{importproduct_header_refcode2}}</td>
+	<td align="right"><?=$lang_remark?>:</td><td>{{importproduct_header_remark2}}</td></tr>
 </table>
 
 			</div>
@@ -345,12 +347,12 @@
 <table class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-		<th style="width: 50px;">ลำดับ</th>
-			<th style="text-align: center;">รหัสสินค้า</th>
-			<th style="text-align: center;">สินค้า</th>
-			<th style="text-align: center;">ราคาทุนต่อหน่วย/บาท</th>
-			<th style="text-align: center;">จำนวนหน่วย</th>
-			<th style="text-align: center;">รวมราคา/บาท</th>
+		<th style="width: 50px;"><?=$lang_rank?></th>
+			<th style="text-align: center;"><?=$lang_barcode?></th>
+			<th style="text-align: center;"><?=$lang_productname?></th>
+			<th style="text-align: center;"><?=$lang_costperunit?></th>
+			<th style="text-align: center;"><?=$lang_unit?></th>
+			<th style="text-align: center;"><?=$lang_allprice?></th>
 		
 		</tr>
 	</thead>
@@ -365,7 +367,7 @@
 			
 		</tr>
 		<tr>
-			<td colspan="4" align="right">รวม</td>
+			<td colspan="5" align="right"><?=$lang_all?></td>
 			<td align="right" style="font-weight: bold;">{{ importone_sumnum | number }}</td>
 			<td align="right" style="font-weight: bold;">{{ importone_sumprice | number:2 }}</td>
 			
@@ -391,21 +393,25 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">รายการสินค้า</h4>
+				<h4 class="modal-title"><?=$lang_productliststock?></h4>
 			</div>
 			<div class="modal-body">
-	<input type="text" ng-model="searchproduct" placeholder="ค้นหารหัสหรือชื่อสินค้า" style="width:300px;" class="form-control">
+	<input type="text" ng-model="searchproduct" placeholder="<?=$lang_search?>" style="width:300px;" class="form-control">
 <br />	
 <div style="overflow: auto;height: 400px;">		
 <table class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-			<th>เลือก</th><th>รหัสสินค้า</th><th>ชื่อสินค้า</th><th>ราคา</th><th>ต้นทุนต่อหน่วย/บาท</th>
+			<th><?=$lang_select?></th>
+			<th><?=$lang_barcode?></th>
+			<th><?=$lang_productname?></th>
+			<th><?=$lang_price?></th>
+			<th><?=$lang_costperunit?></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="y in productlist | filter:searchproduct" >
-			<td><button ng-click="Selectproduct(y,indexrow)" class="btn btn-success">เลือก</button></td>
+			<td><button ng-click="Selectproduct(y,indexrow)" class="btn btn-success"><?=$lang_select?></button></td>
 			<td align="center">{{y.product_code}}</td><td>{{y.product_name}}</td>
 			<td align="right">{{y.product_price | number:2}}</td>
 			<td align="right">{{y.product_pricebase | number:2}}</td>
@@ -508,7 +514,7 @@ $scope.Addpushproduct = function(){
 $scope.productimportlist.push({
 	product_id: '',
 	product_code: '',
-	product_name_title: 'เลือกสินค้า',
+	product_name_title: '<?=$lang_selectproduct?>',
 	importproduct_detail_pricebase: '0',
 	importproduct_detail_num: '0'
 });
@@ -605,7 +611,7 @@ $http.post("Importproduct/add",{
 	importproduct_header_num: $scope.Sumnum(),
 	importproduct_header_amount: $scope.Sumpricebasenum()
 }).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $('#Saveimportproduct').prop('disabled',false);
 $('#Saveimportproduct2').prop('disabled',false);
 $('#product_code').prop('disabled',false);
@@ -615,11 +621,11 @@ $('#Openfull').modal('hide');
         });	
 
 }else{
-	toastr.warning('กรุณากรอกข้อมูลให้ครบ');
+	toastr.warning('<?=$lang_plz?>');
 }
 
 	}else{
-		toastr.warning('กรุณาเพิ่มรายการสินค้า');
+		toastr.warning('<?=$lang_addproductlistplz?>');
 	}
 	
 };

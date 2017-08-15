@@ -35,7 +35,7 @@ class Salepage extends MY_Controller {
 		
 
 $data['tab'] = 'salepage';
-$data['title'] = 'หน้าขายสินค้า';
+$data['title'] = 'Sale Page';
 		$this->deshboardlayout('sale/salepage',$data);
 }
 

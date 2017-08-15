@@ -69,11 +69,11 @@
 
 <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #000;">
-เข้าสู่ระบบ
+<?=$lang_login?>
 					 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-<li><a href="<?php echo $base_url; ?>/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>	พนักงาน </a></li>
-						<li> <a href="<?php echo $base_url; ?>/storemanager/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> ผู้จัดการร้าน</a></li>
+<li><a href="<?php echo $base_url; ?>/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>	<?=$lang_staff?> </a></li>
+						<li> <a href="<?php echo $base_url; ?>/storemanager/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> <?=$lang_manager?></a></li>
 						
 					</ul>
 				</li>

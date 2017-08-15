@@ -34,7 +34,7 @@ class Contactgrade extends MY_Controller {
 		
 
 $data['tab'] = 'contactgrade';
-$data['title'] = 'ตั้งค่า เกรด/คะแนน การติดต่อ';
+$data['title'] = 'Contact Grade';
 		$this->ownerlayout('ownerbody/contactgrade',$data);
 
 

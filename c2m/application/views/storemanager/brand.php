@@ -6,17 +6,17 @@
 	<div class="panel-body">
 
 
-<button class="btn btn-primary" ng-click="Openmodal()">เพิ่มสาขา +</button>
+<button class="btn btn-primary" ng-click="Openmodal()"><?=$lang_addbrand?> +</button>
 <hr />
 <input type="text" ng-model="search" name="" placeholder="ค้นหา" class="form-control" style="width: 200px;">
 <br />
 <table id="headerTable" class="table table-hover">
 	<thead  style="background-color: #eee;">
 		<tr>
-			<th>ชื่อสาขา</th>
-			<th>ที่อยู่</th>
-			<th>เลขที่ผู้เสียภาษี</th>
-			<th style="width: 10px;">แก้ไข</th>
+			<th><?=$lang_brandname?></th>
+			<th><?=$lang_address?></th>
+			<th><?=$lang_tax?></th>
+			<th style="width: 10px;"><?=$lang_edit?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,18 +27,19 @@
 			
 
 
-, โทร: {{x.tel}}
+, <?=$lang_tel?>: {{x.tel}}
 			</td>
 			<td>{{x.owner_tax_number}}</td>
 			<td>
-				<button class="btn btn-warning btn-xs" ng-click="Openmodaledit(x)">แก้ไข</button>
+				<button class="btn btn-warning btn-xs" ng-click="Openmodaledit(x)"><?=$lang_edit?></button>
 			</td>
 		</tr>
 		
 	</tbody>
 </table>
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?> </button>
 
 </div>
 </div>
@@ -51,7 +52,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">เพิ่มสาขา</h4>
+				<h4 class="modal-title"><?=$lang_addbrand?></h4>
 			</div>
 			<div class="modal-body">
 				
@@ -63,11 +64,11 @@
 
 <fieldset>
                     <div class="form-group">
-			    		    <input class="form-control" placeholder="ชื่อสาขา" ng-model="owner_name" type="text" style="height: 50px;font-size: 20px;">
+			    		    <input class="form-control" placeholder="<?=$lang_brandname?>" ng-model="owner_name" type="text" style="height: 50px;font-size: 20px;">
 			    		</div>
 
 <div class="form-group">
-			    		    <input class="form-control" minlength="4" placeholder="เลขที่ผู้เสียภาษี" ng-model="owner_tax_number" type="text" style="height: 50px;font-size: 20px;">
+			    		    <input class="form-control" minlength="4" placeholder="<?=$lang_tax?>" ng-model="owner_tax_number" type="text" style="height: 50px;font-size: 20px;">
 			    		</div>
 
 
@@ -86,13 +87,13 @@
 
 
  <div class="form-group">
-			    		    <input class="form-control" placeholder="เบอร์โทร" ng-model="tel" type="text" style="height: 50px;font-size: 20px;">
+			    		    <input class="form-control" placeholder="<?=$lang_tel?>" ng-model="tel" type="text" style="height: 50px;font-size: 20px;">
 			    		</div>
 	
 
-			    		<input id="submit" class="btn btn-lg btn-success btn-block" type="submit" ng-click="Addbrand()" value="เพิ่มสาขา" ng-hide="foredit">
+			    		<input id="submit" class="btn btn-lg btn-success btn-block" type="submit" ng-click="Addbrand()" value="<?=$lang_addbrand?>" ng-hide="foredit">
 
-<input id="submit" class="btn btn-lg btn-success btn-block" type="submit" ng-click="Editbrand()" value="ยืนยัน" ng-show="foredit">
+<input id="submit" class="btn btn-lg btn-success btn-block" type="submit" ng-click="Editbrand()" value="<?=$lang_confirm?>" ng-show="foredit">
 
 			    	</fieldset>
 
@@ -171,13 +172,13 @@ $http.post("Brand/Add",{
 	owner_address: $scope.owner_address,
 	tel: $scope.tel
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.get();
 $('#modalstore').modal('hide');
 $scope.foredit = false;
         });	
 }else{
-	toastr.warning('กรุณากรอกข้อมูลให้ครบ');
+	toastr.warning('<?=$lang_plz?>');
 }
 
 
@@ -195,13 +196,13 @@ $http.post("Brand/Edit",{
 	owner_address: $scope.owner_address,
 	tel: $scope.tel
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.get();
 $('#modalstore').modal('hide');
         });
 	
         }else{
-	toastr.warning('กรุณากรอกข้อมูลให้ครบ');
+	toastr.warning('<?=$lang_plz?>');
 }	
 
 

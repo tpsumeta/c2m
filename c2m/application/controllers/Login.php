@@ -20,7 +20,7 @@ class Login extends MY_Controller {
 	 */
 	public function index()
 	{
-		$data['title'] = 'พนักงาน Login';
+		$data['title'] = 'Staff Login';
 		$this->weblayout('webbody/login',$data);
 	}
 }

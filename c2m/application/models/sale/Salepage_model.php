@@ -111,7 +111,7 @@ $query_p = $this->db->query('SELECT
     FROM wh_product_list  as wl
     LEFT JOIN product_price_cus as pc on pc.product_id=wl.product_id
     LEFT JOIN wh_product_category as wc on wc.product_category_id=wl.product_category_id
-    WHERE wl.owner_id="'.$_SESSION['owner_id'].'" AND  wl.product_code="'.$data['product_code'].'"
+    WHERE wl.owner_id="'.$_SESSION['owner_id'].'" AND  wl.product_code="'.$data['product_code'].'" AND pc.cus_id="'.$data['cus_id'].'"
     ORDER BY wl.product_id DESC');
 
 

@@ -35,7 +35,7 @@ class Customergroup extends MY_Controller {
 		
 
 $data['tab'] = 'customergroup';
-$data['title'] = 'ตั้งค่ากลุ่มลูกค้า';
+$data['title'] = 'Customer Group';
 		$this->ownerlayout('ownerbody/customergroup',$data);
 
 }

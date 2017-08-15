@@ -1,0 +1,45 @@
+﻿
+How to install the program
+--------------------
+After installation is complete. How to use it in the file:
+How to use C2M and Description
+
+--------------------
+System requirements
+- PHP 7
+- MySQL Database
+
+--------------------
+
+
+Installation method
+1. Install the Simplified Appserv Web server on the window.
+- download the program Https://www.appserv.org/en/
+- user: root
+- password: 12345678
+(Or Use XAMPP)
+
+2. Move the c2m folder into C:\Appserv\www\
+- C:\Appserv\www\c2m
+
+3. Add Database
+- Open http://localhost/phpmyadmin.
+Username: root
+Password: 12345678
+- Click New, enter the database name c2m.
+- Click on the name c2m.
+- Click on the menu above import
+- Find the c2m.sql file.
+- click go (success is shown if there is an error, support https://www.facebook.com/cus2merpage/).
+
+4. Enable
+http://localhost/c2m
+Download c2m-desktop.html to the Desktop page, you can directly access the system.
+
+
+--------------------
+***
+Edit values In case of installing the server itself, such as database and url
+- Database to resolve the application \ config \ database.php file.
+- url, domain, link to file application \ core \ MY_Controller.php
+--------------------

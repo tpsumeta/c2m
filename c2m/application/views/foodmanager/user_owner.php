@@ -6,19 +6,20 @@
 	<div class="panel-body">
 
 
-<button class="btn btn-primary" ng-click="Openmodal()">เพิ่มพนักงาน +</button>
+<button class="btn btn-primary" ng-click="Openmodal()">
+<?=$lang_addstaff?> +</button>
 <hr />
 <input type="text" ng-model="search" name="" placeholder="ค้นหา" class="form-control" style="width: 200px;">
 <br />
 <table id="headerTable" class="table table-hover">
 	<thead  style="background-color: #eee;">
 		<tr>
-		<th style="width: 10px;">ลำดับ</th>
-			<th>ชื่อพนักงาน</th>
-			<th>Email</th>
-			<th>รหัสผ่าน</th>
-			<th>สาขา</th>
-			<th style="width: 10px;">แก้ไข</th>
+		<th style="width: 10px;"><?=$lang_rank?></th>
+			<th><?=$lang_staffname?></th>
+			<th><?=$lang_email?></th>
+			<th><?=$lang_password?></th>
+			<th><?=$lang_brand?></th>
+			<th style="width: 10px;"><?=$lang_edit?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -32,7 +33,7 @@
 			
 			</td>
 			<td>
-				<button class="btn btn-warning btn-xs" ng-click="Openmodaledit(x)">แก้ไข</button>
+				<button class="btn btn-warning btn-xs" ng-click="Openmodaledit(x)"><?=$lang_edit?></button>
 			</td>
 		</tr>
 		
@@ -40,7 +41,8 @@
 </table>
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?> </button>
 
 
 
@@ -55,7 +57,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">เพิ่มพนักงาน</h4>
+				<h4 class="modal-title"><?=$lang_addstaff?></h4>
 			</div>
 			<div class="modal-body">
 				
@@ -67,33 +69,33 @@
 
 <fieldset>
                     <div class="form-group">
-			    		    <input class="form-control" placeholder="ชื่อพนักงาน" ng-model="user_name" type="text" style="height: 50px;font-size: 20px;">
+			    		    <input class="form-control" placeholder="<?=$lang_staffname?>" ng-model="user_name" type="text" style="height: 50px;font-size: 20px;">
 			    		</div>
 
 
 
 <div class="form-group">
 	<select id="" class="form-control" ng-model="food_brand_id" style="height: 50px;font-size: 20px;">
-		<option value="0">เลือกสาขา</option>
+		<option value="0"><?=$lang_selectbrand?></option>
 		<option ng-repeat="a in listbrand" value="{{a.food_brand_id}}">{{a.food_brand_name}}</option>
 	</select>
 </div>
 
 
 <div class="form-group">
-			    		    <input ng-disabled="foredit" class="form-control" placeholder="email" ng-model="user_email" type="text" style="height: 50px;font-size: 20px;">
+			    		    <input ng-disabled="foredit" class="form-control" placeholder="<?=$lang_email?>" ng-model="user_email" type="text" style="height: 50px;font-size: 20px;">
 			    		</div>
 
 
 			    		<div class="form-group">
-			    		    <input class="form-control" placeholder="รหัสผ่าน" ng-model="user_password" type="text" style="height: 50px;font-size: 20px;">
+			    		    <input class="form-control" placeholder="<?=$lang_password?>" ng-model="user_password" type="text" style="height: 50px;font-size: 20px;">
 			    		</div>
 
 	
 
-			    		<input id="submit" class="btn btn-lg btn-success btn-block" type="submit" ng-click="Adduser()" value="เพิ่มพนักงาน" ng-hide="foredit">
+			    		<input id="submit" class="btn btn-lg btn-success btn-block" type="submit" ng-click="Adduser()" value="<?=$lang_addstaff?>" ng-hide="foredit">
 
-<input id="submit" class="btn btn-lg btn-success btn-block" type="submit" ng-click="Edituser()" value="ยืนยัน" ng-show="foredit">
+<input id="submit" class="btn btn-lg btn-success btn-block" type="submit" ng-click="Edituser()" value="<?=$lang_confirm?>" ng-show="foredit">
 
 			    	</fieldset>
 
@@ -190,9 +192,9 @@ $http.post("User_owner/Add",{
 
 
 if(data=='dup'){
-	toastr.warning('ไม่สามารถใช email นี้ได้');
+	toastr.warning('<?=$lang_cannotusethisemail?>');
 }else{
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.get();
 $('#modalstore').modal('hide');
 $scope.foredit = false;
@@ -204,7 +206,7 @@ $scope.foredit = false;
 
 
 	}else{
-	toastr.warning('กรุณากรอกข้อมูลให้ครบทุกช่อง');
+	toastr.warning('<?=$lang_plz?>');
 }
 
 
@@ -229,13 +231,13 @@ $http.post("User_owner/Edit",{
 	user_password: $scope.user_password
 
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.get();
 $('#modalstore').modal('hide');
         });	
 
 	}else{
-	toastr.warning('กรุณากรอกข้อมูลให้ครบทุกช่อง');
+	toastr.warning('<?=$lang_plz?>');
 }
 
 

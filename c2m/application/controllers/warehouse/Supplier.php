@@ -35,7 +35,7 @@ class Supplier extends MY_Controller {
 		
 
 $data['tab'] = 'supplier';
-$data['title'] = 'รายการสินค้า';
+$data['title'] = 'Supplier';
 		$this->warehouselayout('warehouse/supplier',$data);
 }
 

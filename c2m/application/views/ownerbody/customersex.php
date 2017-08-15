@@ -6,14 +6,15 @@
 	<div class="panel-body">
 		
 
-<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>เพศลูกค้า  <a class="btn btn-primary"  style="float: right" ng-click="Openaddnewcus()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></a></font>
+<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+<?=$lang_cussex?>  <a class="btn btn-primary"  style="float: right" ng-click="Openaddnewcus()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></a></font>
 
 <hr />
 
 
 
 <div class="col-md-12 text-right">
-<input type="checkbox" ng-model="Showdelbut"> แสดงปุ่มลบ
+<input type="checkbox" ng-model="Showdelbut"> <?=$lang_showdel?> 
 </div>
 
 
@@ -24,10 +25,10 @@
 	<thead>
 		<tr style="background-color: #eee">
 			
-			<th>ชื่อเพศ</th>
-			<th>หมายเหตุ</th>
+			<th><?=$lang_cussex?> </th>
+			<th><?=$lang_remark?> </th>
 			
-			<th>จัดการ</th>
+			<th><?=$lang_manage?> </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -65,14 +66,14 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">เพิ่มเพศลูกค้าใหม่</h4>
+				<h4 class="modal-title"><?=$lang_addnewsex?> </h4>
 			</div>
 			<div class="modal-body">
 
 
 <div class="row">
 <div class="col-md-12">
-	<input type="text" placeholder="ชื่อเพศลูกค้า" name="" class="form-control" ng-model="customer_sex_name" required>
+	<input type="text" placeholder="<?=$lang_cussex?> " name="" class="form-control" ng-model="customer_sex_name" required>
 
 </div>
 
@@ -82,7 +83,7 @@
 </div>	
 
 <div class="col-md-12">
-	<textarea name="" class="form-control" placeholder="หมายเหตุ" ng-model="customer_sex_remark">
+	<textarea name="" class="form-control" placeholder="<?=$lang_remark?> " ng-model="customer_sex_remark">
 </textarea> 
 </div>
 
@@ -92,8 +93,8 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-<button type="submit" class="btn btn-success" id="savenewcustomer" ng-click="SaveSubmit(customer_sex_name,customer_sex_remark)">บันทึก</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+<button type="submit" class="btn btn-success" id="savenewcustomer" ng-click="SaveSubmit(customer_sex_name,customer_sex_remark)"><?=$lang_save?> </button>
 			</div>
 		</div>
 
@@ -113,14 +114,14 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">แก้ไขเพศลูกค้า</h4>
+				<h4 class="modal-title"><?=$lang_editsex?> </h4>
 			</div>
 			<div class="modal-body">
 
 
 <div class="row">
 <div class="col-md-12">
-	<input type="text" placeholder="ชื่อเพศลูกค้า" name="" class="form-control" ng-model="customer_sex_name" required>
+	<input type="text" placeholder="<?=$lang_cussex?> " name="" class="form-control" ng-model="customer_sex_name" required>
 
 </div>
 
@@ -130,7 +131,7 @@
 </div>	
 
 <div class="col-md-12">
-	<textarea name="" class="form-control" placeholder="หมายเหตุ" ng-model="customer_sex_remark">
+	<textarea name="" class="form-control" placeholder="<?=$lang_remark?> " ng-model="customer_sex_remark">
 </textarea> 
 </div>
 
@@ -141,8 +142,8 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-<button type="submit" class="btn btn-success" id="editcustomer" ng-click="EditSubmit(customer_sex_id,customer_sex_name,customer_sex_remark)">บันทึก</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+<button type="submit" class="btn btn-success" id="editcustomer" ng-click="EditSubmit(customer_sex_id,customer_sex_name,customer_sex_remark)"><?=$lang_save?> </button>
 			</div>
 		</div>
 
@@ -196,7 +197,7 @@ $http.post("Customersex/add",{
 	'customer_sex_name': customer_sex_name,
 	'customer_sex_remark': customer_sex_remark,
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?> ');
 $("#savenewcustomer").prop("disabled",false);
 
 	$scope.customer_sex_name = '';
@@ -222,7 +223,7 @@ $scope.Delete = function(customer_sex_id){
 $http.post("Customersex/delete",{
 	'customer_sex_id': customer_sex_id
 	}).success(function(data){
-toastr.success('ลบเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.getcustomer();
 
 
@@ -254,7 +255,7 @@ $http.post("Customersex/update",{
 	'customer_sex_name': customer_sex_name,
 	'customer_sex_remark': customer_sex_remark,
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $("#editcustomer").prop("disabled",false);
 
 	$scope.customer_sex_name = '';

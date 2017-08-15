@@ -35,7 +35,7 @@ class Food_report extends MY_Controller {
 		
 
 $data['tab'] = 'food_report';
-$data['title'] = 'รายงานการขาย';
+$data['title'] = 'Food Report';
 		$this->deshboardlayout('food/food_report',$data);
 }
 

@@ -35,7 +35,7 @@ class Salepic extends MY_Controller {
 		
 
 $data['tab'] = 'salepic';
-$data['title'] = 'ขายรูปภาพ';
+$data['title'] = 'Sale Pic';
 		$this->deshboardlayout('sale/salepic',$data);
 }
 

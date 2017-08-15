@@ -34,7 +34,7 @@ class Contactfrom extends MY_Controller {
 		
 
 $data['tab'] = 'contactfrom';
-$data['title'] = 'ตั้งค่า ช่องทางการติดต่อ';
+$data['title'] = 'Contact From';
 		$this->ownerlayout('ownerbody/contactfrom',$data);
 
 

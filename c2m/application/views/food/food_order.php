@@ -5,11 +5,16 @@
 <center>
 
 <button style="color:#000;background-color: #fff;width: ;height: ;">
-โต๊ะว่าง
+<?=$lang_foodtableblank?>
 </button>
-  <button style="color:#fff;background-color: orange;width:;height: ;"> รอสั่งอาหาร </button>   
-  <button style="color:#fff;background-color: blue;width: ;height: ;"> สั่งอาหารเรียบร้อย</button> 
-  <button style="color:#fff;background-color: green;width: ;height: ;"> ได้รับอาหารครบแล้ว</button>
+  <button style="color:#fff;background-color: orange;width:;height: ;"> 
+  <?=$lang_foodorderwait?> </button>   
+  <button style="color:#fff;background-color: blue;width: ;height: ;"> 
+<?=$lang_foodordersuccess?>
+  </button> 
+  <button style="color:#fff;background-color: green;width: ;height: ;"> 
+<?=$lang_foodgetsuccess?>
+  </button>
 
 <hr />
 	<div class="btn btn-default" style="width: 200px;" ng-repeat="x in categorylist"   ng-click="Openorder(x)">
@@ -17,14 +22,14 @@
 <div ng-if="x.food_table_status=='0'" style="color:#000;background-color: #fff;width: 100%;height: 100%;">
 <h1 style="font-weight: bold;">{{x.food_table_name}}</h1>
 
-			<h4>{{x.food_table_seat}} ที่นั่ง</h4>
+			<h4>{{x.food_table_seat}} <?=$lang_foodtableseat?></h4>
 </div>
 
 <div ng-if="x.food_table_status=='1'" style="color:#fff;background-color: orange;width: 100%;height: 100%;">
 
 			<h1 style="font-weight: bold;">{{x.food_table_name}}</h1>
 
-			<h4>{{x.food_table_seat}} ที่นั่ง</h4>
+			<h4>{{x.food_table_seat}} <?=$lang_foodtableseat?></h4>
 </div>
 
 
@@ -32,7 +37,7 @@
 
 			<h1 style="font-weight: bold;">{{x.food_table_name}}</h1>
 
-			<h4>{{x.food_table_seat}} ที่นั่ง</h4>
+			<h4>{{x.food_table_seat}} <?=$lang_foodtableseat?></h4>
 </div>
 
 
@@ -41,7 +46,7 @@
 
 			<h1 style="font-weight: bold;">{{x.food_table_name}}</h1>
 
-			<h4>{{x.food_table_seat}} ที่นั่ง</h4>
+			<h4>{{x.food_table_seat}} <?=$lang_foodtableseat?></h4>
 </div>
 
 
@@ -72,43 +77,47 @@
 			</div>
 			<div class="modal-body">
 			<center>
-				<h2 style="font-weight: bold;">โต๊ะ {{food_table_name}}</h2>
+				<h2 style="font-weight: bold;"><?=$lang_foodtable?> {{food_table_name}}</h2>
 </center>
 
 
 <center>
-<button ng-click="Waitorder()" ng-if="food_table_status=='0'" class="btn btn-default btn-lg" style="font-size: 20px;">ลูกค้านั่งที่โต๊ะแล้ว กำลังอ่านเมนูอาหาร</button>
+<button ng-click="Waitorder()" ng-if="food_table_status=='0'" class="btn btn-default btn-lg" style="font-size: 20px;">
+<?=$lang_foodcustomersitdown?></button>
 
 </center>
 
 
-<button ng-click="Modalfood()" ng-if="food_table_status!='0'" class="btn btn-default">เลือกอาหาร</button>
+<button ng-click="Modalfood()" ng-if="food_table_status!='0'" class="btn btn-default">
+<?=$lang_foodselect?>
+</button>
 
 
 
-<button ng-click="Successorder()" ng-if="food_table_status=='1'" class="btn btn-warning" style="float: right">สั่งอาหารเรียบร้อย</button>
+<button ng-click="Successorder()" ng-if="food_table_status=='1'" class="btn btn-warning" style="float: right"><?=$lang_foodordersuccess?></button>
 
 
-<button ng-click="Getorderyet()" ng-if="food_table_status=='2'" class="btn btn-primary" style="float: right">ได้รับอาหารครบแล้ว</button>
+<button ng-click="Getorderyet()" ng-if="food_table_status=='2'" class="btn btn-primary" style="float: right"><?=$lang_foodgetsuccess?></button>
 
 
 
-<button class="btn btn-success" ng-if="food_table_status=='3'" ng-click="Lastorder()" style="float: right">รับเงิน</button>
+<button class="btn btn-success" ng-if="food_table_status=='3'" ng-click="Lastorder()" style="float: right"><?=$lang_foodgetmoney?></button>
 
 
 
 </center>
 
 <br /><br />
-<span ng-if="food_table_status!='0'">รายการอาหารที่สั่ง</span>
+<span ng-if="food_table_status!='0'"><?=$lang_foodlistneed?></span>
 <table ng-if="food_table_status!='0'"  class="table table-hover table-bordered" id="section-to-print">
 	<thead>
 		<tr style="background-color: #eee;">
-			<th >ชื่ออาหาร</th>
-			<th style="text-align: center;width: 50px;">ราคา</th>
-			<th style="text-align: center;width: 50px;">จำนวน</th>
-			<th style="text-align: center;width: 50px;">ราคารวม</th>
-			<th style="text-align: center;width: 30px;">ลบ</th>
+			<th ><?=$lang_foodname?></th>
+			<th style="text-align: center;width: 50px;"><?=$lang_price?></th>
+			<th style="text-align: center;width: 50px;">
+			<?=$lang_qty?></th>
+			<th style="text-align: center;width: 50px;"><?=$lang_priceall?></th>
+			<th style="text-align: center;width: 30px;"><?=$lang_delete?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -122,7 +131,7 @@
 			</td>
 		</tr>
 		<tr style="font-weight: bold;">
-		<td colspan="2" align="right">รวม</td>
+		<td colspan="2" align="right"><?=$lang_all?></td>
 		<td align="center">{{Sumfoodtablenumall() | number}}</td>
 			<td align="right">{{Sumfoodtablepriceall() | number:2}}</td>
 			
@@ -144,8 +153,8 @@
 				
 			</div>
 			<div class="modal-footer">
-			<button class="btn btn-default" style="float: left;" ng-click="Blanktable()">โต๊ะว่าง</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+			<button class="btn btn-default" style="float: left;" ng-click="Blanktable()"><?=$lang_foodblank?></button>
+				<button type="button" class="btn btn-default" data-dismiss="modal"><?=$lang_close?></button>
 				
 			</div>
 		</div>
@@ -170,19 +179,19 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">เลือกรายการอาหาร</h4>
+				<h4 class="modal-title"><?=$lang_foodselectlist?></h4>
 			</div>
 			<div class="modal-body">
 
 
 <select ng-model="Searchtext"  class="form-control">
-<option value="">รายการอาหารทั้งหมด</option>
+<option value=""><?=$lang_foodalllist?></option>
 <option  ng-repeat="x in catfoodlist" value="{{x.food_category_name}}" >
 	{{x.food_category_name}}
 </option>	
 </select>
 <br />
-<input type="text" ng-model="Searchtext" class="form-control" placeholder="ค้นหา">
+<input type="text" ng-model="Searchtext" class="form-control" placeholder="<?=$lang_search?>">
 <br />
 
 <div style="height: 310px;overflow: scroll;">
@@ -205,7 +214,7 @@
 </div>
 			<div class="modal-footer">
 
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal"><?=$lang_close?></button>
 				
 			</div>
 		</div>
@@ -221,14 +230,14 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">จำนวน</h4>
+				<h4 class="modal-title"><?=$lang_qty?></h4>
 			</div>
 			<div class="modal-body">
 				<center>
 				<h3 style="font-weight: bold;">{{food_name}} </h3>
 					<input type="number" ng-model="food_num" class="form-control" style="text-align: right;">
 					<br />
-					<button ng-click="Selectfoodnum()" type="button" class="btn btn-primary">ยืนยัน</button>
+					<button ng-click="Selectfoodnum()" type="button" class="btn btn-primary"><?=$lang_confirm?></button>
 				</center>
 
 				
@@ -236,7 +245,7 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal"><?=$lang_close?></button>
 				
 			</div>
 		</div>
@@ -338,7 +347,7 @@ food_table_id: $scope.food_table_id
 $('#Modalfoodnum').modal('hide');
 
 $scope.Get_order(); 
-toastr.success('ลูกค้าสั่ง '+ $scope.food_name + ' จำนวน ' +$scope.food_num);
+toastr.success('<?=$lang_success?>');
 $scope.food_num = 1;
         });	
 
@@ -376,7 +385,7 @@ $scope.Blanktable = function(){
 $http.post("Food_order/Blanktable",{
 food_table_id: $scope.food_table_id
 	}).success(function(data){
-toastr.success('เรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.get_table();
 $('#Openorder').modal('hide');
         });	
@@ -390,7 +399,7 @@ $scope.Waitorder = function(){
 $http.post("Food_order/Waitorder",{
 food_table_id: $scope.food_table_id
 	}).success(function(data){
-toastr.success('เรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.get_table();
 $('#Openorder').modal('hide');
         });	
@@ -404,7 +413,7 @@ $scope.Successorder = function(){
 $http.post("Food_order/Successorder",{
 food_table_id: $scope.food_table_id
 	}).success(function(data){
-toastr.success('เรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.get_table();
 $('#Openorder').modal('hide');
         });	
@@ -417,7 +426,7 @@ $scope.Getorderyet = function(){
 $http.post("Food_order/Getorderyet",{
 food_table_id: $scope.food_table_id
 	}).success(function(data){
-toastr.success('เรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.get_table();
 $('#Openorder').modal('hide');
         });	
@@ -431,7 +440,7 @@ window.print();
 $http.post("Food_order/Lastorder",{
 food_table_id: $scope.food_table_id
 	}).success(function(data){
-toastr.success('เรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.get_table();
 $('#Openorder').modal('hide');
         });	

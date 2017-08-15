@@ -35,7 +35,7 @@ class Supplierreport extends MY_Controller {
 		
 
 $data['tab'] = 'supplierreport';
-$data['title'] = 'รายงานการขาย';
+$data['title'] = 'Supplier Report';
 		$this->salelayout('sale/supplierreport',$data);
 }
 

@@ -6,40 +6,40 @@
 	<div class="panel-body">
 		
 
-<center><font size="4"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> สถิติโดยรวม </font></center>
+<center><font size="4"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> <?=$lang_statsummary?> </font></center>
 
 
 
 <form class="form-inline" style="float: right;">
 
 <div class="form-group">
-<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="จากวันที่"> -
+<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="<?=$lang_fromday?>"> -
 </div>
 <div class="form-group">
-<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="ถึงวันที่">
+<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="<?=$lang_today?>">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="Showchart(optionchart,idx,name)" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="Showchart(optionchart,idx,name)" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 </form>
 
 
 			<select id="optionchart" class="form-control" ng-model="optionchart" style="max-width: 300px;" ng-change="Showchart(optionchart,'')">
 
-			<option ng-show="optionchart=='9'" value="10">--เลือกรายการ--</option>
-				<option ng-show="province" value="11">--เลือกรายการ--</option>
+			<option ng-show="optionchart=='9'" value="10">--<?=$lang_selectlist?>--</option>
+				<option ng-show="province" value="11">--<?=$lang_selectlist?>--</option>
 
-							<option ng-hide="province || optionchart=='9'" value="1">--เลือกรายการ--</option>
+							<option ng-hide="province || optionchart=='9'" value="1">--<?=$lang_selectlist?>--</option>
 
-				<option value="1">สถิติสินค้า/บริการ</option>
-				<option value="2">สถิติกลุ่มลูกค้า</option>
-				<option value="3">สถิติระดับลูกค้า</option>
-				<option value="4">สถิติเพศลูกค้า</option>
-				<option value="5">สถิติช่องทางการติดต่อ</option>
-				<option value="6">สถิติเกรด/คะแนนการติดต่อ</option>
-				<option value="7">สถิติเหตุผลที่ต้องการซื้อ</option>
-				<option value="8">สถิติเหตุผลที่ไม่สามารถซื้อ</option>
-				<option value="9">สถิติรายการจากลูกค้าที่อยู่ในประเทศไทย</option>
+				<option value="1"><?=$lang_stat?><?=$lang_cusproductservice?></option>
+				<option value="2"><?=$lang_stat?><?=$lang_cusgroup?></option>
+				<option value="3"><?=$lang_stat?><?=$lang_cusrank?></option>
+				<option value="4"><?=$lang_stat?><?=$lang_cussex?></option>
+				<option value="5"><?=$lang_stat?><?=$lang_cuscontactchanel?></option>
+				<option value="6"><?=$lang_stat?><?=$lang_cusgrade?></option>
+				<option value="7"><?=$lang_stat?><?=$lang_cusreasonbuy?></option>
+				<option value="8"><?=$lang_stat?><?=$lang_cusreasonnotbuy?></option>
+				<option value="9" ng-hide="true">สถิติรายการจากลูกค้าที่อยู่ในประเทศไทย</option>
 				
 			</select>
 	
@@ -59,23 +59,23 @@
 
 
 
-		<input type="checkbox" ng-model="donut" ng-change="Showchart(optionchart,idx)"> แสดงกราฟโดนัท
+		<input type="checkbox" ng-model="donut" ng-change="Showchart(optionchart,idx)"> <?=$lang_show?><?=$lang_donut?>
 
 
 
 
-<center ng-hide="donut"><font size="3"><b>กราฟแท่ง</b></font></center>
+<center ng-hide="donut"><font size="3"><b><?=$lang_bar?></b></font></center>
 <div ng-hide="donut" id="bar"></div>
 
-<center ng-show="donut"><font size="3"><b>กราฟโดนัท</b></font></center>
+<center ng-show="donut"><font size="3"><b><?=$lang_donut?></b></font></center>
 <div ng-show="donut" id="donut"></div>
 
 <hr />
 <table class="table table-hover">
 	<thead>
 		<tr style="background-color: #eee;">
-			<th>#</th><th class="text-center" colspan="2">ดาวน์โหลดรายการลูกค้า</th><th class="text-center" ng-show="optionchart=='2' || optionchart=='3' || optionchart=='4' || optionchart=='5' || optionchart=='6' || optionchart=='7' || optionchart=='8' || optionchart=='9' || optionchart=='10' || optionchart=='11'" colspan="2">ดาวน์โหลดรายชื่อสินค้า/บริการ</th>
-			<th class="text-center" ng-show="optionchart=='7' || optionchart=='8'">ดาวน์โหลดรายละเอียดการติดต่อ</th>
+			<th>#</th><th class="text-center" colspan="2"><?=$lang_downloadcus?></th><th class="text-center" ng-show="optionchart=='2' || optionchart=='3' || optionchart=='4' || optionchart=='5' || optionchart=='6' || optionchart=='7' || optionchart=='8' || optionchart=='9' || optionchart=='10' || optionchart=='11'" colspan="2"><?=$lang_downloadproductservice?></th>
+			<th class="text-center" ng-show="optionchart=='7' || optionchart=='8'"><?=$lang_downloadcontact?></th>
 		</tr>
 	</thead>
 	<tbody>

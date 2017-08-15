@@ -35,7 +35,7 @@ class Food_category extends MY_Controller {
 		
 
 $data['tab'] = 'food_category';
-$data['title'] = 'ประเภทอาหาร';
+$data['title'] = 'Food Category';
 		$this->foodlayout('food/food_category',$data);
 }
 

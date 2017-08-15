@@ -35,7 +35,7 @@ class Productcategory extends MY_Controller {
 		
 
 $data['tab'] = 'productcategory';
-$data['title'] = 'หมวดหมู่สินค้า';
+$data['title'] = 'Product Category';
 		$this->warehouselayout('warehouse/productcategory',$data);
 }
 

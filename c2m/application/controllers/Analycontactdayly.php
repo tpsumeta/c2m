@@ -34,7 +34,7 @@ class Analycontactdayly extends MY_Controller {
 		
 
 $data['tab'] = 'analycontactdayly';
-$data['title'] = 'สถิติการติดต่อ';
+$data['title'] = 'Analytic Contact';
 		$this->ownerlayout('ownerbody/analycontactdayly',$data);
 
 

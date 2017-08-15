@@ -6,18 +6,18 @@
 
 
 
-ลิ้งค์ 
+<?=$lang_link?>
 <input type="text" name="" class="form-control" style="font-size: 18px;font-weight: bold;" value="<?php echo $base_url;?>/brand?id=<?php echo $_SESSION['owner_id'];?>">
 
 <hr />
-โค้ดติดเว็บ
+<?=$lang_code?>
 
 <textarea class="form-control" style="font-size: 18px;font-weight: bold;">
 <iframe frameborder="0" style="width: 100%;height: 1200px;" src="<?php echo $base_url;?>/brand?id=<?php echo $_SESSION['owner_id'];?>"></iframe>
 </textarea>
 
 <br />
-ตัวอย่าง
+<?=$lang_exsample?>
 <br />
 <iframe frameborder="0" style="width: 100%;height: 1200px;" src="<?php echo $base_url;?>/brand?id=<?php echo $_SESSION['owner_id'];?>"></iframe>
 

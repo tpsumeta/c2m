@@ -8,7 +8,7 @@
 <div class="form-group">
 
 <select class="form-control" ng-model="supplier_id" ng-change="Selectsup(supplier_id)">
-	<option value="0">เลือก Supplier</option>
+	<option value="0"><?=$lang_selectsupplier?></option>
 	<option ng-repeat="x in supplierlist" value="{{x.supplier_id}}">
 						{{x.supplier_name}}
 					</option>
@@ -16,23 +16,23 @@
 
 </div>
 <div class="form-group">
-<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="จากวันที่"> -
+<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="<?=$lang_fromday?>"> -
 </div>
 <div class="form-group">
-<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="ถึงวันที่">
+<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="<?=$lang_today?>">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="reportdaylist()" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="reportdaylist()" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
-<div class="form-group">
+<!-- <div class="form-group">
 <button class="btn btn-info"  ng-click="DownloadExcel()" title="ดาวน์โหลด" ><span class="glyphicon glyphicon-save" aria-hidden="true"></button> 
-</div>
+</div> -->
 
 </form>
 <hr />
 
 <center ng-if="supplier_id=='0'">
-<h1>กรุณา เลือก Supplier</h1>
+<h1><?=$lang_selectsupplierplz?></h1>
 </center>
 
 <div ng-if="supplier_id!='0'" id="bar"></div>
@@ -43,15 +43,15 @@
 		<tr class="trheader">
 
 
-			<th style="text-align: center;">Supplier</th>
-		<th style="text-align: center;">รหัสสินค้า</th>
-			<th style="text-align: center;">ชื่อสินค้า</th>
-			<th style="text-align: center;">จำนวนการขาย</th>
-			<th style="text-align: center;">ขายได้/บาท</th>
-			<th style="text-align: center;">ส่วนลด/บาท</th>
-			<th style="text-align: center;">รายรับ/บาท</th>
-			<th style="text-align: center;">ต้นทุน/บาท</th>
-			<th style="text-align: center;">กำไร/ขาดทุน</th>
+			<th style="text-align: center;"><?=$lang_supplier?></th>
+		<th style="text-align: center;"><?=$lang_barcode?></th>
+			<th style="text-align: center;"><?=$lang_productname?></th>
+			<th style="text-align: center;"><?=$lang_saletotal?></th>
+			<th style="text-align: center;"><?=$lang_cansale?></th>
+			<th style="text-align: center;"><?=$lang_discount?></th>
+			<th style="text-align: center;"><?=$lang_revenue?></th>
+			<th style="text-align: center;"><?=$lang_cost?></th>
+			<th style="text-align: center;"><?=$lang_profitlost?></th>
 			<th style="text-align: center;">ROI</th>
 			
 		</tr>
@@ -73,7 +73,7 @@
 		</tr>
 
 		<tr>
-			<td colspan="3" align="right">รวม</td>
+			<td colspan="3" align="right"><?=$lang_all?></td>
 			<td style="font-weight: bold;text-align: right;">
 			{{ Sumnumall() | number }}</td>
 			<td style="font-weight: bold;text-align: right;">
@@ -95,7 +95,8 @@
 </table>
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?> </button>
 
 
 	</div>
@@ -287,7 +288,7 @@ Morris.Bar({
   data: datac,
   xkey: 'name',
   ykeys: ['count'],
-  labels: ['รายรับ'],
+  labels: ['<?=$lang_revenue?>'],
   barColors: function (row, series, type) {
     if (type === 'bar') {
      var letters = '0123456789ABCDEF';

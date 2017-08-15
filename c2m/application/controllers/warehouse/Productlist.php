@@ -35,7 +35,7 @@ class Productlist extends MY_Controller {
 		
 
 $data['tab'] = 'productlist';
-$data['title'] = 'รายการสินค้า';
+$data['title'] = 'Product List';
 		$this->warehouselayout('warehouse/productlist',$data);
 }
 

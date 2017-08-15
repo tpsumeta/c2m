@@ -6,7 +6,7 @@
 	<div class="panel-body">
 		
 
-<center><font size="4"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> สถิติลูกค้า  </font></center>
+<center><font size="4"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> <?=$lang_statcus?>  </font></center>
 
 <hr />
 
@@ -14,8 +14,8 @@
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#day" aria-controls="day" role="tab" data-toggle="tab" ng-click="Getdata()">วัน</a></li>
-    <li role="presentation"><a href="#month" aria-controls="month" role="tab" data-toggle="tab" ng-click="Getdatam()">เดือน</a></li>
+    <li role="presentation" class="active"><a href="#day" aria-controls="day" role="tab" data-toggle="tab" ng-click="Getdata()"><?=$lang_date?></a></li>
+    <li role="presentation"><a href="#month" aria-controls="month" role="tab" data-toggle="tab" ng-click="Getdatam()"><?=$lang_month?></a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -26,17 +26,17 @@
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="จากวันที่"> -
+<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="<?=$lang_fromday?>"> -
 </div>
 <div class="form-group">
-<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="ถึงวันที่">
+<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="<?=$lang_today?>">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="Getdata()" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="Getdata()" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
-<div class="form-group">
+<!-- <div class="form-group">
 <button class="btn btn-info"  ng-click="DownloadExcel()" title="ดาวน์โหลดรายชื่อลูกค้า" ><span class="glyphicon glyphicon-save" aria-hidden="true"></button> 
-</div>
+</div> -->
 </form>
 
 <div id="line"></div>
@@ -45,9 +45,9 @@
 <table class="table table-hover table-responsive">
 	<thead>
 		<tr style="background-color: #eee;">
-			<th>วันที่</th>
+			<th><?=$lang_day?></th>
 			
-			<th class="text-center" colspan="2">ดาวน์โหลดรายชื่อลูกค้า</th>
+			<th class="text-center" colspan="2"><?=$lang_downloadcus?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -69,14 +69,14 @@
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" id="yearselect" name="yearselect" ng-model="yearselect" class="form-control" placeholder="ปี"> 
+<input type="text" id="yearselect" name="yearselect" ng-model="yearselect" class="form-control" placeholder="<?=$lang_year?>"> 
 </div>
 
 <div class="form-group">
-<button type="submit" ng-click="Getdatam()" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="Getdatam()" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 <div class="form-group">
-<button class="btn btn-info"  ng-click="DownloadExcelm()" title="ดาวน์โหลดรายชื่อลูกค้า" ><span class="glyphicon glyphicon-save" aria-hidden="true"></button> 
+<button class="btn btn-info"  ng-click="DownloadExcelm()" title="<?=$lang_downloadcus?>" ><span class="glyphicon glyphicon-save" aria-hidden="true"></button> 
 </div>
 </form>
 
@@ -86,9 +86,9 @@
 <table class="table table-hover table-responsive">
 	<thead>
 		<tr style="background-color: #eee;">
-			<th>เดือนที่</th>
+			<th><?=$lang_months?></th>
 			
-			<th class="text-center" colspan="2">ดาวน์โหลดรายชื่อลูกค้า</th>
+			<th class="text-center" colspan="2"><?=$lang_downloadcus?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -164,7 +164,7 @@ Morris.Line({
   data: Datachart,
   xkey: 'name',
   ykeys: ['count'],
-  labels: ['จำนวน'],
+  labels: ['<?=$lang_qty?>'],
   parseTime: false,
   lineColors: $scope.color,
   pointFillColors: $scope.color
@@ -192,7 +192,7 @@ Morris.Line({
   data: Datachart,
   xkey: 'name',
   ykeys: ['count'],
-  labels: ['จำนวน'],
+  labels: ['<?=$lang_qty?>'],
   parseTime: false,
   lineColors: $scope.color2,
   pointFillColors: $scope.color2

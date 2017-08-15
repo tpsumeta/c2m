@@ -35,7 +35,7 @@ class Productservice extends MY_Controller {
 		
 
 $data['tab'] = 'productservice';
-$data['title'] = 'ตั้งค่าสินค้าบริการ';
+$data['title'] = 'Product Service';
 		$this->ownerlayout('ownerbody/productservice',$data);
 
 }

@@ -18,9 +18,11 @@ a{
 
 
 
-<li style="width: 100%;" <?php if($tab === 'food_list'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/food/food_list"><span class="glyphicon glyphicon-list" aria-hidden="true"></span>	รายการอาหาร </a></li>
+<li style="width: 100%;" <?php if($tab === 'food_list'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/food/food_list"><span class="glyphicon glyphicon-list" aria-hidden="true"></span>	
+<?=$lang_foodlist?>
+</a></li>
 
-<li style="width: 100%;" <?php if($tab === 'food_category'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/food/food_category"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>	ประเภทอาหาร </a></li>
+<li style="width: 100%;" <?php if($tab === 'food_category'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/food/food_category"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>	<?=$lang_foodtype?> </a></li>
 
 
 
@@ -38,8 +40,10 @@ a{
 
 
 <ul class="nav nav-pills">	
-<li style="width: 100%;" <?php if($tab == 'showproduct'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/food/show_food">
-<span class="glyphicon glyphicon-link" aria-hidden="true"></span>	หน้า Page แสดงรายการอาหารที่มีรูปทั้งหมด </a></li>
+<li style="width: 100%;" <?php if($tab == 'showfood'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/food/show_food">
+<span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+<?=$lang_foodlandingpage?>
+ </a></li>
 
 
 

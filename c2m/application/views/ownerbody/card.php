@@ -52,7 +52,7 @@
 </head>
 
 <body>
-<button class="btn btn-success"  onclick="window.print()">พิมพ์</button>
+<button class="btn btn-success"  onclick="window.print()">Print</button>
 
 <hr/>
 

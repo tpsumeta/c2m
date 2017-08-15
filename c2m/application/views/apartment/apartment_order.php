@@ -5,30 +5,32 @@
 <center>
 
 <button style="color:#000;background-color: #fff;width: ;height: ;">
- ห้องว่าง
+ <?=$lang_roomblank?>
 </button>
-  <button style="color:#fff;background-color: orange;width:;height: ;"> จองแล้ว </button>   
-  <button style="color:#fff;background-color: green;width: ;height: ;"> เช็คอินแล้ว</button>
+  <button style="color:#fff;background-color: orange;width:;height: ;">
+   <?=$lang_roomreserved?> </button>   
+  <button style="color:#fff;background-color: green;width: ;height: ;"> 
+  <?=$lang_roomcheckin?></button>
 <br /><br />
-<input type="text" ng-model="searchroom" placeholder="ค้นหาห้องพัก หรือ ชื่อลูกค้า" class="form-control" style="width: 200px;">
+<input type="text" ng-model="searchroom" placeholder="<?=$lang_searchroomnameandcus?>" class="form-control" style="width: 200px;">
 <hr />
 	<div class="btn btn-default" style="width: 200px;" ng-repeat="x in categorylist | filter:searchroom"   ng-click="Openorder(x)">
 
 <div ng-if="x.apartment_room_status=='0'" style="color:#000;background-color: #fff;width: 100%;height: 100%;">
 <h1 style="font-weight: bold;">{{x.apartment_room_name}}</h1>
 
-			<h4>{{x.apartment_room_num}} ที่นอน</h4>
-			<h4>ราคา: {{x.apartment_room_price | number}}</h4>
-			<h4>ลูกค้า: {{x.apartment_order_customer_name}}</h4>
+			<h4>{{x.apartment_room_num}} <?=$lang_bed?></h4>
+			<h4><?=$lang_price?>: {{x.apartment_room_price | number}}</h4>
+			<h4><?=$lang_cus?>: {{x.apartment_order_customer_name}}</h4>
 </div>
 
 <div ng-if="x.apartment_room_status=='1'" style="color:#fff;background-color: orange;width: 100%;height: 100%;">
 
 			<h1 style="font-weight: bold;">{{x.apartment_room_name}}</h1>
 
-			<h4>{{x.apartment_room_num}} ที่นอน</h4>
-			<h4>ราคา: {{x.apartment_room_price | number}}</h4>
-			<h4>ลูกค้า: {{x.apartment_order_customer_name}}</h4>
+			<h4>{{x.apartment_room_num}} <?=$lang_bed?></h4>
+			<h4><?=$lang_price?>: {{x.apartment_room_price | number}}</h4>
+			<h4><?=$lang_cus?>: {{x.apartment_order_customer_name}}</h4>
 </div>
 
 
@@ -36,9 +38,9 @@
 
 			<h1 style="font-weight: bold;">{{x.apartment_room_name}}</h1>
 
-			<h4>{{x.apartment_room_num}} ที่นอน</h4>
-			<h4>ราคา: {{x.apartment_room_price | number}}</h4>
-			<h4>ลูกค้า: {{x.apartment_order_customer_name}}</h4>
+			<h4>{{x.apartment_room_num}} <?=$lang_bed?></h4>
+			<h4><?=$lang_price?>: {{x.apartment_room_price | number}}</h4>
+			<h4><?=$lang_cus?>: {{x.apartment_order_customer_name}}</h4>
 </div>
 
 
@@ -72,38 +74,38 @@
 			</div>
 			<div class="modal-body">
 			<center>
-				<h2 style="font-weight: bold;">ห้อง {{apartment_room_name}}</h2>
+				<h2 style="font-weight: bold;"><?=$lang_room?> {{apartment_room_name}}</h2>
 </center>
 
 
 
 
-ชื่อลูกค้า: <input type="text" ng-model="apartment_order_customer_name" class="form-control" placeholder="ชื่อ-นามสกุล ลูกค้า">
+<?=$lang_cusname?>: <input type="text" ng-model="apartment_order_customer_name" class="form-control" placeholder="<?=$lang_cusname?>">
 
 <br />
 
-โทร: <input type="text" ng-model="apartment_order_customer_tel" placeholder="เบอร์โทร" class="form-control">
+<?=$lang_tel?>: <input type="text" ng-model="apartment_order_customer_tel" placeholder="<?=$lang_tel?>" class="form-control">
 
 
 <br />
-จำนวนคนเข้าพัก: <input type="text" ng-model="apartment_order_num" placeholder="จำนวน" class="form-control">
+<?=$lang_numcus?>: <input type="text" ng-model="apartment_order_num" placeholder="<?=$lang_numcus?>" class="form-control">
 
 <br />
-จำนวนเงิน: <input type="text" ng-model="apartment_order_price" placeholder="ค่าห้อง" class="form-control">
+<?=$lang_roomprice?>: <input type="text" ng-model="apartment_order_price" placeholder="<?=$lang_roomprice?>" class="form-control">
 
 
 <hr />
 
 <center>
-<button ng-click="Booking()" ng-if="apartment_room_status=='0'" class="btn btn-default btn-lg" style="font-size: 20px;">จอง</button>
+<button ng-click="Booking()" ng-if="apartment_room_status=='0'" class="btn btn-default btn-lg" style="font-size: 20px;"><?=$lang_rent?></button>
 
 
 
 
-<button ng-click="Checkin()" ng-if="apartment_room_status=='1'" class="btn btn-warning" style="font-size: 20px;">เช็คอิน</button>
+<button ng-click="Checkin()" ng-if="apartment_room_status=='1'" class="btn btn-warning" style="font-size: 20px;"><?=$lang_checkin?></button>
 
 
-<button ng-click="Checkout()" ng-if="apartment_room_status=='2'" class="btn btn-primary" style="font-size: 20px;">เช็คเอ้า</button>
+<button ng-click="Checkout()" ng-if="apartment_room_status=='2'" class="btn btn-primary" style="font-size: 20px;"><?=$lang_checkout?></button>
 
 
 

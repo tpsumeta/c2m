@@ -35,7 +35,7 @@ class Customersex extends MY_Controller {
 		
 
 $data['tab'] = 'customersex';
-$data['title'] = 'ตั้งค่ากลุ่มลูกค้า';
+$data['title'] = 'Customer Sex';
 		$this->ownerlayout('ownerbody/customersex',$data);
 
 }

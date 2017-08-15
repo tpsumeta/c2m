@@ -6,14 +6,15 @@
 	<div class="panel-body">
 		
 
-<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>ระดับลูกค้า  <a class="btn btn-primary"  style="float: right" ng-click="Openaddnewcus()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></a></font>
+<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+<?=$lang_cusrank?> <a class="btn btn-primary"  style="float: right" ng-click="Openaddnewcus()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></a></font>
 
 <hr />
 
 
 
 <div class="col-md-12 text-right">
-<input type="checkbox" ng-model="Showdelbut"> แสดงปุ่มลบ
+<input type="checkbox" ng-model="Showdelbut"> <?=$lang_showdel?>
 </div>
 
 
@@ -24,10 +25,10 @@
 	<thead>
 		<tr style="background-color: #eee">
 			
-			<th>ชื่อระดับ</th>
-			<th>หมายเหตุ</th>
+			<th><?=$lang_cusrank?></th>
+			<th><?=$lang_remark?></th>
 			
-			<th>จัดการ</th>
+			<th><?=$lang_manage?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -65,14 +66,14 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">เพิ่มระดับลูกค้าใหม่</h4>
+				<h4 class="modal-title"><?=$lang_addnewlevel?></h4>
 			</div>
 			<div class="modal-body">
 
 
 <div class="row">
 <div class="col-md-12">
-	<input type="text" placeholder="ชื่อระดับลูกค้า" name="" class="form-control" ng-model="customer_level_name" required>
+	<input type="text" placeholder="<?=$lang_cusrank?>" name="" class="form-control" ng-model="customer_level_name" required>
 
 </div>
 
@@ -82,7 +83,7 @@
 </div>	
 
 <div class="col-md-12">
-	<textarea name="" class="form-control" placeholder="หมายเหตุ" ng-model="customer_level_remark">
+	<textarea name="" class="form-control" placeholder="<?=$lang_remark?>" ng-model="customer_level_remark">
 </textarea> 
 </div>
 
@@ -92,8 +93,8 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-<button type="submit" class="btn btn-success" id="savenewcustomer" ng-click="SaveSubmit(customer_level_name,customer_level_remark)">บันทึก</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+<button type="submit" class="btn btn-success" id="savenewcustomer" ng-click="SaveSubmit(customer_level_name,customer_level_remark)"><?=$lang_save?></button>
 			</div>
 		</div>
 
@@ -113,14 +114,14 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">แก้ไขระดับลูกค้า</h4>
+				<h4 class="modal-title"><?=$lang_editlevel?></h4>
 			</div>
 			<div class="modal-body">
 
 
 <div class="row">
 <div class="col-md-12">
-	<input type="text" placeholder="ชื่อระดับลูกค้า" name="" class="form-control" ng-model="customer_level_name" required>
+	<input type="text" placeholder="<?=$lang_cusrank?>" name="" class="form-control" ng-model="customer_level_name" required>
 
 </div>
 
@@ -130,7 +131,7 @@
 </div>	
 
 <div class="col-md-12">
-	<textarea name="" class="form-control" placeholder="หมายเหตุ" ng-model="customer_level_remark">
+	<textarea name="" class="form-control" placeholder="<?=$lang_remark?>" ng-model="customer_level_remark">
 </textarea> 
 </div>
 
@@ -141,8 +142,8 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-<button type="submit" class="btn btn-success" id="editcustomer" ng-click="EditSubmit(customer_level_id,customer_level_name,customer_level_remark)">บันทึก</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+<button type="submit" class="btn btn-success" id="editcustomer" ng-click="EditSubmit(customer_level_id,customer_level_name,customer_level_remark)"><?=$lang_save?></button>
 			</div>
 		</div>
 
@@ -195,7 +196,7 @@ $http.post("Customerlevel/add",{
 	'customer_level_name': customer_level_name,
 	'customer_level_remark': customer_level_remark,
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $("#savenewcustomer").prop("disabled",false);
 
 	$scope.customer_level_name = '';
@@ -221,7 +222,7 @@ $scope.Delete = function(customer_level_id){
 $http.post("Customerlevel/delete",{
 	'customer_level_id': customer_level_id
 	}).success(function(data){
-toastr.success('ลบเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.getcustomer();
 
 
@@ -253,7 +254,7 @@ $http.post("Customerlevel/update",{
 	'customer_level_name': customer_level_name,
 	'customer_level_remark': customer_level_remark,
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $("#editcustomer").prop("disabled",false);
 
 	$scope.customer_level_name = '';

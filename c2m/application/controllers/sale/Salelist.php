@@ -35,7 +35,7 @@ class Salelist extends MY_Controller {
 		
 
 $data['tab'] = 'salelist';
-$data['title'] = 'รายการขายทั้งหมด';
+$data['title'] = 'Sale List';
 		$this->salelayout('sale/salelist',$data);
 }
 

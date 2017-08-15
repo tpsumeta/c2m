@@ -19,10 +19,10 @@ a{
 
 
 
-<li style="width: 100%;" <?php if($tab === 'user_owner'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/apartmentmanager/user_owner"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>	พนักงาน </a></li>
+<li style="width: 100%;" <?php if($tab === 'user_owner'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/apartmentmanager/user_owner"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>	<?=$lang_staff?> </a></li>
 
 
-<li style="width: 100%;" <?php if($tab === 'brand'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/apartmentmanager/brand"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>	สาขา </a></li>
+<li style="width: 100%;" <?php if($tab === 'brand'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/apartmentmanager/brand"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>	<?=$lang_brand?> </a></li>
 	
 
 
@@ -32,14 +32,14 @@ a{
 <hr />
 
 <li style="width: 100%;" <?php if($tab == 'stock'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/apartmentmanager/stock">
-<span class="glyphicon glyphicon-home" aria-hidden="true"></span>	ดูห้องพัก</a></li>
+<span class="glyphicon glyphicon-home" aria-hidden="true"></span>	<?=$lang_lookroom?></a></li>
 
 
 
-<li style="width: 100%;" <?php if($tab === 'report_user'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/apartmentmanager/report_user"  style="font-size: 13px;"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> รายงานขาย พนักงาน </a></li>
+<li style="width: 100%;" <?php if($tab === 'report_user'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/apartmentmanager/report_user"  style="font-size: 13px;"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> <?=$lang_salereportstaff?> </a></li>
 
 
-<li style="width: 100%;" <?php if($tab === 'report_brand'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/apartmentmanager/report_brand"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span>	รายงานขาย สาขา </a></li>
+<li style="width: 100%;" <?php if($tab === 'report_brand'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/apartmentmanager/report_brand"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span>	<?=$lang_salereportbrand?> </a></li>
 	
 
 

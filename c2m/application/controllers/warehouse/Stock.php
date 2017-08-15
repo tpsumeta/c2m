@@ -35,7 +35,7 @@ class Stock extends MY_Controller {
 		
 
 $data['tab'] = 'stock';
-$data['title'] = 'สินค้าใน stock';
+$data['title'] = 'Product Stock';
 		$this->warehouselayout('warehouse/stock',$data);
 }
 

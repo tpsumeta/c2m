@@ -33,7 +33,7 @@ class Show_food extends MY_Controller {
 		
 
 $data['tab'] = 'show_food';
-$data['title'] = 'แสดงรูปอาหาร';
+$data['title'] = 'Show Food';
 		$this->foodlayout('food/show_food',$data);
 }
 

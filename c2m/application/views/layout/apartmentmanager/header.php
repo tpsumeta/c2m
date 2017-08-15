@@ -78,7 +78,7 @@
 					 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 
-						<li> <a href="<?php echo $base_url; ?>/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> ออกจากระบบ</a></li>
+						<li> <a href="<?php echo $base_url; ?>/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <?=$lang_logout?></a></li>
 						
 					</ul>
 				</li>

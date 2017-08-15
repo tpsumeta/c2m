@@ -17,7 +17,9 @@ a{
 	
 		<ul class="nav nav-pills nav-sidebar">	
 
-<li style="width: 100%;" <?php if($tab === 'email'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/marketing/email"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email Marketing </a></li>
+<li style="width: 100%;" <?php if($tab === 'email'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/marketing/email"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
+<?=$lang_emailmarketting?>
+</a></li>
 
 
 

@@ -6,16 +6,16 @@
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" name="" placeholder="ค้นหา รหัส หรือ ชื่อสินค้า" ng-model="searchproduct" class="form-control">
+<input type="text" name="" placeholder="<?=$lang_search?>" ng-model="searchproduct" class="form-control">
 </div>
 <div class="form-group">
-<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="จากวันที่"> -
+<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="<?=$lang_fromday?>"> -
 </div>
 <div class="form-group">
-<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="ถึงวันที่">
+<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="<?=$lang_today?>">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="reportdaylist()" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="reportdaylist()" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 
 <!-- <div class="form-group">
@@ -33,17 +33,17 @@
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-		<th style="text-align: center;">รหัสสินค้า</th>
-			<th style="text-align: center;">ชื่อสินค้า</th>
-			<th style="text-align: center;">จำนวนการขาย</th>
-<th style="text-align: center;">จำนวนคืน</th>
-<th style="text-align: center;">จำนวนขายได้สุทธิ</th>
+		<th style="text-align: center;"><?=$lang_barcode?></th>
+			<th style="text-align: center;"><?=$lang_productname?></th>
+			<th style="text-align: center;"><?=$lang_saletotal?></th>
+<th style="text-align: center;"><?=$lang_returntotal?></th>
+<th style="text-align: center;"><?=$lang_cansalesummary?></th>
 
-			<th style="text-align: center;">ขายได้/บาท</th>
-			<th style="text-align: center;">ส่วนลด/บาท</th>
-<th style="text-align: center;">คืนเงิน/บาท</th>
+			<th style="text-align: center;"><?=$lang_cansale?></th>
+			<th style="text-align: center;"><?=$lang_discount?></th>
+<th style="text-align: center;"><?=$lang_returnprice?></th>
 
-			<th style="text-align: center;">รายรับสุทธิ/บาท</th>
+			<th style="text-align: center;"><?=$lang_revenusummary?></th>
 
 
 			
@@ -69,7 +69,7 @@
 		</tr>
 
 		<tr>
-			<td colspan="2" align="right">รวม</td>
+			<td colspan="2" align="right"><?=$lang_all?></td>
 			<td style="font-weight: bold;text-align: right;">
 			{{ Sumnumall() | number }}</td>
 			<td style="font-weight: bold;text-align: right;">
@@ -92,7 +92,8 @@
 </table>
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?> </button>
 
 
 	</div>
@@ -300,7 +301,7 @@ Morris.Bar({
   data: datac,
   xkey: 'name',
   ykeys: ['count'],
-  labels: ['รายรับสุทธิ'],
+  labels: ['<?=$lang_revenusummary?>'],
   barColors: function (row, series, type) {
     if (type === 'bar') {
      

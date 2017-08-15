@@ -6,16 +6,16 @@
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" name="" placeholder="ค้นหา ชื่อห้อง" ng-model="searchproduct" class="form-control">
+<input type="text" name="" placeholder="<?=$lang_searchroomname?>" ng-model="searchproduct" class="form-control">
 </div>
 <div class="form-group">
-<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="จากวันที่"> -
+<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="<?=$lang_fromday?>"> -
 </div>
 <div class="form-group">
-<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="ถึงวันที่">
+<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="<?=$lang_today?>">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="reportdaylist()" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="reportdaylist()" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 
 
@@ -37,9 +37,9 @@
 	<thead>
 		<tr class="trheader">
 		
-			<th style="text-align: center;">ชื่อห้อง</th>
-			<th style="text-align: center;">จำนวนเช่า</th>
-			<th style="text-align: center;">รายรับ/บาท</th>
+			<th style="text-align: center;"><?=$lang_roomname?></th>
+			<th style="text-align: center;"><?=$lang_numrent?></th>
+			<th style="text-align: center;"><?=$lang_revenue?></th>
 			
 			
 		</tr>
@@ -56,7 +56,7 @@
 		</tr>
 
 		<tr>
-			<td colspan="1" align="right">รวม</td>
+			<td colspan="1" align="right"><?=$lang_all?></td>
 			<td style="font-weight: bold;text-align: right;">
 			{{ Sumnumall() | number }}</td>
 			<td style="font-weight: bold;text-align: right;">
@@ -67,7 +67,8 @@
 </table>
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?> </button>
 
 
 	</div>
@@ -195,7 +196,7 @@ Morris.Bar({
   data: datac,
   xkey: 'name',
   ykeys: ['count'],
-  labels: ['รายรับ'],
+  labels: ['<?=$lang_revenue?>'],
   barColors: function (row, series, type) {
     if (type === 'bar') {
      var letters = '0123456789ABCDEF';

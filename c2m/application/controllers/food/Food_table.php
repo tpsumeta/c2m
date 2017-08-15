@@ -35,7 +35,7 @@ class Food_table extends MY_Controller {
 		
 
 $data['tab'] = 'food_table';
-$data['title'] = 'จัดโต๊ะ';
+$data['title'] = 'Food Table';
 		$this->deshboardlayout('food/food_table',$data);
 }
 

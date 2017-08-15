@@ -7,10 +7,10 @@
 <center>
 <form class="form-inline">
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="ค้นหา..." style="min-width: 300px;height: 50px;font-size: 20px;">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="<?=$lang_search?>" style="min-width: 300px;height: 50px;font-size: 20px;">
 </div>
 <div class="form-group">
-<button ng-click="Searchmodal(searchtext)" class="btn btn-success" style="height: 50px;font-size: 20px;">ค้นหา</button>
+<button ng-click="Searchmodal(searchtext)" class="btn btn-success" style="height: 50px;font-size: 20px;"><?=$lang_search?></button>
 </div>
 </form>
 </center>
@@ -28,7 +28,7 @@ echo '
 <br />
 <a href="'.$base_url.'/brand?id='.$_GET['id'].'&catid='.$row['product_category_id'].'&productid='.$row['product_id'].'" style="color:#000;font-weight:bold;">	'.$row['product_name'].' </a>
 	<br />
-ราคา: 
+'.$lang_price.': 
 <span style="font-weight:bold;" ng-if="'.$row['product_price_discount'].' !=0.00">
 <strike>'.number_format($row['product_price'],2).'</strike>
 </span>
@@ -36,7 +36,7 @@ echo '
 <span style="color:red;font-weight:bold;">'.number_format($row['product_price']-$row['product_price_discount'],2).'</span>
 
 	<br />
-คะแนน: '.number_format($row['product_score'],2).'
+'.$lang_score.': '.number_format($row['product_score'],2).'
 </center>
 
 </div>
@@ -67,14 +67,14 @@ echo '
 <span style="font-weight:bold;">'.$row['product_name'].'</span> 
 	
 <hr />
-ราคา: <span style="font-weight:bold;" ng-if="'.$row['product_price_discount'].' !=0.00">
+'.$lang_price.': <span style="font-weight:bold;" ng-if="'.$row['product_price_discount'].' !=0.00">
 <strike>'.number_format($row['product_price'],2).'</strike>
 </span>
 
 <span style="color:red;font-weight:bold;">'.number_format($row['product_price']-$row['product_price_discount'],2).'</span>
 
 <hr />
-คะแนน: '.number_format($row['product_score'],2).'
+'.$lang_score.': '.number_format($row['product_score'],2).'
 <hr />
 </h1>
 
@@ -102,23 +102,23 @@ echo '
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">รายการค้นหา</h4>
+				<h4 class="modal-title"><?=$lang_searchlist?></h4>
 			</div>
 			<div class="modal-body" style="height: 400px;">
 				
 				<center>
 <form class="form-inline">
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="ค้นหา..." style="min-width: 300px;height: 50px;font-size: 20px;">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="<?=$lang_search?>" style="min-width: 300px;height: 50px;font-size: 20px;">
 </div>
 <div class="form-group">
-<button ng-click="Searchmodal(searchtext)" class="btn btn-success" style="height: 50px;font-size: 20px;">ค้นหา</button>
+<button ng-click="Searchmodal(searchtext)" class="btn btn-success" style="height: 50px;font-size: 20px;"><?=$lang_search?></button>
 </div>
 </form>
 
 </center>
 <br />
-ผลการค้นหา
+<?=$lang_searchresult?>
 <br />
 
 <div class="col-md-4" ng-repeat="x in searchlist">
@@ -129,14 +129,14 @@ echo '
 <br />
 <span style="font-weight: bold;">{{x.product_name}}</span>
 <br />
-ราคา: <span ng-if="x.product_price_discount != 0.00" style="color: #000;font-weight: bold;"><strike>{{x.product_price | number:2}}</strike></span>
+<?=$lang_price?>: <span ng-if="x.product_price_discount != 0.00" style="color: #000;font-weight: bold;"><strike>{{x.product_price | number:2}}</strike></span>
 
 <span style="color:red;font-weight:bold;">
 {{x.product_price - x.product_price_discount | number:2}}</span>
 
 
 <br />	
-คะแนน: {{x.product_score}}
+<?=$lang_score?>: {{x.product_score}}
 </center>
 </div>
 
@@ -144,7 +144,7 @@ echo '
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิดหน้าต่าง</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
 				
 			</div>
 		</div>

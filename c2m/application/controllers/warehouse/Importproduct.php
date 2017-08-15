@@ -21,7 +21,7 @@ class Importproduct extends MY_Controller {
 		
 
 $data['tab'] = 'importproduct';
-$data['title'] = 'นำเข้าสินค้า';
+$data['title'] = 'Import Product';
 		$this->warehouselayout('warehouse/importproduct',$data);
 }
 

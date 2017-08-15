@@ -6,13 +6,13 @@
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="ค้นหาจากชื่อสินค้า หรือ Scan Barcode" style="width: 300px;">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="<?=$lang_search?>" style="width: 300px;">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 
 </form>
@@ -21,26 +21,26 @@
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-		<th style="width: 50px;">ลำดับ</th>
-		<th style="text-align: center;">รหัสสินค้า</th>
+		<th style="width: 50px;"><?=$lang_rank?></th>
+		<th style="text-align: center;"><?=$lang_barcode?></th>
 		<th style="text-align: center;width: 50px;">Barcode</th>
-			<th style="text-align: center;">ชื่อสินค้า</th>
-			<th style="text-align: center;">หมวดหมู่</th>
+			<th style="text-align: center;"><?=$lang_productname?></th>
+			<th style="text-align: center;"><?=$lang_category?></th>
 
 			<th style="text-align: center;">ที่จัดเก็บ</th>
 
-			<th style="text-align: center;">ราคาขาย/บาท</th>
-			<th style="text-align: center;">ส่วนลด/บาท</th>
-			<th style="text-align: center;">จำนวนคงเหลือ</th>
-			<th style="text-align: center;">รายรับประมาณการ/บาท</th>
+			<th style="text-align: center;"><?=$lang_saleprice?></th>
+			<th style="text-align: center;"><?=$lang_discount?></th>
+			<th style="text-align: center;"><?=$lang_total?></th>
+			<th style="text-align: center;"><?=$lang_estimatedrevenue?></th>
 		</tr>
 	</thead>
 	<tbody>
 	
 
 		<tr ng-repeat="x in list">
-			<td ng-show="selectpage=='1'" class="text-center">{{($index+1)}}</td>
-			<td ng-show="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</td>
+			<td ng-if="selectpage=='1'" class="text-center">{{($index+1)}}</td>
+			<td ng-if="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</td>
 			<td align="center">{{x.product_code}}</td>
 <td align="center">
 <a href="<?php echo $base_url; ?>/warehouse/barcode?product_code={{x.product_code}}&product_name={{x.product_name}}&product_price={{x.product_price | number:2}}" class="btn btn-xs btn-default" target="_blank"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> Barcode</a></td>
@@ -65,7 +65,7 @@
 
 <form class="form-inline">
 <div class="form-group">
-แสดง
+<?=$lang_show?>
 <select class="form-control" name="" id="" ng-model="perpage" ng-change="getlist(searchtext,'1',perpage)">
 	<option value="10">10</option>
 	<option value="20">20</option>
@@ -76,7 +76,7 @@
 	<option value="300">300</option>
 </select>
 
-หน้า
+<?=$lang_page?>
 <select name="" id="" class="form-control" ng-model="selectthispage"  ng-change="getlist(searchtext,selectthispage,perpage)">
 	<option  ng-repeat="i in pagealladd" value="{{i.a}}">{{i.a}}</option>
 </select>
@@ -87,7 +87,8 @@
 
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?> </button>
 
 
 	</div>

@@ -35,7 +35,7 @@ public function __construct()
 		
 
 $data['tab'] = 'customerlevel';
-$data['title'] = 'ตั้งค่า ระดับลูกค้า';
+$data['title'] = 'Customer Level';
 		$this->ownerlayout('ownerbody/customerlevel',$data);
 
 

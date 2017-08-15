@@ -16,9 +16,9 @@ a{
 <center>
 	
 <h2><?php echo $food_brand_name; ?></h2>
-<h4>ที่อยู่ <?php echo $food_brand_address; ?> โทร: <?php echo $food_brand_tel; ?></h4>
+<h4><?=$lang_address?>: <?php echo $food_brand_address; ?> <?=$lang_tel?>: <?php echo $food_brand_tel; ?></h4>
 <hr />
-<span <?php if(!isset($_GET['catid'])){ echo 'style="color:#fff;background-color:orange;margin-right: 5px;padding-left: 5px;padding-right: 5px;"';} ?> ><a href="<?php echo $base_url; ?>/foodbrand?id=<?php echo $_GET['id'];?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> ทั้งหมด </a></span> 
+<span <?php if(!isset($_GET['catid'])){ echo 'style="color:#fff;background-color:orange;margin-right: 5px;padding-left: 5px;padding-right: 5px;"';} ?> ><a href="<?php echo $base_url; ?>/foodbrand?id=<?php echo $_GET['id'];?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <?=$lang_allall?> </a></span> 
 
 
 

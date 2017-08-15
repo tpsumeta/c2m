@@ -36,7 +36,7 @@ public function __construct()
 	{
 
 		$data['tab'] = 'change_password';
-		$data['title'] = 'เปลี่ยนรหัสผ่าน';
+		$data['title'] = 'change password';
 		$this->adminlayout('admin/change_password',$data);
 	}
 

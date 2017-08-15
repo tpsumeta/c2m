@@ -35,7 +35,7 @@ class Product_return extends MY_Controller {
 		
 
 $data['tab'] = 'product_return';
-$data['title'] = 'คืนสินค้า';
+$data['title'] = 'Product Return';
 		$this->deshboardlayout('sale/product_return',$data);
 }
 

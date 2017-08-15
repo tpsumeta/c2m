@@ -1,0 +1,16 @@
+﻿
+The language folder is located at c2m\lang, eg th.php is Thai en.php is English.
+
+You can copy the file and change the language in the file to another language such as copy.php or en.php.
+Come up another file And rename the file la.php to create a Lao language. 
+And open the file and change the text as needed.
+
+
+Modifying the system language into the desired language.
+
+1. Access the folder. C2m\application\core
+
+2. Open MY_Controller.php with Notepad ++.
+$This->base_lang = 'th';
+This is a required language, such as $this->base_lang = 'en';
+Or $this->base_lang = 'la';

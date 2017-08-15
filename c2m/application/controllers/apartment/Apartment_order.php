@@ -35,7 +35,7 @@ class Apartment_order extends MY_Controller {
 		
 
 $data['tab'] = 'apartment_order';
-$data['title'] = 'จอง / เช็คอิน / เช็คเอ้า';
+$data['title'] = 'Rent / Checkin / Checkout';
 		$this->deshboardlayout('apartment/apartment_order',$data);
 }
 

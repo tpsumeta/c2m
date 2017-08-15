@@ -18,9 +18,9 @@ a{
 		<ul class="nav nav-pills nav-sidebar">	
 
 
-<li style="width: 100%;" <?php if($tab === 'discount'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/salesetting/discount"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> ตั้งค่าส่วนลด </a></li>
+<li style="width: 100%;" <?php if($tab === 'discount'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/salesetting/discount"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> <?=$lang_settingdiscount?> </a></li>
 
-<li style="width: 100%;" <?php if($tab === 'pricebycus'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/salesetting/pricebycus"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ตั้งค่าราคาสินค้าเฉพาะลูกค้า </a></li>
+<li style="width: 100%;" <?php if($tab === 'pricebycus'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/salesetting/pricebycus"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <?=$lang_settingpricecus?> </a></li>
 
 
 

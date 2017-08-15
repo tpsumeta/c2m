@@ -10,7 +10,7 @@
 	<div class="panel-body">
 		
 
-<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> คะแนนลูกค้าสมาชิก ({{allmycustomer | number:0}} คน) </font>
+<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> <?=$lang_cuspoint?> ({{allmycustomer | number:0}} <?=$lang_person?>) </font>
 
 <hr />
 
@@ -20,25 +20,25 @@
 <form class="form-inline">
 <div class="form-group">
 <select class="form-control" ng-model="searchtype">
-<option value="0">รหัสสมาชิก</option>
-	<option value="1">ชื่อ-นามสกุล</option>
-	<option value="2">เบอร์โทร</option>
-	<option value="3">อีเมล์</option>
-	<option value="4">วันเกิด</option>
+<option value="0"><?=$lang_memberid?></option>
+	<option value="1"><?=$lang_cusname?></option>
+	<option value="2"><?=$lang_tel?></option>
+	<option value="3"><?=$lang_email?></option>
+	<option value="4"><?=$lang_birthday?></option>
 </select>
 </div>
 <div class="form-group">
-<input ng-show="searchtype != '4'" type="text" name="search" ng-model="searchtext" class="form-control" placeholder="พิมพ์คำค้นหา">
-<input ng-show="searchtype == '4'" type="text" name="search" ng-model="searchtext" class="form-control"  placeholder="วัน-เดือน 03-01">
+<input ng-show="searchtype != '4'" type="text" name="search" ng-model="searchtext" class="form-control" placeholder="<?=$lang_searchkeyword?>">
+<input ng-show="searchtype == '4'" type="text" name="search" ng-model="searchtext" class="form-control"  placeholder="<?=$lang_daymonth?> 03-01">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="Searchsubmit()" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="Searchsubmit()" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
-<div class="form-group">
+<!-- <div class="form-group">
 <button class="btn btn-info"  ng-click="DownloadExcel()" title="ดาวน์โหลดรายชื่อลูกค้า" ><span class="glyphicon glyphicon-save" aria-hidden="true"></button> 
-</div>
+</div> -->
 <div class="form-group">
-<button type="submit" ng-click="Refreshsubmit(searchtype,searchtext,'1')" class="btn btn-default" placeholder="" title="รีเฟรสข้อมูล"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button type="submit" ng-click="Refreshsubmit(searchtype,searchtext,'1')" class="btn btn-default" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 
 </form>
@@ -49,18 +49,19 @@
 	<thead>
 		<tr style="background-color: #eee">
 			
-			<th width="5px" class="visible-sm visible-md visible-lg">ลำดับ</th>
-			<th style="text-align: center;">รหัสสมาชิก</th>
+			<th width="5px" class="visible-sm visible-md visible-lg">
+			<?=$lang_rank?></th>
+			<th style="text-align: center;"><?=$lang_memberid?></th>
 
-			<th style="text-align: center;">ชื่อ</th>
+			<th style="text-align: center;"><?=$lang_cusname?></th>
 
-			<th style="text-align: center;">คะแนน</th>
+			<th style="text-align: center;"><?=$lang_score?></th>
 			
-			<th style="text-align: center;">เบอร์โทร</th>
-			<th class="visible-sm visible-md visible-lg" style="text-align: center;">อีเมล์</th>
+			<th style="text-align: center;"><?=$lang_tel?></th>
+			<th class="visible-sm visible-md visible-lg" style="text-align: center;"><?=$lang_email?></th>
 			
 			
-			<th>ปรับปรุงคะแนน</th>
+			<th><?=$lang_editscore?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -94,7 +95,7 @@
 
 <form class="form-inline">
 <div class="form-group">
-แสดง
+<?=$lang_show?>
 <select class="form-control" name="" id="" ng-model="perpage" ng-change="getmycustomer(searchtype,searchtext,'',perpage)">
 	<option value="10">10</option>
 	<option value="20">20</option>
@@ -105,7 +106,7 @@
 	<option value="300">300</option>
 </select>
 
-หน้า
+<?=$lang_page?>
 <select name="" id="" class="form-control" ng-model="selectthispage"  ng-change="getmycustomer(searchtype,searchtext,selectthispage,perpage)">
 	<option  ng-repeat="i in pagealladd" value="{{i.a}}">{{i.a}}</option>
 </select>
@@ -140,7 +141,8 @@
 
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?> </button>
 
 
 	</div>
@@ -158,7 +160,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">ปรับปรุงคะแนน</h4>
+				<h4 class="modal-title"><?=$lang_editscore?></h4>
 			</div>
 			<div class="modal-body">
 
@@ -166,7 +168,7 @@
 <div class="row">
 
 <div class="col-md-12">
-	<input type="text" placeholder="ชื่อ-นามสกุล" name="" class="form-control" ng-model="cusname" readonly>
+	<input type="text" placeholder="<?=$lang_cusname?>" name="" class="form-control" ng-model="cusname" readonly>
 
 </div>
 
@@ -175,7 +177,7 @@
 </div>
 
 <div class="col-md-12">
-<input type="text" class="form-control" placeholder="คะแนน" ng-model="product_score_all">
+<input type="text" class="form-control" placeholder="<?=$lang_score?>" ng-model="product_score_all">
 </div>
 
 
@@ -185,8 +187,8 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-<button type="submit" class="btn btn-success" id="editcustomer" ng-click="EditSubmit(cusid,product_score_all)">บันทึก</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal"><?=$lang_close?></button>
+<button type="submit" class="btn btn-success" id="editcustomer" ng-click="EditSubmit(cusid,product_score_all)"><?=$lang_save?></button>
 			</div>
 		</div>
 
@@ -342,7 +344,7 @@ $http.post("Customerscore/update",{
 	
 	}).success(function(data){
 
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $('#modaledit').modal('hide');
 $scope.getmycustomer($scope.searchtype,$scope.searchtext,$scope.page,$scope.perpage);
 

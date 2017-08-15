@@ -35,7 +35,7 @@ class Customerreasonnotbuy extends MY_Controller {
 		
 
 $data['tab'] = 'customerreasonnotbuy';
-$data['title'] = 'ตั้งค่ากลุ่มลูกค้า';
+$data['title'] = 'Customer Reason not buy';
 		$this->ownerlayout('ownerbody/customerreasonnotbuy',$data);
 
 }

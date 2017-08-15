@@ -13,16 +13,17 @@
 
 <form class="form-inline">
 <div class="form-group">
-<button class="btn btn-primary" ng-click="Modaladd()">+ เพิ่มรายการอาหารใหม่</button>
+<button class="btn btn-primary" ng-click="Modaladd()">
++ <?=$lang_foodaddnew?></button>
 </div>
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="ค้นหาจากชื่ออาหาร" style="width: 300px;">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="<?=$lang_foodsearchname?>" style="width: 300px;">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="reflesh"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 
 </form>
@@ -32,19 +33,29 @@
 
 
 <div style="float: right;">
-	<input type="checkbox" ng-model="showdeletcbut"> แสดงปุ่มลบ
+	<input type="checkbox" ng-model="showdeletcbut"> <?=$lang_showdel?>
 </div>
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr style="background-color: #eee;">
 			<th style="width: 50px;">ลำดับ</th>
-			<th style="text-align: center;width: 150px;">รูปสินค้า</th>
-			<th style="text-align: center;width: 100px;">ชื่อสินค้า</th>
-			<th style="text-align: center;width: 100px;">ประเภท</th>
+			<th style="text-align: center;width: 150px;">
+			<?=$lang_foodimage?></th>
+			<th style="text-align: center;width: 100px;">
+			<?=$lang_foodname?></th>
+			<th style="text-align: center;width: 100px;">
+<?=$lang_type?>
+			</th>
 			
-			<th style="text-align: center;width: 100px;">ราคาขาย</th>
-			<th style="text-align: center;width: 100px;">สถานะ</th>
-			<th style="width: 80px;">จัดการ</th>
+			<th style="text-align: center;width: 100px;">
+<?=$lang_price?>
+			</th>
+			<th style="text-align: center;width: 100px;">
+<?=$lang_status?>
+			</th>
+			<th style="width: 80px;">
+<?=$lang_manage?>
+			</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -73,17 +84,25 @@
 			<td align="right">{{x.food_price | number:2}}</td>
 
 			<td>
-			<span ng-if="x.food_status=='0'" style="color: green;font-weight: bold;">พร้อมขาย</span>
+			<span ng-if="x.food_status=='0'" style="color: green;font-weight: bold;">
+				<?=$lang_saleready?>
+			</span>
 
-<span ng-if="x.food_status=='1'" style="color: red;font-weight: bold;">อาหารหมด</span>
+<span ng-if="x.food_status=='1'" style="color: red;font-weight: bold;">
+<?=$lang_foodoutstock?>
+</span>
 
 			</td>
 
 
 			<td>
 
-				<button class="btn btn-xs btn-warning" ng-click="Editinputproduct(x)">แก้ไข</button>
-				<button ng-show="showdeletcbut" class="btn btn-xs btn-danger" ng-click="Deleteproduct(x.food_id)">ลบ</button>
+				<button class="btn btn-xs btn-warning" ng-click="Editinputproduct(x)">
+<?=$lang_edit?>
+				</button>
+				<button ng-show="showdeletcbut" class="btn btn-xs btn-danger" ng-click="Deleteproduct(x.food_id)">
+<?=$lang_delete?>
+				</button>
 			</td>
 
 		
@@ -100,7 +119,7 @@
 
 <form class="form-inline">
 <div class="form-group">
-แสดง
+<?=$lang_show?>
 <select class="form-control" name="" id="" ng-model="perpage" ng-change="getlist(searchtext,'1',perpage)">
 	<option value="10">10</option>
 	<option value="20">20</option>
@@ -111,7 +130,7 @@
 	<option value="300">300</option>
 </select>
 
-หน้า
+<?=$lang_page?>
 <select name="" id="" class="form-control" ng-model="selectthispage"  ng-change="getlist(searchtext,selectthispage,perpage)">
 	<option  ng-repeat="i in pagealladd" value="{{i.a}}">{{i.a}}</option>
 </select>
@@ -124,7 +143,9 @@
 
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?>
+ </button>
 
 
 
@@ -135,43 +156,43 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">เพิ่มรายการอาหาร</h4>
+				<h4 class="modal-title"><?=$lang_foodaddnew?></h4>
 			</div>
 			<div class="modal-body">
 				<form id="uploadImg"  enctype="multipart/form-data" method="POST">
 
 
-รูปอาหาร
+<?=$lang_foodimage?>
 <input type="file" name="food_image" accept="image/*" class="form-control" value="">
 <p></p>
-ชื่ออาหาร
-<input type="text" name="food_name"  placeholder="ชื่อสินค้า" class="form-control">
+<?=$lang_foodname?>
+<input type="text" name="food_name"  placeholder="<?=$lang_foodname?>" class="form-control">
 <p></p>
-ประเภท
+<?=$lang_type?>
 <select class="form-control" name="food_category_id" >
-<option value="0">เลือกหมวดหมู่</option>
+<option value="0"><?=$lang_selecttype?></option>
 					<option ng-repeat="y in categorylist" value="{{y.food_category_id}}">
 						{{y.food_category_name}}
 					</option>
 				</select>
 
 	<p></p>
-	ราคาขาย
-	<input type="text" name="food_price"  placeholder="ราคาขาย" class="form-control text-right">
+	<?=$lang_price?>
+	<input type="text" name="food_price"  placeholder="<?=$lang_price?>" class="form-control text-right">
 
 	<p></p>
 
-สถานะ
+<?=$lang_status?>
 	<select class="form-control" name="food_status">
 
-					<option value="0">พร้อมขาย</option>
-					<option value="1">อาหารหมด</option>
+					<option value="0"><?=$lang_saleready?></option>
+					<option value="1"><?=$lang_foodoutstock?></option>
 				</select>
 <p></p>
 
 
 
-<button class="btn btn-success" type="submit">บันทึก</button>
+<button class="btn btn-success" type="submit"><?=$lang_save?></button>
 </form>
 			</div>
 			<div class="modal-footer">
@@ -191,7 +212,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">แก้ไข</h4>
+				<h4 class="modal-title"><?=$lang_edit?></h4>
 			</div>
 			<div class="modal-body">
 				<form id="Updatedata"  enctype="multipart/form-data" method="POST">
@@ -200,13 +221,13 @@
 <center>
 <img ng-if="food_image!=''" ng-src="<?php echo $base_url;?>/{{food_image}}" width="70px" height="70px;">
 </center>
-รูปอาหาร
+<?=$lang_foodimage?>
 <input type="file" name="food_image" accept="image/*" class="form-control" value="">
 <p></p>
-ชื่ออาหาร
-<input type="text" name="food_name" id="food_name" placeholder="ชื่อสินค้า" class="form-control">
+<?=$lang_foodname?>
+<input type="text" name="food_name" id="food_name" placeholder="<?=$lang_foodname?>" class="form-control">
 <p></p>
-ประเภท
+<?=$lang_type?>
 <select class="form-control" name="food_category_id" id="food_category_id">
 
 					<option ng-repeat="y in categorylist" value="{{y.food_category_id}}">
@@ -214,23 +235,23 @@
 					</option>
 				</select>
 <p></p>
-	ราคาขาย
-	<input type="text" name="food_price" id="food_price" placeholder="ราคาขาย" class="form-control text-right">
+	<?=$lang_price?>
+	<input type="text" name="food_price" id="food_price" placeholder="<?=$lang_price?>" class="form-control text-right">
 
 
 	<p></p>
 
-สถานะ
+<?=$lang_status?>
 	<select class="form-control" name="food_status" id="food_status">
 
-					<option value="0">พร้อมขาย</option>
-					<option value="1">อาหารหมด</option>
+					<option value="0"><?=$lang_saleready?></option>
+					<option value="1"><?=$lang_foodoutstock?></option>
 				</select>
 <p></p>
 
 
 
-<button class="btn btn-success" type="submit">บันทึก</button>
+<button class="btn btn-success" type="submit"><?=$lang_save?></button>
 </form>
 			</div>
 			<div class="modal-footer">
@@ -244,30 +265,7 @@
 
 
 
-<div class="modal fade" id="Modalexcel">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">รายการสินค้าจาก Excel .CSV</h4>
-			</div>
-			<div class="modal-body text-center">
 
-<form enctype="multipart/form-data" id="formexcel">
-<input type="file" accept=".csv" id="excel" name="excel" class="btn btn-default">   
-<br />
-<button class="btn btn-success" id="submitexcel" type="submit">อัฟโหลด</button>
-</form>
-
-<hr />
-<font color="red">ตัวอย่างไฟล์ .CSV  UTF-8</font>
-<br />
-<img src="<?php echo $base_url;?>/pic/imcsv.png">
-			</div>
-			
-		</div>
-	</div>
-</div>
 
 
 
@@ -439,7 +437,7 @@ $scope.Deleteproduct = function(food_id){
 $http.post("Food_list/Delete",{
 	food_id: food_id
 	}).success(function(data){
-toastr.success('ลบเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.getlist();
         });	
 };
@@ -458,7 +456,7 @@ var formData = new FormData($(this)[0]);
             processData: false,
    		 	contentType: false,
             success: function () {
-               toastr.success('เรียบร้อย');
+               toastr.success('<?=$lang_success?>');
                $('#Modalexcel').modal('hide');
                $scope.getlist('','1');
             }

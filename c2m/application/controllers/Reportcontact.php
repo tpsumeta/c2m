@@ -37,7 +37,7 @@ $this->load->model('analyticallexcel_model');
 
 if(isset($_SESSION['owner_id'])){
 $data['tab'] = 'reportcontact';
-$data['title'] = 'รายงานการติดต่อ';
+$data['title'] = 'Report Contact';
 		$this->ownerlayout('ownerbody/reportcontact',$data);
 
 }

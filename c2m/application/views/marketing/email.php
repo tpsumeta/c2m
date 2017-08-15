@@ -7,13 +7,13 @@
 		
 
 
-<input type="text" ng-model="subject" placeholder="หัวข้อ..." class="form-control">
+<input type="text" ng-model="subject" placeholder="<?=$lang_subject?>" class="form-control">
 <br/>
-	<textarea class="form-control" ng-model="text" style="height: 200px;" placeholder="ข้อความ..."></textarea>
+	<textarea class="form-control" ng-model="text" style="height: 200px;" placeholder="<?=$lang_message?>"></textarea>
 	<br />
-<input type="radio" name="sendall" checked> ถึงลูกค้าสมาชิกที่มี email ทุกคน
+<input type="radio" name="sendall" checked>  <?=$lang_messagetoallemail?>
 	<br /><br />
-	<button ng-click="Sendemailok()"  ng-disabled="clickedsend" class="btn btn-success">ส่ง Email</button>
+	<button ng-click="Sendemailok()"  ng-disabled="clickedsend" class="btn btn-success"> <?=$lang_sendemail?></button>
 
 
 
@@ -46,7 +46,7 @@ $scope.Sendemailok = function(){
 
 
 if($scope.subject != '' && $scope.text != ''){	
-	toastr.warning('ระบบกำลังส่ง Email กรุณารอซักครู่');
+	toastr.warning(' <?=$lang_waitsendemail?>');
 $scope.clickedsend = true;
 $('sending1').modal('show');
 
@@ -54,14 +54,14 @@ $http.post("Email/send",{
 	'subject': $scope.subject,
 	'text': $scope.text
 	}).success(function(data){
-toastr.success('ส่ง Email เรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.subject = '';
 $scope.text = '';
 $scope.clickedsend = false;
 
         });	
 }else{
-	toastr.warning('กรุณาเพิ่มหัวข้อและข้อความให้ครบ');
+	toastr.warning('<?=$lang_plz?>');
 }
 
 };

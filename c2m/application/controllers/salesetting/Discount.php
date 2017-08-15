@@ -35,7 +35,7 @@ class Discount extends MY_Controller {
 		
 
 $data['tab'] = 'discount';
-$data['title'] = 'ตั้งค่าส่วนลด';
+$data['title'] = 'Discount Setting';
 		$this->salesettinglayout('salesetting/discount',$data);
 }
 

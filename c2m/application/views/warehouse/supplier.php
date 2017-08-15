@@ -9,13 +9,13 @@
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="ค้นหาจากชื่อ หรือ รหัสสมาชิก" style="width: 300px;">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="<?=$lang_search?>" style="width: 300px;">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 
 </form>
@@ -25,21 +25,21 @@
 
 
 <div style="float: right;">
-	<input type="checkbox" ng-model="showdeletcbut"> แสดงปุ่มลบ
+	<input type="checkbox" ng-model="showdeletcbut"> <?=$lang_showdel?>
 </div>
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr style="background-color: #eee;">
-			<th style="width: 50px;">ลำดับ</th>
-			<th style="text-align: center;width: 100px;">รหัสสมาชิก</th>
-			<th style="text-align: center;width: 50px;">ชื่อ</th>
-			<th style="text-align: center;width: 50px;">เลขบัตร/เลขเสียภาษี</th>
-			<th style="text-align: center;width: 150px;">รูป</th>
-			<th style="text-align: center;width: 100px;">ที่อยู่</th>
-			<th style="text-align: center;width: 100px;">โทร</th>
-			<th style="text-align: center;width: 100px;">วันเกิด</th>
+			<th style="width: 50px;"><?=$lang_rank?></th>
+			<th style="text-align: center;width: 100px;"><?=$lang_memberid?></th>
+			<th style="text-align: center;width: 50px;"><?=$lang_name?></th>
+			<th style="text-align: center;width: 50px;"><?=$lang_tax?></th>
+			<th style="text-align: center;width: 150px;"><?=$lang_pic?></th>
+			<th style="text-align: center;width: 100px;"><?=$lang_address?></th>
+			<th style="text-align: center;width: 100px;"><?=$lang_tel?></th>
+			<th style="text-align: center;width: 100px;"><?=$lang_birthday?></th>
 			
-			<th style="width: 120px;">จัดการ</th>
+			<th style="width: 120px;"><?=$lang_manage?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -65,13 +65,13 @@
 			
 			
 			<td>
-			<button class="btn btn-success" type="submit">บันทึก</button> </form>
+			<button class="btn btn-success" type="submit"><?=$lang_save?></button> </form>
 			</td>
 	</tr>
 
 		<tr ng-repeat="x in list">
-		<td ng-show="selectpage=='1'" class="text-center">{{($index+1)}}</td>
-			<td ng-show="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</td>
+		<td ng-if="selectpage=='1'" class="text-center">{{($index+1)}}</td>
+			<td ng-if="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</td>
 		
 
 			
@@ -103,8 +103,8 @@
 
 			<td>
 
-				<button class="btn btn-xs btn-warning" ng-click="Editinputproduct(x)">แก้ไข</button>
-				<button ng-show="showdeletcbut" class="btn btn-xs btn-danger" ng-click="Deleteproduct(x.supplier_id)">ลบ</button>
+				<button class="btn btn-xs btn-warning" ng-click="Editinputproduct(x)"><?=$lang_edit?></button>
+				<button ng-show="showdeletcbut" class="btn btn-xs btn-danger" ng-click="Deleteproduct(x.supplier_id)"><?=$lang_delete?></button>
 			</td>
 
 		
@@ -114,66 +114,13 @@
 </table>
 
 
-<hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
-
-<div class="modal fade" id="Openedit">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">แก้ไข</h4>
-			</div>
-			<div class="modal-body">
-				<form id="Updatedata"  enctype="multipart/form-data" method="POST">
-
-<input type="hidden" name="supplier_id" id="supplier_id">
-รหัสสมาชิก
-<input type="text" name="supplier_code" id="supplier_code" placeholder="รหัสสมาชิก" class="form-control">
-<br />
-<input type="hidden" name="supplier_image2" id="supplier_image2">
-<center>
-<img ng-if="supplier_image!=''" ng-src="<?php echo $base_url;?>/{{supplier_image}}" width="70px" height="70px;">
-</center>
-รูป
-<input type="file" name="supplier_image" accept="image/*" class="form-control" value="">
-<br />
-ชื่อ
-<input type="text" name="supplier_name" id="supplier_name" placeholder="ชื่อ" class="form-control">
-
-<br />
-เลขบัตร/เลขภาษี
-<input type="text" name="supplier_card_tax" id="supplier_card_tax" placeholder="เลขบัตร/เลขภาษี" class="form-control">
-
-<br />
-ที่อยู่
-<textarea name="supplier_address" id="supplier_address" placeholder="ที่อยู่" class="form-control"></textarea>
-<br />
-โทร
-<input type="text" name="supplier_tel" id="supplier_tel" placeholder="โทร" class="form-control">
-<br />
-วันเกิด
-<input type="text" name="supplier_bd" id="supplier_bd" placeholder="วันเกิด" class="form-control">
-
-
-	<br />
-<button class="btn btn-success" type="submit">บันทึก</button>
-</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				
-			</div>
-		</div>
-	</div>
-</div>
 
 
 
 
 <form class="form-inline">
 <div class="form-group">
-แสดง
+<?=$lang_show?>
 <select class="form-control" name="" id="" ng-model="perpage" ng-change="getlist(searchtext,'1',perpage)">
 	<option value="10">10</option>
 	<option value="20">20</option>
@@ -184,7 +131,7 @@
 	<option value="300">300</option>
 </select>
 
-หน้า
+<?=$lang_page?>
 <select name="" id="" class="form-control" ng-model="selectthispage"  ng-change="getlist(searchtext,selectthispage,perpage)">
 	<option  ng-repeat="i in pagealladd" value="{{i.a}}">{{i.a}}</option>
 </select>
@@ -194,6 +141,63 @@
 </form>
 
 
+
+
+
+<hr />
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?> </button>
+
+<div class="modal fade" id="Openedit">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title"><?=$lang_edit?></h4>
+			</div>
+			<div class="modal-body">
+				<form id="Updatedata"  enctype="multipart/form-data" method="POST">
+
+<input type="hidden" name="supplier_id" id="supplier_id">
+<?=$lang_memberid?>
+<input type="text" name="supplier_code" id="supplier_code" placeholder="<?=$lang_memberid?>" class="form-control">
+<br />
+<input type="hidden" name="supplier_image2" id="supplier_image2">
+<center>
+<img ng-if="supplier_image!=''" ng-src="<?php echo $base_url;?>/{{supplier_image}}" width="70px" height="70px;">
+</center>
+<?=$lang_pic?>
+<input type="file" name="supplier_image" accept="image/*" class="form-control" value="">
+<br />
+<?=$lang_name?>
+<input type="text" name="supplier_name" id="supplier_name" placeholder="<?=$lang_name?>" class="form-control">
+
+<br />
+<?=$lang_tax?>
+<input type="text" name="supplier_card_tax" id="supplier_card_tax" placeholder="<?=$lang_tax?>" class="form-control">
+
+<br />
+<?=$lang_address?>
+<textarea name="supplier_address" id="supplier_address" placeholder="<?=$lang_address?>" class="form-control"></textarea>
+<br />
+<?=$lang_tel?>
+<input type="text" name="supplier_tel" id="supplier_tel" placeholder="<?=$lang_tel?>" class="form-control">
+<br />
+<?=$lang_birthday?>
+<input type="text" name="supplier_bd" id="supplier_bd" placeholder="<?=$lang_birthday?>" class="form-control">
+
+
+	<br />
+<button class="btn btn-success" type="submit"><?=$lang_save?></button>
+</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
 
 
 
@@ -384,7 +388,7 @@ $scope.Deleteproduct = function(supplier_id){
 $http.post("Supplier/Delete",{
 	supplier_id: supplier_id
 	}).success(function(data){
-toastr.success('ลบเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.getlist();
         });	
 };

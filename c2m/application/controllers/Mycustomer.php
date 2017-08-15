@@ -18,7 +18,7 @@ class Mycustomer extends MY_Controller
     
 
 $data['tab'] = 'mycustomer';
-$data['title'] = 'รายชื่อลูกค้า';
+$data['title'] = 'My Customer';
     $this->ownerlayout('ownerbody/mycustomer',$data);
 
 }

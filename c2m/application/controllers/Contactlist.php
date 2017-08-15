@@ -36,7 +36,7 @@ class Contactlist extends MY_Controller {
 
 
 $data['tab'] = 'contactlist';
-$data['title'] = 'รายการติดต่อ';
+$data['title'] = 'Contact List';
 		$this->ownerlayout('ownerbody/contactlist',$data);
 
 

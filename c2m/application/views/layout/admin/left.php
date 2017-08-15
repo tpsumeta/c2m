@@ -19,9 +19,9 @@ a{
 
 
 
-<li style="width: 100%;" <?php if($tab === 'store_manager'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/admin/store_manager"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>	ผู้จัดการ </a></li>
+<li style="width: 100%;" <?php if($tab === 'store_manager'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/admin/store_manager"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>	<?=$lang_manager?> </a></li>
 
-<li style="width: 100%;" <?php if($tab === 'change_password'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/admin/change_password"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>	เปลี่ยนรหัสผ่าน </a></li>
+<li style="width: 100%;" <?php if($tab === 'change_password'){ echo 'class="active"';} ?> ><a href="<?php echo $base_url; ?>/admin/change_password"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>	<?=$lang_changepassword?> </a></li>
 
 
 

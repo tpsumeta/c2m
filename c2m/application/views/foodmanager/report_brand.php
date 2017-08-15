@@ -7,23 +7,23 @@
 <form class="form-inline">
 <div class="form-group">
 <select class="form-control" ng-model="food_brand_id" ng-change="Selectbrand()">
-<option value="0">เลือก สาขา</option>
+<option value="0"><?=$lang_selectbrand?></option>
 	<option ng-repeat="x in listbrand" value="{{x.food_brand_id}}">
 		{{x.food_brand_name}}
 	</option>
 </select>
 </div>
 <div class="form-group">
-<input type="text" name="" placeholder="ค้นหาชื่ออาหาร" ng-model="searchproduct" class="form-control">
+<input type="text" name="" placeholder="<?=$lang_searchfoodname?>" ng-model="searchproduct" class="form-control">
 </div>
 <div class="form-group">
-<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="จากวันที่"> -
+<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="<?=$lang_fromday?>"> -
 </div>
 <div class="form-group">
-<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="ถึงวันที่">
+<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="<?=$lang_today?>">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="reportdaylist()" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="reportdaylist()" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 <!-- <div class="form-group">
 <button class="btn btn-info"  ng-click="DownloadExcel()" title="ดาวน์โหลด" ><span class="glyphicon glyphicon-save" aria-hidden="true"></button> 
@@ -34,7 +34,7 @@
 <br />
 <center ng-if="food_brand_id=='0'">
 	<h1 style="font-weight: bold;">
-		กรุณาเลือก สาขา
+		<?=$lang_selectbrandplz?>
 	</h1>
 
 </center>
@@ -50,10 +50,10 @@
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-		<th style="text-align: center;">ชื่อสินค้า</th>
-			<th style="text-align: center;">ราคา</th>
-			<th style="text-align: center;">ขายได้</th>
-			<th style="text-align: center;">รายรับ/บาท</th>
+		<th style="text-align: center;"><?=$lang_foodname?></th>
+			<th style="text-align: center;"><?=$lang_price?></th>
+			<th style="text-align: center;"><?=$lang_cansale?></th>
+			<th style="text-align: center;"><?=$lang_revenue?></th>
 			
 			
 		</tr>
@@ -70,7 +70,7 @@
 		
 
 		<tr>
-			<td colspan="2" align="right">รวม</td>
+			<td colspan="2" align="right"><?=$lang_all?></td>
 			<td style="font-weight: bold;text-align: right;">
 			{{ Sumnumall() | number }}</td>
 			<td style="font-weight: bold;text-align: right;">
@@ -83,7 +83,9 @@
 	</tbody>
 </table>
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+<?=$lang_downloadexcel?>
+ </button>
 
 
 
@@ -272,7 +274,7 @@ Morris.Bar({
   data: datac,
   xkey: 'name',
   ykeys: ['count'],
-  labels: ['รายรับ'],
+  labels: ['<?=$lang_revenue?>'],
   barColors: function (row, series, type) {
     if (type === 'bar') {
      var letters = '0123456789ABCDEF';

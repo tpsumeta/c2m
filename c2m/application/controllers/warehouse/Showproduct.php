@@ -33,7 +33,7 @@ class Showproduct extends MY_Controller {
 		
 
 $data['tab'] = 'showproduct';
-$data['title'] = 'แสดงสินค้า/บริการออนไลน์';
+$data['title'] = 'Show Product';
 		$this->warehouselayout('warehouse/showproduct',$data);
 }
 

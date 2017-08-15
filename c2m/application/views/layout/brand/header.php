@@ -60,7 +60,7 @@
 			<ul class="nav navbar-nav">
 				
 			<li>
-					<a href="<?php echo $base_url; ?>/brand?id=<?php echo $_GET['id']?>" style="color: #000;"> <b>หน้าแรก</b></a>
+					<a href="<?php echo $base_url; ?>/brand?id=<?php echo $_GET['id']?>" style="color: #000;"> <b><?=$lang_index?></b></a>
 				</li>
 			</ul>
 			

@@ -6,14 +6,15 @@
 	<div class="panel-body">
 		
 
-<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>ช่องทางการติดต่อ  <a class="btn btn-primary"  style="float: right" ng-click="Openaddnewcus()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></a></font>
+<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+<?=$lang_cuscontactchanel?>  <a class="btn btn-primary"  style="float: right" ng-click="Openaddnewcus()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></a></font>
 
 <hr />
 
 
 
 <div class="col-md-12 text-right">
-<input type="checkbox" ng-model="Showdelbut"> แสดงปุ่มลบ
+<input type="checkbox" ng-model="Showdelbut"> <?=$lang_showdel?> 
 </div>
 
 
@@ -24,10 +25,10 @@
 	<thead>
 		<tr style="background-color: #eee">
 			
-			<th>ชื่อช่องทางการติดต่อ</th>
-			<th>หมายเหตุ</th>
+			<th><?=$lang_cuscontactchanel?> </th>
+			<th><?=$lang_remark?> </th>
 			
-			<th>จัดการ</th>
+			<th><?=$lang_manage?> </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -65,14 +66,14 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">เพิ่มช่องทางการติดต่อใหม่</h4>
+				<h4 class="modal-title"><?=$lang_addnewchanel?> </h4>
 			</div>
 			<div class="modal-body">
 
 
 <div class="row">
 <div class="col-md-12">
-	<input type="text" placeholder="ชื่อช่องทางการติดต่อ" name="" class="form-control" ng-model="contact_from_name" required>
+	<input type="text" placeholder="<?=$lang_cuscontactchanel?> " name="" class="form-control" ng-model="contact_from_name" required>
 
 </div>
 
@@ -82,7 +83,7 @@
 </div>	
 
 <div class="col-md-12">
-	<textarea name="" class="form-control" placeholder="หมายเหตุ" ng-model="contact_from_remark">
+	<textarea name="" class="form-control" placeholder="<?=$lang_remark?> " ng-model="contact_from_remark">
 </textarea> 
 </div>
 
@@ -92,8 +93,8 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-<button type="submit" class="btn btn-success" id="savenewcontact" ng-click="SaveSubmit(contact_from_name,contact_from_remark)">บันทึก</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+<button type="submit" class="btn btn-success" id="savenewcontact" ng-click="SaveSubmit(contact_from_name,contact_from_remark)"><?=$lang_save?> </button>
 			</div>
 		</div>
 
@@ -113,14 +114,14 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">แก้ไขช่องทางการติดต่อ</h4>
+				<h4 class="modal-title"><?=$lang_editchanel?> </h4>
 			</div>
 			<div class="modal-body">
 
 
 <div class="row">
 <div class="col-md-12">
-	<input type="text" placeholder="ชื่อช่องทางการติดต่อ" name="" class="form-control" ng-model="contact_from_name" required>
+	<input type="text" placeholder="<?=$lang_cuscontactchanel?> " name="" class="form-control" ng-model="contact_from_name" required>
 
 </div>
 
@@ -130,7 +131,7 @@
 </div>	
 
 <div class="col-md-12">
-	<textarea name="" class="form-control" placeholder="หมายเหตุ" ng-model="contact_from_remark">
+	<textarea name="" class="form-control" placeholder="<?=$lang_remark?> " ng-model="contact_from_remark">
 </textarea> 
 </div>
 
@@ -141,8 +142,8 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-<button type="submit" class="btn btn-success" id="editcontact" ng-click="EditSubmit(contact_from_id,contact_from_name,contact_from_remark)">บันทึก</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+<button type="submit" class="btn btn-success" id="editcontact" ng-click="EditSubmit(contact_from_id,contact_from_name,contact_from_remark)"><?=$lang_save?> </button>
 			</div>
 		</div>
 
@@ -195,7 +196,7 @@ $http.post("contactfrom/add",{
 	'contact_from_name': contact_from_name,
 	'contact_from_remark': contact_from_remark,
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?> ');
 $("#savenewcontact").prop("disabled",false);
 
 	$scope.contact_from_name = '';
@@ -221,7 +222,7 @@ $scope.Delete = function(contact_from_id){
 $http.post("contactfrom/delete",{
 	'contact_from_id': contact_from_id
 	}).success(function(data){
-toastr.success('ลบเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.getcontact();
 
 
@@ -253,7 +254,7 @@ $http.post("contactfrom/update",{
 	'contact_from_name': contact_from_name,
 	'contact_from_remark': contact_from_remark,
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $("#editcontact").prop("disabled",false);
 
 	$scope.contact_from_name = '';

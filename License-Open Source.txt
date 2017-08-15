@@ -1,9 +1,10 @@
 Open Source 
 GNU General Public License (GNU-GPL)
 
-ลักษณะของสัญญาอนุญาตจีพีแอลมีลักษณะ "เสรี" (free) ที่หมายถึงเสรีภาพสำหรับผู้ใช้ซอฟต์แวร์สี่ประการดังนี้
 
-- เสรีภาพในการใช้งาน ไม่ว่าใช้สำหรับจุดประสงค์ใด
-- เสรีภาพในการศึกษาการทำงานของโปรแกรม และแก้ไขโค้ด การเข้าถึงซอร์สโค้ดจำเป็นสำหรับเสรีภาพข้อนี้ (โอเพนซอร์ซ)
-- เสรีภาพในการจำหน่ายแจกจ่ายโปรแกรม
-- เสรีภาพในการปรับปรุงและเปิดให้บุคคลทั่วไปใช้และพัฒนาต่อไป การเข้าถึงซอร์สโค้ดจำเป็นสำหรับเสรีภาพข้อนี้
+Freedom of Freedom (free) style required for freedom for the user.
+
+- Freedom of use is not used for points of interest.
+- Freedom to study the workings of the program and to amend the petition for liberty. (Open source)
+- freedom to distribute programs
+- Freedom to improve and open to the public for use in the discovery and liberty of this.

@@ -4,18 +4,18 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 
-<input type="text" ng-model="searchtext" placeholder="ค้นหารายชื่อสินค้า" style="width:300px;" class="form-control">
+<input type="text" ng-model="searchtext" placeholder="<?=$lang_search?>" style="width:300px;" class="form-control">
 <br />
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr style="background-color: #eee;">
-			<th style="width: 50px;text-align: center;">ลำดับ</th>
-			<th style="text-align: center;">รหัสสินค้า</th>
-			<th style="text-align: center;">ชื่อสินค้า</th>
-			<th style="text-align: center;">หมวดหมู่</th>
-			<th style="text-align: center;">ราคาขายสินค้าต่อหน่วย/บาท</th>
-			<th style="text-align: center;">ส่วนลดต่อหน่วย/บาท</th>
-			<th style="width: 120px;text-align: center;">จัดการ</th>
+			<th style="width: 50px;text-align: center;"><?=$lang_rank?></th>
+			<th style="text-align: center;"><?=$lang_barcode?></th>
+			<th style="text-align: center;"><?=$lang_productname?></th>
+			<th style="text-align: center;"><?=$lang_category?></th>
+			<th style="text-align: center;"><?=$lang_priceperunit?></th>
+			<th style="text-align: center;"><?=$lang_discountperunit?></th>
+			<th style="width: 120px;text-align: center;"><?=$lang_manage?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -35,14 +35,14 @@
 
 			<td ng-show="product_id!=x.product_id">
 
-				<button class="btn btn-xs btn-warning" ng-click="Editinputproduct(x.product_id)">แก้ไข</button>
+				<button class="btn btn-xs btn-warning" ng-click="Editinputproduct(x.product_id)"><?=$lang_edit?></button>
 				
 			</td>
 
 			<td ng-show="product_id==x.product_id">
 
-				<button class="btn btn-xs btn-success" ng-click="Editsaveproduct(x.product_id,x.product_name,x.product_price,x.product_price_discount,x.product_category_id)">บันทึก</button>
-				<button class="btn btn-xs btn-default" ng-click="Cancelproduct(x.product_id)">ยกเลิก</button>
+				<button class="btn btn-xs btn-success" ng-click="Editsaveproduct(x.product_id,x.product_name,x.product_price,x.product_price_discount,x.product_category_id)"><?=$lang_save?></button>
+				<button class="btn btn-xs btn-default" ng-click="Cancelproduct(x.product_id)"><?=$lang_cancel?></button>
 			</td>
 
 		</tr>
@@ -50,7 +50,9 @@
 </table>
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?>
+ </button>
 
 	</div>
 
@@ -95,7 +97,7 @@ $http.post("Discount/Update",{
 	product_price_discount:product_price_discount,
 	product_category_id: product_category_id
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.product_id = '';
 $scope.get();
 

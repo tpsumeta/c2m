@@ -35,7 +35,7 @@ class Accountsetting extends MY_Controller {
 		
 
 $data['tab'] = 'accountsetting';
-$data['title'] = 'จัดการข้อมูลส่วนตัว';
+$data['title'] = 'Account Setting';
 		$this->ownerlayout('ownerbody/accountsetting',$data);
 }
 

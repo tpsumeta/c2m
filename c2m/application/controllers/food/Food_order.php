@@ -35,7 +35,7 @@ class Food_order extends MY_Controller {
 		
 
 $data['tab'] = 'food_order';
-$data['title'] = 'รับออเดอร์';
+$data['title'] = 'Food Order';
 		$this->deshboardlayout('food/food_order',$data);
 }
 

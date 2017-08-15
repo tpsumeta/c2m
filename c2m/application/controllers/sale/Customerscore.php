@@ -18,7 +18,7 @@ class Customerscore extends MY_Controller
     
 
 $data['tab'] = 'customerscore';
-$data['title'] = 'คะแนนลูกค้าสมาชิก';
+$data['title'] = 'Customer Score';
     $this->salelayout('sale/customerscore',$data);
 
 }

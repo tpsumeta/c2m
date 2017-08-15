@@ -28,24 +28,24 @@ class Home extends MY_Controller {
 if(isset($_SESSION['store_type']) && $_SESSION['store_type']=='0'){
 
 $data['tab'] = 'deshboard';
-$data['title'] = 'POS - หน้าจัดการ';
+$data['title'] = 'POS - manage';
 		$this->deshboardlayout('deshboard/deshboard',$data);
 
 }else if(isset($_SESSION['store_type']) && $_SESSION['store_type']=='1'){
 
 $data['tab'] = 'deshboard';
-$data['title'] = 'ร้านอาหาร - หน้าจัดการ';
+$data['title'] = 'Food - manage';
 		$this->deshboardlayout('deshboard/food',$data);
 
 }else if(isset($_SESSION['store_type']) && $_SESSION['store_type']=='2'){
 
 $data['tab'] = 'deshboard';
-$data['title'] = 'เช่าที่พัก - หน้าจัดการ';
+$data['title'] = 'Apartment - manage';
 		$this->deshboardlayout('deshboard/apartment',$data);
 
 }else{
 	header("Location: ".$this->base_url."/login");
-		$data['title'] = 'C2M ระบบพัฒนาธุรกิจและการค้าขาย';
+		$data['title'] = 'C2M System';
 		$this->weblayout('webbody/home',$data);
 	}
 

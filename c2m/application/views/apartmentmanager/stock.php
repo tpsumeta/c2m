@@ -7,7 +7,7 @@
 <form class="form-inline">
 <div class="form-group">
 <select class="form-control" ng-model="apartment_brand_id" ng-change="Selectbrand()">
-<option value="0">กรุณาเลือก สาขา</option>
+<option value="0"><?=$lang_selectbrand?></option>
 	<option ng-repeat="x in listbrand" value="{{x.apartment_brand_id}}">
 		{{x.apartment_brand_name}}
 	</option>
@@ -15,10 +15,10 @@
 </div>
 
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="ค้นหาจากชื่อห้องพัก" style="width: 300px;">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="<?=$lang_searchroomname?>" style="width: 300px;">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist(searchtext,'1','',apartment_brand_id)" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist(searchtext,'1','',apartment_brand_id)" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 <!-- <div class="form-group">
 <button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
@@ -29,18 +29,18 @@
 
 
 <center ng-if="list==''">
-<h1 style="font-weight: bold;">ไม่พบข้อมูล</h1>
+<h1 style="font-weight: bold;"><?=$lang_cannotfound?></h1>
 </center>
 
 <hr />
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-		<th style="width: 50px;">ลำดับ</th>
-			<th style="text-align: center;">ชื่อห้อง</th>
-			<th style="text-align: center;">สาขา</th>
-			<th style="text-align: center;">ราคาเช่า/บาท</th>
-			<th style="text-align: center;">สถานะ</th>
+		<th style="width: 50px;"><?=$lang_rank?></th>
+			<th style="text-align: center;"><?=$lang_roomname?></th>
+			<th style="text-align: center;"><?=$lang_brand?></th>
+			<th style="text-align: center;"><?=$lang_pricerent?></th>
+			<th style="text-align: center;"><?=$lang_status?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -57,9 +57,9 @@
 			
 		
 			<td align="right">
-			<span ng-if="x.apartment_room_status == '0'" style="color: #000;">ห้องว่าง</span>
-			<span ng-if="x.apartment_room_status == '1'" style="color: orange;">จองแล้ว</span>
-			<span ng-if="x.apartment_room_status == '2'" style="color: green;">เช็คอินแล้ว</span>
+			<span ng-if="x.apartment_room_status == '0'" style="color: #000;"><?=$lang_roomblank?></span>
+			<span ng-if="x.apartment_room_status == '1'" style="color: orange;"><?=$lang_roomreserved?></span>
+			<span ng-if="x.apartment_room_status == '2'" style="color: green;"><?=$lang_roomcheckin?></span>
 			</td>
 			
 
@@ -72,7 +72,9 @@
 
 <hr />
 
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?>
+ </button>
 
 
 

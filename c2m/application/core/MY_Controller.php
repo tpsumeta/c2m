@@ -8,15 +8,20 @@
          $this->load->library('session');
         
         $this->base_url = 'http://localhost/c2m';
+        $this->base_lang = 'th';
+        
+
         $this->aff_income = '500';
 
 
-
+  
     }
 
  public function weblayout($view,$data) {
  // Page local resource 
 $data['base_url'] = $this->base_url;
+include 'lang/'.$this->base_lang.'.php';
+
 
 $this->load->view('layout/web/header.php',$data);
  $this->load->view('layout/web/left.php',$data);
@@ -28,6 +33,8 @@ $this->load->view('layout/web/header.php',$data);
 
 
  public function adminlayout($view,$data) {
+
+include 'lang/'.$this->base_lang.'.php';
 
 
 $data['base_url'] = $this->base_url;
@@ -44,6 +51,7 @@ $this->load->view('layout/admin/header.php',$data);
 
   public function ownerlayout($view,$data) {
  // Page local resource 
+include 'lang/'.$this->base_lang.'.php';
 
 
 $data['base_url'] = $this->base_url;
@@ -59,6 +67,7 @@ $this->load->view('layout/owner/header.php',$data);
 
   public function warehouselayout($view,$data) {
  // Page local resource 
+include 'lang/'.$this->base_lang.'.php';
 
 
 $data['base_url'] = $this->base_url;
@@ -82,6 +91,7 @@ $this->load->view($view,$data);
 
 
   public function salelayout($view,$data) {
+include 'lang/'.$this->base_lang.'.php';
 
 
 $data['base_url'] = $this->base_url;
@@ -96,6 +106,7 @@ $this->load->view('layout/sale/header.php',$data);
 
  public function salesettinglayout($view,$data) {
 
+include 'lang/'.$this->base_lang.'.php';
 
 $data['base_url'] = $this->base_url;
 
@@ -109,6 +120,7 @@ $this->load->view('layout/salesetting/header.php',$data);
 
 
  public function marketinglayout($view,$data) {
+include 'lang/'.$this->base_lang.'.php';
 
 $data['base_url'] = $this->base_url;
 
@@ -124,6 +136,7 @@ $this->load->view('layout/marketing/header.php',$data);
   public function affiliatelayout($view,$data) {
  // Page local resource 
 
+include 'lang/'.$this->base_lang.'.php';
 
 $data['base_url'] = $this->base_url;
 
@@ -138,6 +151,7 @@ $this->load->view('layout/affiliate/header.php',$data);
 
 
  public function brandlayout($view,$data) {
+include 'lang/'.$this->base_lang.'.php';
 
 $data['base_url'] = $this->base_url;
 
@@ -153,9 +167,11 @@ $this->load->view('layout/brand/header.php',$data);
 
  public function deshboardlayout($view,$data) {
  // Page local resource 
+  
 if(!isset($_SESSION['store_type'])){
             header( "location: ".$this->base_url );
         }
+include 'lang/'.$this->base_lang.'.php';
 
 $data['base_url'] = $this->base_url;
 $this->load->view('layout/deshboard/header.php',$data);
@@ -171,6 +187,7 @@ $this->load->view('layout/warehouse/footer.php',$data);
 if(!isset($_SESSION['store_id'])){
             header( "location: ".$this->base_url );
         }
+include 'lang/'.$this->base_lang.'.php';
 
 $data['base_url'] = $this->base_url;
 
@@ -188,6 +205,7 @@ $this->load->view('layout/storemanager/header.php',$data);
 if(!isset($_SESSION['store_id'])){
             header( "location: ".$this->base_url );
         }
+include 'lang/'.$this->base_lang.'.php';
 
 $data['base_url'] = $this->base_url;
 
@@ -205,6 +223,7 @@ $this->load->view('layout/foodmanager/header.php',$data);
 if(!isset($_SESSION['store_id'])){
             header( "location: ".$this->base_url );
         }
+include 'lang/'.$this->base_lang.'.php';
 
 $data['base_url'] = $this->base_url;
 
@@ -218,6 +237,7 @@ $this->load->view('layout/food/header.php',$data);
 
  public function foodbrandlayout($view,$data) {
   
+include 'lang/'.$this->base_lang.'.php';
 
 $data['base_url'] = $this->base_url;
 
@@ -232,6 +252,7 @@ $this->load->view('layout/foodbrand/header.php',$data);
 
 public function apartmentmanagerlayout($view,$data) {
   
+include 'lang/'.$this->base_lang.'.php';
 
 $data['base_url'] = $this->base_url;
 
@@ -246,6 +267,7 @@ $this->load->view('layout/apartmentmanager/header.php',$data);
 
  public function apartmentlayout($view,$data) {
   
+include 'lang/'.$this->base_lang.'.php';
 
 $data['base_url'] = $this->base_url;
 

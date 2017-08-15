@@ -6,14 +6,15 @@
 	<div class="panel-body">
 		
 
-<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>สินค้า/บริการ  <a class="btn btn-primary"  style="float: right" ng-click="Openaddnewcus()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></a></font>
+<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+<?=$lang_cusproductservice?>  <a class="btn btn-primary"  style="float: right" ng-click="Openaddnewcus()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></a></font>
 
 <hr />
 
 
 
 <div class="col-md-12 text-right">
-<input type="checkbox" ng-model="Showdelbut"> แสดงปุ่มลบ
+<input type="checkbox" ng-model="Showdelbut"> <?=$lang_showdel?>
 </div>
 
 
@@ -24,11 +25,11 @@
 	<thead>
 		<tr style="background-color: #eee">
 			
-			<th>ชื่อสินค้า/บริการ</th>
-			<th>ราคา</th>
-			<th>หมายเหตุ</th>
+			<th><?=$lang_cusproductservice?></th>
+			<th><?=$lang_price?></th>
+			<th><?=$lang_remark?></th>
 			
-			<th>จัดการ</th>
+			<th><?=$lang_manage?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -67,14 +68,14 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">เพิ่มสินค้า/บริการใหม่</h4>
+				<h4 class="modal-title"><?=$lang_addnewproductservice?></h4>
 			</div>
 			<div class="modal-body">
 
 
 <div class="row">
 <div class="col-md-12">
-	<input type="text" placeholder="ชื่อสินค้า/บริการ" name="" class="form-control" ng-model="product_service_name" required>
+	<input type="text" placeholder="<?=$lang_cusproductservice?>" name="" class="form-control" ng-model="product_service_name" required>
 
 </div>
 
@@ -84,7 +85,7 @@
 </div>	
 
 <div class="col-md-4">
-	<input type="number" placeholder="ราคา" name="" class="form-control" ng-model="product_service_price" required>
+	<input type="number" placeholder="<?=$lang_price?>" name="" class="form-control" ng-model="product_service_price" required>
 
 </div>
 
@@ -95,7 +96,7 @@
 
 
 <div class="col-md-12">
-	<textarea name="" class="form-control" placeholder="หมายเหตุ" ng-model="product_service_remark">
+	<textarea name="" class="form-control" placeholder="<?=$lang_remark?>" ng-model="product_service_remark">
 </textarea> 
 </div>
 
@@ -105,8 +106,8 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-<button type="submit" class="btn btn-success" id="savenewcustomer" ng-click="SaveSubmit(product_service_name,product_service_price,product_service_remark)">บันทึก</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+<button type="submit" class="btn btn-success" id="savenewcustomer" ng-click="SaveSubmit(product_service_name,product_service_price,product_service_remark)"><?=$lang_save?></button>
 			</div>
 		</div>
 
@@ -126,14 +127,14 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">แก้ไขสินค้า/บริการ</h4>
+				<h4 class="modal-title"><?=$lang_editnewproductservice?></h4>
 			</div>
 			<div class="modal-body">
 
 
 <div class="row">
 <div class="col-md-12">
-	<input type="text" placeholder="ชื่อสินค้า/บริการ" name="" class="form-control" ng-model="product_service_name" required>
+	<input type="text" placeholder="<?=$lang_cusproductservice?>" name="" class="form-control" ng-model="product_service_name" required>
 
 </div>
 
@@ -143,7 +144,7 @@
 </div>	
 
 <div class="col-md-4">
-<input type="text" placeholder="ราคา" name="" class="form-control" ng-model="product_service_price">
+<input type="text" placeholder="<?=$lang_price?>" name="" class="form-control" ng-model="product_service_price">
 
 </div>
 
@@ -152,7 +153,7 @@
 </div>	
 
 <div class="col-md-12">
-	<textarea name="" class="form-control" placeholder="หมายเหตุ" ng-model="product_service_remark">
+	<textarea name="" class="form-control" placeholder="<?=$lang_remark?>" ng-model="product_service_remark">
 </textarea> 
 </div>
 
@@ -163,8 +164,8 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-<button type="submit" class="btn btn-success" id="editcustomer" ng-click="EditSubmit(product_service_id,product_service_name,product_service_price,product_service_remark)">บันทึก</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+<button type="submit" class="btn btn-success" id="editcustomer" ng-click="EditSubmit(product_service_id,product_service_name,product_service_price,product_service_remark)"><?=$lang_save?></button>
 			</div>
 		</div>
 
@@ -220,7 +221,7 @@ $http.post("Productservice/add",{
 	'product_service_price': product_service_price,
 	'product_service_remark': product_service_remark,
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $("#savenewcustomer").prop("disabled",false);
 
 	$scope.product_service_name = '';
@@ -247,7 +248,7 @@ $scope.Delete = function(product_service_id){
 $http.post("Productservice/delete",{
 	'product_service_id': product_service_id
 	}).success(function(data){
-toastr.success('ลบเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.getcustomer();
 
 
@@ -281,7 +282,7 @@ $http.post("Productservice/update",{
 	'product_service_price': product_service_price,
 	'product_service_remark': product_service_remark,
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $("#editcustomer").prop("disabled",false);
 
 	$scope.product_service_name = '';

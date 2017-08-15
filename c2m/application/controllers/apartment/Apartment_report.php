@@ -35,7 +35,7 @@ class Apartment_report extends MY_Controller {
 		
 
 $data['tab'] = 'apartment_report';
-$data['title'] = 'รายงานการขาย';
+$data['title'] = 'Apartment Report';
 		$this->deshboardlayout('apartment/apartment_report',$data);
 }
 

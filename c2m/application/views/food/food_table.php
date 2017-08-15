@@ -4,29 +4,29 @@
 <div class="col-md-12 col-sm-12">
 
 <div style="float: right;">
-	<input type="checkbox" ng-model="showdeletcbut"> แสดงปุ่มลบ
+	<input type="checkbox" ng-model="showdeletcbut"> <?=$lang_showdel?>
 </div>
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr style="background-color: #eee;">
-<th>ชื่อโต๊ะ/หมายเลขโต๊ะ</th><th>จำนวนที่นั่ง/จำนวนเก้าอี้</th><th style="width: 120px;">จัดการ</th>
+<th><?=$lang_tablename?></th><th><?=$lang_seat?></th><th style="width: 120px;"><?=$lang_manage?></th>
 		</tr>
 	</thead>
 	<tbody>
 	<tr>
 	
 			<td>
-			<input type="text" class="form-control" placeholder="ชื่อโต๊ะ/หมายเลขโต๊ะ" ng-model="food_table_name">
+			<input type="text" class="form-control" placeholder="<?=$lang_tablename?>" ng-model="food_table_name">
 			</td>
 
 			<td>
-				<input type="text" class="form-control" placeholder="จำนวนที่นั่ง/จำนวนเก้าอี้" ng-model="food_table_seat">
+				<input type="text" class="form-control" placeholder="<?=$lang_seat?>" ng-model="food_table_seat">
 			</td>
 
 			
 
 
-			<td><button class="btn btn-success" ng-click="Savecategory(food_table_name,food_table_seat)">บันทึก</button></td>
+			<td><button class="btn btn-success" ng-click="Savecategory(food_table_name,food_table_seat)"><?=$lang_save?></button></td>
 	</tr>
 
 	</tbody>
@@ -52,8 +52,8 @@
 		
 
 			<span ng-show="food_table_id==x.food_table_id">
-			<input type="text" placeholder="หมายเลขโต๊ะ" ng-model="x.food_table_name" class="form-control">
-			<input type="text" placeholder="จำนวนที่นั่ง" ng-model="x.food_table_seat" class="form-control">
+			<input type="text" placeholder="<?=$lang_tablename?>" ng-model="x.food_table_name" class="form-control">
+			<input type="text" placeholder="<?=$lang_seat?>" ng-model="x.food_table_seat" class="form-control">
 			
 			</span>
 <center>
@@ -61,7 +61,7 @@
 			<h1 style="font-weight: bold;">{{x.food_table_name}}</h1></span>
 
 			<span ng-show="food_table_id!=x.food_table_id">
-			<h4>{{x.food_table_seat}} ที่นั่ง</h4></span>
+			<h4>{{x.food_table_seat}} <?=$lang_numseat?></h4></span>
 
 </center>
 <br />
@@ -70,13 +70,13 @@
 				<button class="btn btn-xs btn-default" ng-click="Editinputcategory(x.food_table_id)">
 				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 				</button>
-				<button  ng-show="showdeletcbut" class="btn btn-xs btn-danger" ng-click="Deletecategory(x.food_table_id)">ลบ</button>
+				<button  ng-show="showdeletcbut" class="btn btn-xs btn-danger" ng-click="Deletecategory(x.food_table_id)"><?=$lang_delete?></button>
 			</span>
 
 			<span ng-show="food_table_id==x.food_table_id" style="float: right;">
 
-				<button class="btn btn-xs btn-success" ng-click="Editsavecategory(x)">บันทึก</button>
-				<button class="btn btn-xs btn-default" ng-click="Cancelcategory(x.food_table_id)">ยกเลิก</button>
+				<button class="btn btn-xs btn-success" ng-click="Editsavecategory(x)"><?=$lang_save?></button>
+				<button class="btn btn-xs btn-default" ng-click="Cancelcategory(x.food_table_id)"><?=$lang_cancel?></button>
 			</span>
 
 
@@ -118,13 +118,13 @@ $http.post("Food_table/Add",{
 	food_table_name: food_table_name,
 	food_table_seat: food_table_seat
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.get();
 $scope.food_table_name = '';
 $scope.food_table_seat = '';
         });	
 }else{
-toastr.warning('กรอกให้มูลให้ครบ');
+toastr.warning('<?=$lang_plz?>');
 }
 
 };
@@ -144,7 +144,7 @@ $http.post("Food_table/Update",{
 	food_table_name: x.food_table_name,
 	food_table_seat: x.food_table_seat
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.food_table_id = '';
 $scope.get();
 
@@ -156,7 +156,7 @@ $scope.Deletecategory = function(food_category_id){
 $http.post("Food_category/Delete",{
 	food_table_id: food_table_id
 	}).success(function(data){
-toastr.success('ลบเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.get();
         });	
 };

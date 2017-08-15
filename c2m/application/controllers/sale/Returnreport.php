@@ -35,7 +35,7 @@ class Returnreport extends MY_Controller {
 		
 
 $data['tab'] = 'returnreport';
-$data['title'] = 'รายงานการคืนสินค้า';
+$data['title'] = 'Return Report';
 		$this->salelayout('sale/returnreport',$data);
 }
 

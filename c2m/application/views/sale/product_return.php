@@ -5,21 +5,21 @@
 
 <form class="form-inline" style="float: left;">
 <div class="form-group">				
-<input type="text" id="customer_name" ng-model="customer_name" class="form-control" placeholder="ชื่อผู้คืนสินค้า" style="height: 45px;width: 250px;font-size: 20px;background-color: #fff;" readonly="">
+<input type="text" id="customer_name" ng-model="customer_name" class="form-control" placeholder="<?=$lang_cusreturn?>" style="height: 45px;width: 250px;font-size: 20px;background-color: #fff;" readonly="">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="Opencustomer()" class="btn btn-success btn-lg" placeholder="" title="ค้นหาลูกค้า"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="Opencustomer()" class="btn btn-success btn-lg" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 
 <div class="form-group">				
-<input type="text" id="sale_runno_ref" ng-model="sale_runno_ref" class="form-control" placeholder="Run no อ้างอิง" style="height: 45px;width: 250px;font-size: 20px;background-color: #fff;">
+<input type="text" id="sale_runno_ref" ng-model="sale_runno_ref" class="form-control" placeholder="<?=$lang_runnoref?>" style="height: 45px;width: 250px;font-size: 20px;background-color: #fff;">
 </div>
 
 <!-- <div class="form-group">
 <input type="text" id="cus_address_all" ng-model="cus_address_all" class="form-control" placeholder="ที่อยู่" style="height: 45px;font-size: 16px;width: 600px;">
 </div> -->
 <div class="form-group">
-<button ng-click="Refresh()" class="btn btn-default btn-lg" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button ng-click="Refresh()" class="btn btn-default btn-lg" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 </form>
 
@@ -28,13 +28,13 @@
 	
 			<form class="form-inline" style="float: right;">
 			<div class="form-group" ng-show="cannotfindproduct" style="color: red;">
-					ไม่พบสินค้า
+					<?=$lang_cannotfoundproduct?>
 				</div>
 <div class="form-group">
-				<input type="text" class="form-control" ng-model="product_code" style="font-size: 20px;text-align: right;height: 47px;width: 300px;background-color:#dff0d8;" placeholder="รหัสสินค้า หรือ Scan Barcode">
+				<input type="text" class="form-control" ng-model="product_code" style="font-size: 20px;text-align: right;height: 47px;width: 300px;background-color:#dff0d8;" placeholder="<?=$lang_barcode?>">
 				</div>
 				<div class="form-group">
-				<button type="submit" ng-click="Addpushproductcode(product_code)" class="btn btn-default btn-lg">Enter</button>
+				<button type="submit" ng-click="Addpushproductcode(product_code)" class="btn btn-default btn-lg"><?=$lang_enter?></button>
 				</div>
 				
 				</form>
@@ -51,16 +51,16 @@
 <table class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-			<th style="width: 50px;">ลำดับ</th>
+			<th style="width: 50px;"><?=$lang_rank?></th>
 			
-			<th style="text-align: center;width: 250px;">ชื่อสินค้า</th>
-			<th style="text-align: center;width: 100px;">รหัสสินค้า</th>
-			<th style="text-align: center;width: 150px;">ราคาขาย/บาท</th>
-			<th style="text-align: center;width: 80px;">จำนวน</th>
+			<th style="text-align: center;width: 250px;"><?=$lang_productname?></th>
+			<th style="text-align: center;width: 100px;"><?=$lang_barcode?></th>
+			<th style="text-align: center;width: 150px;"><?=$lang_saleprice?></th>
+			<th style="text-align: center;width: 80px;"><?=$lang_qty?></th>
 
-			<th style="text-align: center;width: 150px;">ส่วนลด/บาท</th>
-			<th style="text-align: center;width: 80px;">ราคารวมคืน/บาท</th>
-			<th style="width: 50px;">ลบ</th>
+			<th style="text-align: center;width: 150px;"><?=$lang_discount?></th>
+			<th style="text-align: center;width: 80px;"><?=$lang_priceallreturn?></th>
+			<th style="width: 50px;"><?=$lang_delete?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -80,7 +80,7 @@
 
 			<td align="right" style="width: 150px;">{{x.product_price | number:2}}</td>
 			
-			<td align="right" style="width: 80px;"><input type="" placeholder="จำนวน" class="form-control" ng-model="x.product_sale_num" style="text-align: right;width: 80px;"></td>
+			<td align="right" style="width: 80px;"><input type="" placeholder="<?=$lang_qty?>" class="form-control" ng-model="x.product_sale_num" style="text-align: right;width: 80px;"></td>
 			<td align="right" style="width: 80px;">{{x.product_price_discount | number:2}}</td>
 			<td style="width: 50px;" align="right">{{(x.product_price - x.product_price_discount) * x.product_sale_num | number:2 }}</td>
 			<td><button class="btn btn-danger" ng-click="Deletepush($index)">ลบ</button></td>
@@ -91,7 +91,7 @@
 
 
 		<tr style="font-size: 20px;">
-		<td colspan="4" align="right">รวมทั้งสิ้น</td>
+		<td colspan="4" align="right"><?=$lang_all?></td>
 		
 		<td align="right" style="font-weight: bold;">{{Sumsalenum() | number }}</td>
 
@@ -104,14 +104,14 @@
 <tr style="font-size: 20px;" ng-hide='true'>
 		<td colspan="8" align="right">
 <input type="checkbox" ng-model="addvat" ng-change="Addvatcontrol()">
-		เพิ่ม vat</td>
+		<?=$lang_addvat?></td>
 			
 		</tr>
 
 
 		<tr style="font-size: 20px;" ng-show="addvat">
 		<td colspan="6" align="right">
-		vat
+		<?=$lang_vat?>
 		 <input type="number" ng-model="vatnumber" style="width: 50px;text-align: right;"> 
 		 %</td>
 			<td align="right" style="font-weight: bold;">
@@ -121,7 +121,7 @@
 		</tr>
 
 		<tr style="font-size: 20px;" ng-show="addvat">
-		<td colspan="6" align="right">ราคารวม VAT</td>
+		<td colspan="6" align="right"><?=$lang_pricesumvat?></td>
 			<td align="right" style="font-weight: bold;">
 			{{Sumsaleprice() + (Sumsaleprice() * vatnumber/100) | number:2 }}</td>
 <td></td>
@@ -144,10 +144,10 @@
 		<td   width="70%" align="right" style="color: red;font-size: 30px;font-weight: bold;">{{Sumsaleprice() + (Sumsaleprice() * vatnumber/100) | number:2 }}</td>
 			<td>
 <form>
-			<input type="text" class="form-control" ng-model="money_from_customer" placeholder="คืนเงิน" style="font-size: 30px;text-align: right;height: 47px;background-color:#dff0d8;">
+			<input type="text" class="form-control" ng-model="money_from_customer" placeholder="<?=$lang_returnprice?>" style="font-size: 30px;text-align: right;height: 47px;background-color:#dff0d8;">
 		</td>
 		
-		<td align="right" width="10%"><button type="submit" class="btn btn-success btn-lg" id="savesale" ng-click="Savesale(money_from_customer,Sumsalepricevat() )">คืนเงิน(Enter)</button>
+		<td align="right" width="10%"><button type="submit" class="btn btn-success btn-lg" id="savesale" ng-click="Savesale(money_from_customer,Sumsalepricevat() )"><?=$lang_returnpriceenter?></button>
 
 </form>
 
@@ -179,22 +179,22 @@
 			<td align="left">
 			<form class="form-inline">
 <div class="form-group">
-				<input type="text" class="form-control" ng-model="product_code" style="font-size: 20px;text-align: right;height: 47px;width: 300px;background-color:#dff0d8;" placeholder="รหัสสินค้า หรือ Scan Barcode">
+				<input type="text" class="form-control" ng-model="product_code" style="font-size: 20px;text-align: right;height: 47px;width: 300px;background-color:#dff0d8;" placeholder="<?=$lang_barcode?>">
 				</div>
 				<div class="form-group">
-				<button type="submit" ng-click="Addpushproductcode(product_code)" class="btn btn-default btn-lg">Enter</button>
+				<button type="submit" ng-click="Addpushproductcode(product_code)" class="btn btn-default btn-lg"><?=$lang_enter?></button>
 				</div>
 				<div class="form-group" ng-show="cannotfindproduct" style="color: red;">
-					ไม่พบสินค้า
+					<?=$lang_cannotfoundproduct?>
 				</div>
 				<div class="form-group">
-<button ng-click="Refresh()" class="btn btn-default btn-lg" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button ng-click="Refresh()" class="btn btn-default btn-lg" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 				</form>
 
 			</td>
 			<td style="font-size: 50px;font-weight: bold;">
-				<span style="color: red">{{Sumsalepricevat() | number:2 }}</span> บาท
+				<span style="color: red">{{Sumsalepricevat() | number:2 }}</span> <?=$lang_currency?>
 			</td>
 			<td align="right"  width="10%">
 			<button type="button" class="btn btn-default btn-lg" data-dismiss="modal">x</button>
@@ -211,16 +211,16 @@
 <table class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-			<th style="width: 50px;">ลำดับ</th>
+			<th style="width: 50px;"><?=$lang_rank?></th>
 			
-			<th style="text-align: center;width: 250px;">ชื่อสินค้า</th>
-			<th style="text-align: center;width: 100px;">รหัสสินค้า</th>
-			<th style="text-align: center;width: 150px;">ราคาขาย/บาท</th>
+			<th style="text-align: center;width: 250px;"><?=$lang_productname?></th>
+			<th style="text-align: center;width: 100px;"><?=$lang_barcode?></th>
+			<th style="text-align: center;width: 150px;"><?=$lang_saleprice?></th>
 			
 			
-			<th style="text-align: center;width: 80px;">จำนวน</th>
-			<th style="text-align: center;width: 80px;">ราคารวม/บาท</th>
-			<th style="width: 50px;">ลบ</th>
+			<th style="text-align: center;width: 80px;"><?=$lang_qty?></th>
+			<th style="text-align: center;width: 80px;"><?=$lang_priceall?></th>
+			<th style="width: 50px;"><?=$lang_delete?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -240,16 +240,17 @@
 
 			<td align="right" style="width: 150px;">{{x.product_price | number:2}}</td>
 			
-			<td align="right" style="width: 80px;"><input type="" placeholder="จำนวน" class="form-control" ng-model="x.product_sale_num" style="text-align: right;width: 80px;"></td>
+			<td align="right" style="width: 80px;"><input type="" placeholder="<?=$lang_qty?>" class="form-control" ng-model="x.product_sale_num" style="text-align: right;width: 80px;"></td>
 			
 			<td style="width: 50px;" align="right">{{(x.product_price - x.product_price_discount) * x.product_sale_num | number:2 }}</td>
 
-			<td><button class="btn btn-danger" ng-click="Deletepush($index)">ลบ</button></td>
+			<td><button class="btn btn-danger" ng-click="Deletepush($index)">
+			<?=$lang_delete?></button></td>
 		</tr>
 
 		
 		<tr style="font-size: 20px;">
-		<td colspan="5" align="right">รวมทั้งสิ้น</td>
+		<td colspan="5" align="right"><?=$lang_all?></td>
 		
 			<td align="right" style="font-weight: bold;">{{Sumsalenum() | number }}</td>
 			<td align="right" style="font-weight: bold;">{{Sumsaleprice() | number:2 }}</td>
@@ -259,14 +260,14 @@
 		<tr style="font-size: 20px;">
 		<td colspan="8" align="right">
 <input type="checkbox" ng-model="addvat" ng-change="Addvatcontrol()">
-		เพิ่ม vat</td>
+		<?=$lang_addvat?></td>
 			
 		</tr>
 
 
 		<tr style="font-size: 20px;" ng-show="addvat">
 		<td colspan="6" align="right">
-		vat
+		<?=$lang_vat?>
 		 <input type="number" ng-model="vatnumber" style="width: 50px;text-align: right;"> 
 		 %</td>
 			<td align="right" style="font-weight: bold;">
@@ -292,10 +293,10 @@
 <table  class="table table-hover" width="100%">
 	<tbody>
 	<tr style="font-size: 20px;">
-		<td align="right">รวมทั้งสิ้น</td>
+		<td align="right"><?=$lang_all?></td>
 		
-			<td align="right" style="font-weight: bold;">จำนวน {{Sumsalenum() | number }}</td>
-			<td align="right" style="font-weight: bold;">รวมเงิน <span style="color: red">{{Sumsalepricevat() | number:2 }}</span> บาท</td>
+			<td align="right" style="font-weight: bold;"><?=$lang_qty?> {{Sumsalenum() | number }}</td>
+			<td align="right" style="font-weight: bold;"><?=$lang_all?> <span style="color: red">{{Sumsalepricevat() | number:2 }}</span> <?=$lang_currency?></td>
 <td></td>
 		</tr>
 		</tbody>
@@ -306,16 +307,16 @@
 	
 
 		<tr  style="font-size: 20px;">
-		<td   width="25%" align="right">รับเงิน:</td>
+		<td   width="25%" align="right"><?=$lang_getmoney?>:</td>
 			<td>
 			<form>
-			<input type="text" id="money_from_customer2" class="form-control" ng-model="money_from_customer" placeholder="เงินจากลูกค้า" style="font-size: 20px;text-align: right;height: 47px;background-color:#dff0d8;">
+			<input type="text" id="money_from_customer2" class="form-control" ng-model="money_from_customer" placeholder="<?=$lang_moneyfromcus?>" style="font-size: 20px;text-align: right;height: 47px;background-color:#dff0d8;">
 
 			
 
 		</td>
-		<td width="35%"> เงินทอน: <b>{{money_from_customer - Sumsalepricevat() | number:2}} บาท</b></td>
-		<td align="right" width="10%"><button type="submit" class="btn btn-success btn-lg" id="savesale2" ng-click="Savesale(money_from_customer,Sumsalepricevat())">รับเงิน(Enter)</button></td>
+		<td width="35%"> <?=$lang_moneychange?>: <b>{{money_from_customer - Sumsalepricevat() | number:2}} <?=$lang_currency?></b></td>
+		<td align="right" width="10%"><button type="submit" class="btn btn-success btn-lg" id="savesale2" ng-click="Savesale(money_from_customer,Sumsalepricevat())"><?=$lang_getmoneyenter?></button></td>
 </form>
 		
 		</tr>
@@ -340,17 +341,17 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				
-				<h4 class="modal-title">คืนสินค้าเรียบร้อย</h4>
+				<h4 class="modal-title"><?=$lang_returnsuccess?></h4>
 			</div>
 			<div class="modal-body text-center">
 		
 <br />
-<button type="button" class="btn btn-default btn-lg" ng-click="clickokafterpay()">OK</button>
+<button type="button" class="btn btn-default btn-lg" ng-click="clickokafterpay()"><?=$lang_ok?></button>
 
 <hr />
-<button class="btn btn-default" ng-click="printDivmini()">ใบเสร็จอย่างย่อ</button>
+<button class="btn btn-default" ng-click="printDivmini()"><?=$lang_billmini?></button>
 
-<button class="btn btn-default" ng-click="printDivfull()">ใบเสร็จฉบับเต็ม</button>
+<button class="btn btn-default" ng-click="printDivfull()"><?=$lang_billfull?></button>
 			</div>
 		
 		</div>
@@ -381,22 +382,22 @@
 	<div class="panel-body">
 	
 
-รายการคืนสินค้า
+<?=$lang_returnlist?>
 
 
 <div style="float: right;">
-	<input type="checkbox" ng-model="showdeletcbut"> แสดงปุ่มลบ
+	<input type="checkbox" ng-model="showdeletcbut"> <?=$lang_showdel?>
 </div>
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="ค้นหาจากชื่อลูกค้า, Run No">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="<?=$lang_search?>">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 
 </form>
@@ -408,27 +409,27 @@
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-			<th>ลำดับ</th>
+			<th><?=$lang_rank?></th>
 			<th>Return RunNo.</th>
-			<th>Run No. อ้างอิง</th>
-			<th>ชื่อลูกค้า</th>
+			<th><?=$lang_runnoref?></th>
+			<th><?=$lang_cusname?></th>
 			
 			
 			
-			<th>จำนวนสินค้า</th>
-			<th>รวมคืนเงิน/บาท</th>
+			<th><?=$lang_qty?></th>
+			<th><?=$lang_all?></th>
 			
 			
 			
 			
-			<th>วันที่</th>
-			<th  ng-show="showdeletcbut" style="width: 50px;">ลบ</th>
+			<th><?=$lang_all?></th>
+			<th  ng-show="showdeletcbut" style="width: 50px;"><?=$lang_delete?></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="x in list">
-			<td ng-show="selectpage=='1'" class="text-center">{{($index+1)}}</td>
-			<td ng-show="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</td>
+			<td ng-if="selectpage=='1'" class="text-center">{{($index+1)}}</td>
+			<td ng-if="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</td>
 			<td><button class="btn btn-default btn-sm" ng-click="Getone(x)">{{x.return_runno}}</button></td>
 			<td>{{x.sale_runno}}</td>
 			<td>{{x.cus_name}}</td>
@@ -447,7 +448,7 @@
 
 <form class="form-inline">
 <div class="form-group">
-แสดง
+<?=$lang_show?>
 <select class="form-control" name="" id="" ng-model="perpage" ng-change="getlist(searchtext,'1',perpage)">
 	<option value="10">10</option>
 	<option value="20">20</option>
@@ -458,7 +459,7 @@
 	<option value="300">300</option>
 </select>
 
-หน้า
+<?=$lang_page?>
 <select name="" id="" class="form-control" ng-model="selectthispage"  ng-change="getlist(searchtext,selectthispage,perpage)">
 	<option  ng-repeat="i in pagealladd" value="{{i.a}}">{{i.a}}</option>
 </select>
@@ -468,7 +469,8 @@
 </form>
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+<?=$lang_downloadexcel?> </button>
 
 
 
@@ -478,31 +480,31 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">ค้นหารายชื่อลูกค้า</h4>
+				<h4 class="modal-title"><?=$lang_searchcus?></h4>
 			</div>
 			<div class="modal-body">
 				
 <form class="form-inline">
 <div class="form-group">				
-<input type="text" ng-model="customer_name" class="form-control" placeholder="ชื่อลูกค้า" style="height: 45px;width: 400px;font-size: 20px;">
+<input type="text" ng-model="customer_name" class="form-control" placeholder="<?=$lang_cusname?>" style="height: 45px;width: 400px;font-size: 20px;">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="Searchcustomer()" class="btn btn-success btn-lg" placeholder="" title="ค้นหาลูกค้า"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="Searchcustomer()" class="btn btn-success btn-lg" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 <div class="form-group">
-<a href="<?php echo $base_url; ?>/mycustomer" class="btn btn-default btn-lg" placeholder="" title="เพิ่มลูกค้า" target="_blank">เพิ่มลูกค้า</a>
+<a href="<?php echo $base_url; ?>/mycustomer" class="btn btn-default btn-lg" placeholder="" title="<?=$lang_addcus?>" target="_blank"><?=$lang_addcus?></a>
 </div>
 </form>
 <br />
 <table class="table table-hover">
 	<thead>
 		<tr class="trheader">
-			<th>เลือก</th><th>ชื่อลูกค้า</th><th>ที่อยู่</th>
+			<th><?=$lang_select?></th><th><?=$lang_cusname?></th><th><?=$lang_address?></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="x in customerlist">
-			<td><button class="btn btn-success" ng-click="Selectcustomer(x)">เลือก</button></td>
+			<td><button class="btn btn-success" ng-click="Selectcustomer(x)"><?=$lang_select?></button></td>
 			<td>{{x.cus_name}}</td>
 			<td>{{x.cus_tel}} {{x.cus_address}}  {{x.district_name}} {{x.amphur_name}} {{x.province_name}} {{x.cus_address_postcode}} </td>
 		</tr>
@@ -567,23 +569,23 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">รายการคืนสินค้า</h4>
+				<h4 class="modal-title"><?=$lang_returnlist?></h4>
 				
 			</div>
 			<div class="modal-body" id="section-to-print">
 		<b>	<?php echo $_SESSION['owner_name']; ?> </b>
 			<br />
-	Return Runno:{{return_runno}} , ชื่อลูกค้า: {{cus_name}}	, ที่อยู่: {{cus_address_all}}		
+	Return Runno:{{return_runno}} , <?=$lang_cusname?>: {{cus_name}}	, <?=$lang_address?>: {{cus_address_all}}		
 <table class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-			<th style="width:10px;">ลำดับ</th>
-			<th style="width:300px;">ชื่อสินค้า</th>
-			<th style="width:100px;">รหัสสินค้า</th>
-			<th style="width:100px;">ราคาขาย/บาท</th>
+			<th style="width:10px;"><?=$lang_rank?></th>
+			<th style="width:300px;"><?=$lang_productname?></th>
+			<th style="width:100px;"><?=$lang_barcode?></th>
+			<th style="width:100px;"><?=$lang_saleprice?></th>
 			
-			<th style="width:100px;">จำนวน</th>
-			<th style="width:100px;">ราคารวมคืน/บาท</th>
+			<th style="width:100px;"><?=$lang_qty?></th>
+			<th style="width:100px;"><?=$lang_priceallreturn?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -597,7 +599,8 @@
 			<td align="right" style="width:50px;">{{(x.product_price - x.product_price_discount) * x.product_sale_num | number:2}}</td>
 		</tr>
 		<tr>
-			<td colspan="4"  align="right" style="font-weight: bold;">รวม</td>
+			<td colspan="4"  align="right" style="font-weight: bold;">
+			<?=$lang_all?></td>
 			
 			<td align="right" style="font-weight: bold;">{{sumsale_num | number}}</td>
 			<td align="right" style="font-weight: bold;"><u>{{sumsale_price | number:2}}</u></td>
@@ -616,7 +619,7 @@
 		</tr>
 
 
-		<tr><td align="right" colspan="5">รวมคืนเงิน</td>
+		<tr><td align="right" colspan="5"><?=$lang_all?></td>
 		<td  style="font-weight: bold;" align="right">{{money_from_customer3 | number:2}}</td>
 	</tbody>
 </table>
@@ -626,7 +629,7 @@
 
 			</div>
 			<div class="modal-footer">
-			<button class="btn btn-primary" ng-click="printDiv()">ปริ้น</button>
+			<button class="btn btn-primary" ng-click="printDiv()"><?=$lang_print?></button>
 			<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
 				
 			</div>
@@ -642,7 +645,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">ใบเสร็จคืนงิน</h4>
+				<h4 class="modal-title"><?=$lang_billmini?></h4>
 				
 			</div>
 			<div class="modal-body">
@@ -650,10 +653,10 @@
 		<center>
 		<b>	<?php echo $_SESSION['owner_name']; ?> </b>
 		<br />
-		TAX:<?php echo $_SESSION['owner_tax_number']; ?> 
+		<?=$lang_tax?>:<?php echo $_SESSION['owner_tax_number']; ?> 
 		(VAT <span ng-if="vat3 == '0'">Included</span><span ng-if="vat3 > '0'">{{vat3}} %</span>)
 			<br />	<br />	
-ใบเสร็จคืนเงิน/ใบกำกับภาษีอย่างย่อ</center>
+<?=$lang_billmini?></center>
 			<br />	
 			
 <table width="100%">
@@ -672,14 +675,14 @@
 		</tr>
 
 <tr ng-if="vat3 > '0'">
-<td>vat {{vat3}} %</td>
+<td><?=$lang_vat?> {{vat3}} %</td>
 		<td  style="font-weight: bold;" align="right">
 		{{sumsale_price*(vat3/100) | number:2}}</td>
 		</tr>
 
 
 		<tr  ng-if="vat3 > '0'">
-		<td>ราคารวม vat</td>
+		<td><?=$lang_pricesumvat?></td>
 		<td  style="font-weight: bold;" align="right">
 		{{sumsalevat | number:2}}</td>
 		</tr>
@@ -687,7 +690,7 @@
 
 		<tr>
 		
-		<td>คืนเงิน</td>
+		<td><?=$lang_returnprice?></td>
 		<td align="right">{{money_from_customer3 | number:2}}</td></tr>
 		
 
@@ -701,7 +704,7 @@
 
 			</div>
 			<div class="modal-footer">
-			<button class="btn btn-primary" ng-click="printDiv()">ปริ้น</button>
+			<button class="btn btn-primary" ng-click="printDiv()"><?=$lang_print?></button>
 			<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
 				
 			</div>
@@ -839,7 +842,7 @@ $http.get('Product_return/Getproductlist')
 $scope.Addpushproduct = function(){
 $scope.listsale.push({
 	product_id: '0',
-	product_name: 'เลือกสินค้า',
+	product_name: '<?=$lang_selectproduct?>',
 	product_price: '0',
 	product_score: '0',
 	product_sale_num: '1',
@@ -950,14 +953,14 @@ total2 = total+(total*($scope.vatnumber/100));
 
 $scope.Savesale = function(changemoney,sumsalepricevat){
 	if($scope.listsale == '' || $scope.listsale[0].product_id=='0' ){
-		toastr.warning('กรุณาเพิ่มรายการสินค้า');
+		toastr.warning('<?=$lang_addproductlistplz?>');
 	}else if($scope.money_from_customer ==''){
-toastr.warning('กรุณาคืนเงินให้ลูกค้า');
+toastr.warning('<?=$lang_returnmoneyplz?>');
 	
 }else if(isNaN($scope.money_from_customer) == true ){
-toastr.warning('กรุณาคืนเงินเป็นตัวเลข');
+toastr.warning('<?=$lang_returnmoneynumberplz?>');
 }else if($scope.money_from_customer-$scope.Sumsalepricevat() >= 1000  ){
-toastr.warning('คืนเงินให้ลูกค้า งินทอนไม่ควรเกิน 1000 บาท');
+toastr.warning('<?=$lang_returnmoneychangenotmore1000?>');
 }
 else{
 $('#savesale').prop('disabled',true);
@@ -978,7 +981,7 @@ $http.post("Product_return/Savesale",{
 	money_from_customer: $scope.money_from_customer,
 	money_changeto_customer: $scope.money_from_customer - $scope.Sumsalepricevat() ,
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 
 $scope.Refresh();
 $scope.getlist();

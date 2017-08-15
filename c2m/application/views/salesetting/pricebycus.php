@@ -10,7 +10,8 @@
 	<div class="panel-body">
 		
 
-<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> ตั้งค่าราคาขายสินค้าพิเศษ ({{allmycustomer | number:0}} คน) </font>
+<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> 
+<?=$lang_settingspacial?>  ({{allmycustomer | number:0}} <?=$lang_person?>) </font>
 
 <hr />
 
@@ -20,23 +21,23 @@
 <form class="form-inline">
 <div class="form-group">
 <select class="form-control" ng-model="searchtype">
-<option value="0">รหัสสมาชิก</option>
-	<option value="1">ชื่อ-นามสกุล</option>
-	<option value="2">เบอร์โทร</option>
-	<option value="3">อีเมล์</option>
-	<option value="4">วันเกิด</option>
+<option value="0"><?=$lang_memberid?></option>
+	<option value="1"><?=$lang_cusname?></option>
+	<option value="2"><?=$lang_tel?></option>
+	<option value="3"><?=$lang_email?></option>
+	<option value="4"><?=$lang_birthday?></option>
 </select>
 </div>
 <div class="form-group">
-<input ng-show="searchtype != '4'" type="text" name="search" ng-model="searchtext" class="form-control" placeholder="พิมพ์คำค้นหา">
-<input ng-show="searchtype == '4'" type="text" name="search" ng-model="searchtext" class="form-control"  placeholder="วัน-เดือน 03-01">
+<input ng-show="searchtype != '4'" type="text" name="search" ng-model="searchtext" class="form-control" placeholder="<?=$lang_searchkeyword?>">
+<input ng-show="searchtype == '4'" type="text" name="search" ng-model="searchtext" class="form-control"  placeholder="<?=$lang_daymonth?> 03-01">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="Searchsubmit()" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="Searchsubmit()" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 
 <div class="form-group">
-<button type="submit" ng-click="Refreshsubmit(searchtype,searchtext,'1')" class="btn btn-default" placeholder="" title="รีเฟรสข้อมูล"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button type="submit" ng-click="Refreshsubmit(searchtype,searchtext,'1')" class="btn btn-default" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 
 </form>
@@ -47,16 +48,17 @@
 	<thead>
 		<tr style="background-color: #eee">
 			
-			<th width="5px" class="visible-sm visible-md visible-lg">ลำดับ</th>
-			<th style="text-align: center;">รหัสสมาชิก</th>
+			<th width="5px" class="visible-sm visible-md visible-lg">
+			<?=$lang_rank?></th>
+			<th style="text-align: center;"><?=$lang_memberid?></th>
 
-			<th style="text-align: center;">ชื่อ</th>
+			<th style="text-align: center;"><?=$lang_cusname?></th>
 			
-			<th style="text-align: center;">เบอร์โทร</th>
-			<th class="visible-sm visible-md visible-lg" style="text-align: center;">อีเมล์</th>
+			<th style="text-align: center;"><?=$lang_tel?></th>
+			<th class="visible-sm visible-md visible-lg" style="text-align: center;"><?=$lang_email?></th>
 			
 			
-			<th style="text-align: center;">ตั้งค่าสินค้า</th>
+			<th style="text-align: center;"><?=$lang_settingpriceproduct?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -92,7 +94,7 @@
 
 <form class="form-inline">
 <div class="form-group">
-แสดง
+<?=$lang_show?>
 <select class="form-control" name="" id="" ng-model="perpage" ng-change="getmycustomer(searchtype,searchtext,'',perpage)">
 	<option value="10">10</option>
 	<option value="20">20</option>
@@ -103,7 +105,7 @@
 	<option value="300">300</option>
 </select>
 
-หน้า
+<?=$lang_page?>
 <select name="" id="" class="form-control" ng-model="selectthispage"  ng-change="getmycustomer(searchtype,searchtext,selectthispage,perpage)">
 	<option  ng-repeat="i in pagealladd" value="{{i.a}}">{{i.a}}</option>
 </select>
@@ -128,23 +130,23 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">ตั้งค่าราคาขายสินค้าให้กับ: <b> {{cus_name}}  </b>( {{ cus_add_time}} )</h4>
+				<h4 class="modal-title">ตั้งค่าราคาขายสินค้าให้กับ <?=$lang_settingpriceforcus?> : <b> {{cus_name}}  </b>( {{ cus_add_time}} )</h4>
 			</div>
 			<div class="modal-body">
 
-<input type="text" ng-model="searchproduct" class="form-control" style="width: 200px;" placeholder="ค้นหาสินค้า..."> 
+<input type="text" ng-model="searchproduct" class="form-control" style="width: 200px;" placeholder="<?=$lang_search?>"> 
 <br />
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr style="background-color: #eee;">
-			<th style="text-align: center;">รหัสสินค้า</th>
-			<th style="text-align: center;">ชื่อสินค้า</th>
-			<th style="text-align: center;">ราคาขายปกติ</th>
-			<th style="text-align: center;">ราคาขายพิเศษสำหรับลูกค้า</th>
-			<th style="text-align: center;">แก้ไขราคาขายพิเศษ</th>
-			<th style="text-align: center;">ใช้ราคาขายปกติ</th>
+			<th style="text-align: center;"><?=$lang_barcode?></th>
+			<th style="text-align: center;"><?=$lang_productname?></th>
+			<th style="text-align: center;"> <?=$lang_pricedefault?></th>
+			<th style="text-align: center;"><?=$lang_pricespacialforcus?></th>
+			<th style="text-align: center;"> <?=$lang_editpricespacial?></th>
+			<th style="text-align: center;"> <?=$lang_usepricedefault?></th>
 		</tr>
-	</thead>
+	</thead> 
 	<tbody>
 		<tr ng-repeat="x in productlist | filter:searchproduct">
 			<td>{{x.product_code}}</td>
@@ -158,7 +160,7 @@
 
 			
 
-<input ng-model="product_price_cus" ng-show="editshow && x.product_id==product_id" class="form-control" type="text"  placeholder="ราคาสินค้าพิเศษ 0.00" style="text-align: right;">
+<input ng-model="product_price_cus" ng-show="editshow && x.product_id==product_id" class="form-control" type="text"  placeholder=" <?=$lang_pricespacial?> 0.00" style="text-align: right;">
 			</td>
 			<td align="center">
 
@@ -168,10 +170,10 @@
 
 
 <button ng-show="editshow && x.product_id==product_id" class="btn btn-default btn-xs" ng-click="Cancelprice()">
-		ยกเลิก</span>
+		<?=$lang_cancel?></span>
 			</button>
 			<button ng-show="editshow && x.product_id==product_id" class="btn btn-success btn-xs" ng-click="Saveprice(product_price_cus)">
-		บันทึก
+		<?=$lang_save?>
 			</button>
 
 
@@ -192,12 +194,14 @@
 
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?>
+ </button>
 	
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal"><?=$lang_close?></button>
 			</div>
 		</div>
 
@@ -396,7 +400,7 @@ $http.post("pricebycus/saveprice",{
 	
 	}).success(function(data){
 
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.product_id = '';
 $scope.product_code = '';
 $scope.product_price_cus = '';
@@ -425,7 +429,7 @@ $scope.productcuslist = data;
 
         });	
 }else{
-	toastr.warning('กรุณากรอกราคา');
+	toastr.warning('<?=$lang_plz?>');
 }
 	
 	

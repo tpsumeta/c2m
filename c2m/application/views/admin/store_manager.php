@@ -6,20 +6,20 @@
 	<div class="panel-body">
 
 
-<button class="btn btn-primary" ng-click="Openmodal()">เพิ่มผู้จัดการ +</button>
+<button class="btn btn-primary" ng-click="Openmodal()"><?=$lang_addmanager?> +</button>
 <hr />
-<input type="text" ng-model="search" name="" placeholder="ค้นหา" class="form-control" style="width: 200px;">
+<input type="text" ng-model="search" name="" placeholder="<?=$lang_search?>" class="form-control" style="width: 200px;">
 <br />
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead  style="background-color: #eee;">
 		<tr>
-		<th style="width: 10px;text-align: center;">ลำดับ</th>
-			<th style="text-align: center;">ชื่อผู้จัดการ</th>
-			<th style="text-align: center;">เบอร์โทร</th>
-			<th style="text-align: center;">ชื่อร้าน/บริษัท</th>
-			<th style="text-align: center;">Email</th>
-			<th style="text-align: center;">ใช้ระบบ</th>
-			<th style="width: 10px;text-align: center;">แก้ไข</th>
+		<th style="width: 10px;text-align: center;"><?=$lang_rank?></th>
+			<th style="text-align: center;"><?=$lang_managername?></th>
+			<th style="text-align: center;"><?=$lang_tel?></th>
+			<th style="text-align: center;"><?=$lang_storename?></th>
+			<th style="text-align: center;"><?=$lang_email?></th>
+			<th style="text-align: center;"><?=$lang_usesystem?></th>
+			<th style="width: 10px;text-align: center;"><?=$lang_edit?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -31,9 +31,12 @@
 			<td>{{x.store_email}}</td>
 
 			<td>
-<span ng-if="x.store_type == '0'" style="color: orange;">POS ขายหน้าร้าน</span>
-<span ng-if="x.store_type == '1'" style="color: green;">Food ร้านอาหาร</span>
-<span ng-if="x.store_type == '2'" style="color: red;">Apartment เช่าที่พัก</span>
+<span ng-if="x.store_type == '0'" style="color: orange;">
+<?=$lang_possystem?></span>
+<span ng-if="x.store_type == '1'" style="color: green;">
+<?=$lang_foodsystem?></span>
+<span ng-if="x.store_type == '2'" style="color: red;">
+<?=$lang_apartmentsystem?></span>
 </td>
 			<td>
 				<button class="btn btn-warning btn-xs" ng-click="Openmodaledit(x)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
@@ -44,7 +47,8 @@
 </table>
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?> </button>
 
 
 
@@ -59,7 +63,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">เพิ่ม ผู้จัดการ</h4>
+				<h4 class="modal-title"><?=$lang_addmanager?></h4>
 			</div>
 			<div class="modal-body">
 				
@@ -71,17 +75,17 @@
 
 <fieldset>
                     <div class="form-group">
-			    		    <input class="form-control" placeholder="ชื่อ ผู้จัดการ" ng-model="store_name" type="text" style="height: 50px;font-size: 20px;">
+			    		    <input class="form-control" placeholder="<?=$lang_managername?>" ng-model="store_name" type="text" style="height: 50px;font-size: 20px;">
 			    		</div>
 
 
 <div class="form-group">
-			    		    <input class="form-control" placeholder="เบอร์โทร" ng-model="store_tel" type="text" style="height: 50px;font-size: 20px;">
+	<input class="form-control" placeholder="<?=$lang_tel?>" ng-model="store_tel" type="text" style="height: 50px;font-size: 20px;">
 			    		</div>
 
 
 <div class="form-group">
-			    		    <input class="form-control" placeholder="ชื่อร้าน/บริษัท" ng-model="store_storename" type="text" style="height: 50px;font-size: 20px;">
+			    		    <input class="form-control" placeholder="<?=$lang_storename?>" ng-model="store_storename" type="text" style="height: 50px;font-size: 20px;">
 			    		</div>
 
 
@@ -92,9 +96,9 @@
 
 
 <select ng-model="store_type" ng-hide="foredit" class="form-control"  style="height: 50px;font-size: 20px;">
-		<option value="0">POS ขายหน้าร้าน </option>
-		<option value="1">Food ร้านอาหาร </option>
-		<option value="2">Apartment เช่าที่พัก </option>
+		<option value="0"><?=$lang_possystem?> </option>
+		<option value="1"><?=$lang_foodsystem?> </option>
+		<option value="2"><?=$lang_apartmentsystem?> </option>
 	</select>
 </div>
 
@@ -102,9 +106,12 @@
 
 <center>
 <h2>
-<span ng-if="store_type == '0'" style="color: orange;">POS ขายหน้าร้าน</span>
-<span ng-if="store_type == '1'" style="color: green;">Food ร้านอาหาร</span>
-<span ng-if="store_type == '2'" style="color: green;">Apartment เช่าที่พัก</span>
+<span ng-if="store_type == '0'" style="color: orange;">
+<?=$lang_possystem?></span>
+<span ng-if="store_type == '1'" style="color: green;">
+<?=$lang_foodsystem?></span>
+<span ng-if="store_type == '2'" style="color: green;">
+<?=$lang_apartmentsystem?></span>
 
 </h2>
 </center>
@@ -114,19 +121,19 @@
 
 
 <div class="form-group">
-			    		    <input ng-disabled="foredit" class="form-control" placeholder="email" ng-model="store_email" type="text" style="height: 50px;font-size: 20px;">
+			    		    <input ng-disabled="foredit" class="form-control" placeholder="<?=$lang_email?>" ng-model="store_email" type="text" style="height: 50px;font-size: 20px;">
 			    		</div>
 
 
 			    		<div class="form-group">
-			    		    <input class="form-control" placeholder="รหัสผ่าน" ng-model="store_password" type="text" style="height: 50px;font-size: 20px;">
+			    		    <input class="form-control" placeholder="<?=$lang_password?>" ng-model="store_password" type="text" style="height: 50px;font-size: 20px;">
 			    		</div>
 
 	
 
-			    		<input id="submit" class="btn btn-lg btn-success btn-block" type="submit" ng-click="Adduser()" value="เพิ่มผู้จัดการ" ng-hide="foredit">
+			    		<input id="submit" class="btn btn-lg btn-success btn-block" type="submit" ng-click="Adduser()" value="<?=$lang_addmanager?>" ng-hide="foredit">
 
-<input id="submit" class="btn btn-lg btn-success btn-block" type="submit" ng-click="Edituser()" value="ยืนยัน" ng-show="foredit">
+<input id="submit" class="btn btn-lg btn-success btn-block" type="submit" ng-click="Edituser()" value="<?=$lang_confirm?>" ng-show="foredit">
 
 			    	</fieldset>
 
@@ -223,9 +230,9 @@ store_password: $scope.store_password
 
 
 if(data=='dup'){
-	toastr.warning('ไม่สามารถใช email นี้ได้');
+	toastr.warning('<?=$lang_cannotusethisemail?>');
 }else{
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.get();
 $('#modalstore').modal('hide');
 $scope.foredit = false;
@@ -241,7 +248,7 @@ $scope.foredit = false;
 
 
 	}else{
-	toastr.warning('กรุณากรอกข้อมูลให้ครบทุกช่อง');
+	toastr.warning('<?=$lang_plz?>');
 }
 
 

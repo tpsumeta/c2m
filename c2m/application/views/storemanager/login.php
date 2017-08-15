@@ -7,32 +7,32 @@
     	<?php } ?>
 
     	<?php if(isset($_GET['login'])){ ?>
-    	<div><p class="text-center" style="color: red;border-style: dotted;border-width: 1px;">ไม่สามารถเข้าสู่ระบบได้! อีเมล์หรือรหัสผ่านไม่ถูกต้อง</p></div>
+    	<div><p class="text-center" style="color: red;border-style: dotted;border-width: 1px;"><?=$lang_cannotlogin?></p></div>
     	<?php } ?>
 
     	<?php if(isset($_GET['email'])){ ?>
-    	<div><p class="text-center" style="color: red;border-style: dotted;border-width: 1px;">กรุณากรอกอีเมล์และรหัสผ่าน!</p></div>
+    	<div><p class="text-center" style="color: red;border-style: dotted;border-width: 1px;"><?=$lang_loginemailplz?></p></div>
     	<?php } ?>
 
 		
 		<center>
-		<h1 style="background-color: #fff;color: orange;">C2M ผู้จัดการร้าน</h1></center>
+		<h1 style="background-color: #fff;color: orange;"><?=$lang_managelogin?></h1></center>
 		
     		<div class="panel panel-default">
 			  	<div class="panel-heading" style="background-color: #fff;">
-			    	<center><h1 class="panel-title">เข้าสู่ระบบ</h1></center>
+			    	<center><h1 class="panel-title"><?=$lang_pagelogin?></h1></center>
 			 	</div>
 			  	<div class="panel-body">
 			    	<form accept-charset="UTF-8" role="form" action="login_submit" method="post">
                     <fieldset>
 			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="อีเมล์" name="email" type="text" style="height: 50px;font-size: 20px;" required>
+			    		    <input class="form-control" placeholder="<?=$lang_loginemail?>" name="email" type="text" style="height: 50px;font-size: 20px;" required>
 			    		</div>
 			    		<div class="form-group">
-			    			<input class="form-control" placeholder="รหัสผ่าน" name="password" type="password" value="" style="height: 50px;font-size: 20px;" required>
+			    			<input class="form-control" placeholder="<?=$lang_loginpassword?>" name="password" type="password" value="" style="height: 50px;font-size: 20px;" required>
 			    		</div>
 			    		
-			    		<input id="submit"  class="btn btn-lg btn-warning btn-block" type="submit" value="เข้าสู่ระบบ" >
+			    		<input id="submit"  class="btn btn-lg btn-warning btn-block" type="submit" value="<?=$lang_pagelogin?>" >
 			    	</fieldset>
 			      	</form>
 

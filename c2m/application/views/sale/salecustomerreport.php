@@ -6,20 +6,20 @@
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" name="" placeholder="ค้นหา ชื่อลูกค้า" ng-model="searchcus" class="form-control">
+<input type="text" name="" placeholder="<?=$lang_search?>" ng-model="searchcus" class="form-control">
 </div>
 <div class="form-group">
-<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="จากวันที่"> -
+<input type="text" id="dayfrom" name="dayfrom" ng-model="dayfrom" class="form-control" placeholder="<?=$lang_fromday?>"> -
 </div>
 <div class="form-group">
-<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="ถึงวันที่">
+<input type="text" id="dayto" name="dayto" ng-model="dayto" class="form-control" placeholder="<?=$lang_today?>">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="reportdaylist()" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="reportdaylist()" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
-<div class="form-group">
+<!-- <div class="form-group">
 <button class="btn btn-info"  ng-click="DownloadExcel()" title="ดาวน์โหลด" ><span class="glyphicon glyphicon-save" aria-hidden="true"></button> 
-</div>
+</div> -->
 
 </form>
 
@@ -32,11 +32,11 @@
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-		<th style="width: 50px;text-align: center;">ลำดับ</th>
-		<th style="text-align: center;">ชื่อลูกค้า</th>
-			<th style="text-align: center;width: 150px;">รวมจำนวนที่ซื้อ</th>
-			<th style="text-align: center;width: 150px;">รวมยอดเงินที่ซื้อ</th>
-			<th style="text-align: center;width: 90px;">รายการซื้อ</th>
+		<th style="width: 50px;text-align: center;"><?=$lang_rank?></th>
+		<th style="text-align: center;"><?=$lang_cusname?></th>
+			<th style="text-align: center;width: 150px;"><?=$lang_salenumall?></th>
+			<th style="text-align: center;width: 150px;"><?=$lang_salepriceall?></th>
+			<th style="text-align: center;width: 90px;"><?=$lang_salelistall?></th>
 			
 		</tr>
 	</thead>
@@ -46,7 +46,7 @@
 		<td>{{x.cus_name}}</td>
 			<td align="right">{{x.salenum | number}}</td>
 			<td align="right">{{x.saleprice | number:2}}</td>
-		<td align="center"><button class="btn btn-info btn-xs"  ng-click="DownloadExcelcus(x.cus_id)" title="ดาวน์โหลด" ><span class="glyphicon glyphicon-save" aria-hidden="true"></button> </td>
+		<td align="center"><button class="btn btn-info btn-xs"  ng-click="DownloadExcelcus(x.cus_id)" title="<?=$lang_download?>" ><span class="glyphicon glyphicon-save" aria-hidden="true"></button> </td>
 			
 		</tr>
 
@@ -55,7 +55,9 @@
 </table>
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?>
+ </button>
 
 	</div>
 
@@ -173,7 +175,7 @@ Morris.Bar({
   data: datac,
   xkey: 'name',
   ykeys: ['count'],
-  labels: ['จำนวนเงินซื้อ'],
+  labels: ['<?=$lang_salepriceall?>'],
   barColors: function (row, series, type) {
     if (type === 'bar') {
      var letters = '0123456789ABCDEF';

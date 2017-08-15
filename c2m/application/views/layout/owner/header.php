@@ -74,7 +74,7 @@
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
 				<li>
-					<a href="<?php echo $base_url; ?>" style="color: #000;"> <b>หน้าแรก</b></a>
+					<a href="<?php echo $base_url; ?>" style="color: #000;"> <b><?=$lang_index?></b></a>
 				</li>
 			
 			</ul>
@@ -87,7 +87,7 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #000;"><?php echo $_SESSION['name'].'('.$_SESSION['owner_name'].')'; ?> <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 
-						<li> <a href="<?php echo $base_url; ?>/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> ออกจากระบบ</a></li>
+						<li> <a href="<?php echo $base_url; ?>/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <?=$lang_logout?></a></li>
 						
 					</ul>
 				</li>

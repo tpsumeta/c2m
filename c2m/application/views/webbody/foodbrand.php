@@ -7,10 +7,10 @@
 <center>
 <form class="form-inline">
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="ค้นหา..." style="min-width: 300px;height: 50px;font-size: 20px;">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="<?=$lang_search?>" style="min-width: 300px;height: 50px;font-size: 20px;">
 </div>
 <div class="form-group">
-<button ng-click="Searchmodal(searchtext)" class="btn btn-success" style="height: 50px;font-size: 20px;">ค้นหา</button>
+<button ng-click="Searchmodal(searchtext)" class="btn btn-success" style="height: 50px;font-size: 20px;"><?=$lang_search?></button>
 </div>
 </form>
 </center>
@@ -28,7 +28,7 @@ echo '
 <br />
 <a href="'.$base_url.'/foodbrand?id='.$_GET['id'].'&catid='.$row['food_category_id'].'&foodid='.$row['food_id'].'" style="color:#000;font-weight:bold;">	'.$row['food_name'].' </a>
 	<br />
-ราคา: <span style="color:red;font-weight:bold;">
+'.$lang_price.': <span style="color:red;font-weight:bold;">
 '.number_format($row['food_price'],0).'
 </span>
 
@@ -63,7 +63,7 @@ echo '
 <span style="font-weight:bold;">'.$row['food_name'].'</span> 
 	
 <hr />
-ราคา: <span style="color:red;font-weight:bold;">
+'.$lang_price.': <span style="color:red;font-weight:bold;">
 '.number_format($row['food_price'],0).'
 </span>
 
@@ -95,23 +95,23 @@ echo '
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">รายการค้นหา</h4>
+				<h4 class="modal-title"><?=$lang_searchlist?></h4>
 			</div>
 			<div class="modal-body" style="height: 400px;">
 				
 				<center>
 <form class="form-inline">
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="ค้นหา..." style="min-width: 300px;height: 50px;font-size: 20px;">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="<?=$lang_search?>" style="min-width: 300px;height: 50px;font-size: 20px;">
 </div>
 <div class="form-group">
-<button ng-click="Searchmodal(searchtext)" class="btn btn-success" style="height: 50px;font-size: 20px;">ค้นหา</button>
+<button ng-click="Searchmodal(searchtext)" class="btn btn-success" style="height: 50px;font-size: 20px;"><?=$lang_search?></button>
 </div>
 </form>
 
 </center>
 <br />
-ผลการค้นหา
+<?=$lang_searchresult?>
 <br />
 
 <div class="col-md-4" ng-repeat="x in searchlist">
@@ -122,7 +122,7 @@ echo '
 <br />
 <span style="font-weight: bold;">{{x.food_name}}</span>
 <br />
-ราคา: 
+<?=$lang_price?>: 
 <span style="color:red;font-weight:bold;">
 {{x.food_price| number}}</span>
 
@@ -134,7 +134,7 @@ echo '
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิดหน้าต่าง</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
 				
 			</div>
 		</div>

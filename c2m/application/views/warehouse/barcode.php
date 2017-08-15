@@ -52,7 +52,7 @@
 </head>
 
 <body>
-<button class="btn btn-success"  onclick="window.print()">พิมพ์</button>
+<button class="btn btn-success"  onclick="window.print()">Print</button>
 
 <hr/>
 
@@ -71,7 +71,7 @@ echo '<br />
 ';
 if(isset($_GET['product_price'])){ echo $_GET['product_price']; }
       echo '
- บาท    </span></center></div>';
+     </span></center></div>';
  }
   ?>
 

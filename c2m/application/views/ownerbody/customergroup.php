@@ -6,14 +6,15 @@
 	<div class="panel-body">
 		
 
-<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>กลุ่มลูกค้า  <a class="btn btn-primary"  style="float: right" ng-click="Openaddnewcus()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></a></font>
+<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> 
+<?=$lang_cusgroup?>  <a class="btn btn-primary"  style="float: right" ng-click="Openaddnewcus()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></a></font>
 
 <hr />
 
 
 
 <div class="col-md-12 text-right">
-<input type="checkbox" ng-model="Showdelbut"> แสดงปุ่มลบ
+<input type="checkbox" ng-model="Showdelbut"> <?=$lang_showdel?>
 </div>
 
 
@@ -24,10 +25,10 @@
 	<thead>
 		<tr style="background-color: #eee">
 			
-			<th>ชื่อกลุ่ม</th>
-			<th>หมายเหตุ</th>
+			<th><?=$lang_cusgroup?></th>
+			<th><?=$lang_remark?></th>
 			
-			<th>จัดการ</th>
+			<th><?=$lang_manage?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -65,14 +66,14 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">เพิ่มกลุ่มลูกค้าใหม่</h4>
+				<h4 class="modal-title"><?=$lang_addnewgroup?></h4>
 			</div>
 			<div class="modal-body">
 
 
 <div class="row">
 <div class="col-md-12">
-	<input type="text" placeholder="ชื่อกลุ่มลูกค้า" name="" class="form-control" ng-model="customer_group_name" required>
+	<input type="text" placeholder="<?=$lang_cusgroup?>" name="" class="form-control" ng-model="customer_group_name" required>
 
 </div>
 
@@ -82,7 +83,7 @@
 </div>	
 
 <div class="col-md-12">
-	<textarea name="" class="form-control" placeholder="หมายเหตุ" ng-model="customer_group_remark">
+	<textarea name="" class="form-control" placeholder="<?=$lang_remark?>" ng-model="customer_group_remark">
 </textarea> 
 </div>
 
@@ -92,8 +93,8 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-<button type="submit" class="btn btn-success" id="savenewcustomer" ng-click="SaveSubmit(customer_group_name,customer_group_remark)">บันทึก</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+<button type="submit" class="btn btn-success" id="savenewcustomer" ng-click="SaveSubmit(customer_group_name,customer_group_remark)"><?=$lang_save?></button>
 			</div>
 		</div>
 
@@ -113,14 +114,14 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">แก้ไขกลุ่มลูกค้า</h4>
+				<h4 class="modal-title"><?=$lang_editgroup?></h4>
 			</div>
 			<div class="modal-body">
 
 
 <div class="row">
 <div class="col-md-12">
-	<input type="text" placeholder="ชื่อกลุ่มลูกค้า" name="" class="form-control" ng-model="customer_group_name" required>
+	<input type="text" placeholder="<?=$lang_cusgroup?>" name="" class="form-control" ng-model="customer_group_name" required>
 
 </div>
 
@@ -130,7 +131,7 @@
 </div>	
 
 <div class="col-md-12">
-	<textarea name="" class="form-control" placeholder="หมายเหตุ" ng-model="customer_group_remark">
+	<textarea name="" class="form-control" placeholder="<?=$lang_remark?>" ng-model="customer_group_remark">
 </textarea> 
 </div>
 
@@ -141,8 +142,8 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-<button type="submit" class="btn btn-success" id="editcustomer" ng-click="EditSubmit(customer_group_id,customer_group_name,customer_group_remark)">บันทึก</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+<button type="submit" class="btn btn-success" id="editcustomer" ng-click="EditSubmit(customer_group_id,customer_group_name,customer_group_remark)"><?=$lang_save?></button>
 			</div>
 		</div>
 
@@ -196,7 +197,7 @@ $http.post("Customergroup/add",{
 	'customer_group_name': customer_group_name,
 	'customer_group_remark': customer_group_remark,
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $("#savenewcustomer").prop("disabled",false);
 
 	$scope.customer_group_name = '';
@@ -222,7 +223,7 @@ $scope.Delete = function(customer_group_id){
 $http.post("Customergroup/delete",{
 	'customer_group_id': customer_group_id
 	}).success(function(data){
-toastr.success('ลบเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.getcustomer();
 
 
@@ -254,7 +255,7 @@ $http.post("Customergroup/update",{
 	'customer_group_name': customer_group_name,
 	'customer_group_remark': customer_group_remark,
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $("#editcustomer").prop("disabled",false);
 
 	$scope.customer_group_name = '';

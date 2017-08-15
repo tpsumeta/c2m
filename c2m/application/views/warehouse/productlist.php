@@ -7,22 +7,23 @@
 
 
 <div style="float: right;">
-	<button class="btn btn-info" ng-click="Modalexcel()"> นำเข้ารายชื่อสินค้าจาก Excel</button>
+	<button class="btn btn-info" ng-click="Modalexcel()"> 
+	<?=$lang_importproductexcel?></button>
 </div>
 
 
 <form class="form-inline">
 <div class="form-group">
-<button class="btn btn-primary" ng-click="Modaladd()">+ เพิ่มสินค้า</button>
+<button class="btn btn-primary" ng-click="Modaladd()"><?=$lang_addproduct?></button>
 </div>
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="ค้นหาจากชื่อสินค้า หรือ Scan Barcode" style="width: 300px;">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="<?=$lang_search?>" style="width: 300px;">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist(searchtext,'1')" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 
 </form>
@@ -32,72 +33,33 @@
 
 
 <div style="float: right;">
-	<input type="checkbox" ng-model="showdeletcbut"> แสดงปุ่มลบ
+	<input type="checkbox" ng-model="showdeletcbut"> <?=$lang_showdel?>
 </div>
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr style="background-color: #eee;">
-			<th style="width: 50px;">ลำดับ</th>
-			<th style="text-align: center;width: 100px;">รหัสสินค้า</th>
+			<th style="width: 50px;"><?=$lang_rank?></th>
+			<th style="text-align: center;width: 100px;"><?=$lang_barcode?></th>
 			<th style="text-align: center;width: 50px;">Barcode</th>
-			<th style="text-align: center;width: 150px;">รูปสินค้า</th>
-			<th style="text-align: center;width: 100px;">ชื่อสินค้า</th>
-			<th style="text-align: center;width: 100px;">หมวดหมู่</th>
+			<th style="text-align: center;width: 150px;"><?=$lang_picproduct?></th>
+			<th style="text-align: center;width: 100px;"><?=$lang_productname?></th>
+			<th style="text-align: center;width: 100px;"><?=$lang_category?></th>
 			<th style="text-align: center;width: 100px;">Supplier</th>
-			<th style="text-align: center;width: 100px;">ราคาต้นทุนต่อหน่วย/บาท</th>
-			<th style="text-align: center;width: 100px;">ราคาขายสินค้าต่อหน่วย/บาท</th>
-			<th style="text-align: center;width: 100px;">คะแนน</th>
-			<th style="text-align: center;width: 100px;">ที่จัดเก็บ</th>
-			<th style="width: 80px;">จัดการ</th>
+			<th style="text-align: center;width: 100px;"><?=$lang_costperunit?></th>
+			<th style="text-align: center;width: 100px;"><?=$lang_priceperunit?></th>
+			<th style="text-align: center;width: 100px;"><?=$lang_score?></th>
+			<th style="text-align: center;width: 100px;"><?=$lang_wherestore?></th>
+			<th style="width: 80px;"><?=$lang_manage?></th>
 		</tr>
 	</thead>
 	<tbody>
 	
 
 
-	<!-- <tr>
-	<td></td>
-	<td><form id="uploadImg"  enctype="multipart/form-data" method="POST">
-
-	<input type="text" class="form-control" placeholder="รหัสสินค้า" ng-model="product_code" name="product_code"></td>
-	<td></td>
-	<td><input type="file" class="form-control" accept="image/*" ng-model="product_image" name="product_image"></td>
-			<td><input type="text" class="form-control" placeholder="ชื่อสินค้า" ng-model="product_name" name="product_name"></td>
-
-			<td>
-				<select class="form-control" ng-model="product_category_id" name="product_category_id">
-				<option value="0">เลือก</option>
-					<option ng-repeat="x in categorylist" value="{{x.product_category_id}}">
-						{{x.product_category_name}}
-					</option>
-				</select>
-			</td>
-
-			<td>
-				<select class="form-control" ng-model="supplier_id" name="supplier_id">
-				<option value="0">เลือก</option>
-					<option ng-repeat="x in supplierlist" value="{{x.supplier_id}}">
-						{{x.supplier_name}}
-					</option>
-				</select>
-			</td>
-
-
-			<td><input type="text" class="form-control" placeholder="ราคาต้นทุน" ng-model="product_pricebase" name="product_pricebase" style="text-align: right;"></td>
-			<td><input type="text" class="form-control" placeholder="ราคาขาย" ng-model="product_price" name="product_price" style="text-align: right;"></td>
-
-			<td><input type="text" class="form-control" placeholder="คะแนน" ng-model="product_score" name="product_score" style="text-align: right;"></td>
-
-			<td><input type="text" class="form-control" placeholder="ที่จัดเก็บ" ng-model="product_location" name="product_location" style="text-align: right;"></td>
-			
-			<td>
-			<button class="btn btn-success" type="submit">บันทึก</button> </form>
-			</td>
-	</tr> -->
 
 		<tr ng-repeat="x in list">
-		<td ng-show="selectpage=='1'" class="text-center">{{($index+1)}}</td>
-			<td ng-show="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</td>
+		<td ng-if="selectpage=='1'" class="text-center">{{($index+1)}}</td>
+			<td ng-if="selectpage!='1'" class="text-center">{{($index+1)+(perpage*(selectpage-1))}}</td>
 		
 
 			
@@ -132,8 +94,8 @@
 
 			<td>
 
-				<button class="btn btn-xs btn-warning" ng-click="Editinputproduct(x)">แก้ไข</button>
-				<button ng-show="showdeletcbut" class="btn btn-xs btn-danger" ng-click="Deleteproduct(x.product_id)">ลบ</button>
+				<button class="btn btn-xs btn-warning" ng-click="Editinputproduct(x)"><?=$lang_edit?></button>
+				<button ng-show="showdeletcbut" class="btn btn-xs btn-danger" ng-click="Deleteproduct(x.product_id)"><?=$lang_delete?></button>
 			</td>
 
 		
@@ -150,7 +112,7 @@
 
 <form class="form-inline">
 <div class="form-group">
-แสดง
+<?=$lang_show?>
 <select class="form-control" name="" id="" ng-model="perpage" ng-change="getlist(searchtext,'1',perpage)">
 	<option value="10">10</option>
 	<option value="20">20</option>
@@ -161,7 +123,7 @@
 	<option value="300">300</option>
 </select>
 
-หน้า
+<?=$lang_page?>
 <select name="" id="" class="form-control" ng-model="selectthispage"  ng-change="getlist(searchtext,selectthispage,perpage)">
 	<option  ng-repeat="i in pagealladd" value="{{i.a}}">{{i.a}}</option>
 </select>
@@ -174,7 +136,8 @@
 
 
 <hr />
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+<?=$lang_downloadexcel?> </button>
 
 
 
@@ -185,23 +148,23 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">เพิ่มสินค้า</h4>
+				<h4 class="modal-title"><?=$lang_addproduct?></h4>
 			</div>
 			<div class="modal-body">
 				<form id="uploadImg"  enctype="multipart/form-data" method="POST">
 
-รหัสสินค้า
+<?=$lang_barcode?>
 <input type="text" name="product_code"  placeholder="รหัสสินค้า" class="form-control">
 <p></p>
-รูปสินค้า
+<?=$lang_picproduct?>
 <input type="file" name="product_image" accept="image/*" class="form-control" value="">
 <p></p>
-ชื่อสินค้า
+<?=$lang_productname?>
 <input type="text" name="product_name"  placeholder="ชื่อสินค้า" class="form-control">
 <p></p>
-หมวดหมู่
+<?=$lang_category?>
 <select class="form-control" name="product_category_id" >
-<option value="0">เลือกหมวดหมู่</option>
+<option value="0"><?=$lang_selectcategory?></option>
 					<option ng-repeat="y in categorylist" value="{{y.product_category_id}}">
 						{{y.product_category_name}}
 					</option>
@@ -210,7 +173,7 @@
 
 Supplier
 <select class="form-control" name="supplier_id" >
-				<option value="0">เลือก</option>
+				<option value="0"><?=$lang_select?></option>
 					<option ng-repeat="x in supplierlist" value="{{x.supplier_id}}">
 						{{x.supplier_name}}
 					</option>
@@ -219,25 +182,25 @@ Supplier
 
 
 				<p></p>
-ราคาต้นทุน
-	<input type="text" name="product_pricebase"  placeholder="ราคาต้นทุน" class="form-control text-right">
+<?=$lang_cost?>
+	<input type="text" name="product_pricebase"  placeholder="<?=$lang_cost?>" class="form-control text-right">
 	<p></p>
-	ราคาขาย
-	<input type="text" name="product_price"  placeholder="ราคาขาย" class="form-control text-right">
+	<?=$lang_saleprice?>
+	<input type="text" name="product_price"  placeholder="<?=$lang_saleprice?>" class="form-control text-right">
 
 <p></p>
-	คะแนน
-	<input type="text" name="product_score"  placeholder="คะแนน" class="form-control text-right">
+	<?=$lang_score?>
+	<input type="text" name="product_score"  placeholder="<?=$lang_score?>" class="form-control text-right">
 
 	<p></p>
-	ที่จัดเก็บ
-	<input type="text" name="product_location"  placeholder="ที่จัดเก็บ" class="form-control text-right">
+	<?=$lang_wherestore?>
+	<input type="text" name="product_location"  placeholder="<?=$lang_wherestore?>" class="form-control text-right">
 
 	<p></p>
 
 
 
-<button class="btn btn-success" type="submit">บันทึก</button>
+<button class="btn btn-success" type="submit"><?=$lang_save?></button>
 </form>
 			</div>
 			<div class="modal-footer">
@@ -257,26 +220,26 @@ Supplier
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">แก้ไข</h4>
+				<h4 class="modal-title"><?=$lang_edit?></h4>
 			</div>
 			<div class="modal-body">
 				<form id="Updatedata"  enctype="multipart/form-data" method="POST">
 
 <input type="hidden" name="product_id" id="product_id">
-รหัสสินค้า
-<input type="text" name="product_code" id="product_code" placeholder="รหัสสินค้า" class="form-control">
+<?=$lang_barcode?>
+<input type="text" name="product_code" id="product_code" placeholder="<?=$lang_barcode?>" class="form-control">
 <p></p>
 <input type="hidden" name="product_image2" id="product_image2">
 <center>
 <img ng-if="product_image!=''" ng-src="<?php echo $base_url;?>/{{product_image}}" width="70px" height="70px;">
 </center>
-รูปสินค้า
+<?=$lang_picproduct?>
 <input type="file" name="product_image" accept="image/*" class="form-control" value="">
 <p></p>
-ชื่อสินค้า
-<input type="text" name="product_name" id="product_name" placeholder="ชื่อสินค้า" class="form-control">
+<?=$lang_productname?>
+<input type="text" name="product_name" id="product_name" placeholder="<?=$lang_productname?>" class="form-control">
 <p></p>
-หมวดหมู่
+<?=$lang_category?>
 <select class="form-control" name="product_category_id" id="product_category_id">
 
 					<option ng-repeat="y in categorylist" value="{{y.product_category_id}}">
@@ -287,7 +250,7 @@ Supplier
 
 Supplier
 <select class="form-control" name="supplier_id" id="supplier_id">
-				<option value="0">เลือก</option>
+				<option value="0"><?=$lang_select?></option>
 					<option ng-repeat="x in supplierlist" value="{{x.supplier_id}}">
 						{{x.supplier_name}}
 					</option>
@@ -296,25 +259,25 @@ Supplier
 
 
 				<p></p>
-ราคาต้นทุน
-	<input type="text" name="product_pricebase" id="product_pricebase" placeholder="ราคาต้นทุน" class="form-control text-right">
+<?=$lang_cost?>
+	<input type="text" name="product_pricebase" id="product_pricebase" placeholder="<?=$lang_cost?>" class="form-control text-right">
 	<p></p>
-	ราคาขาย
-	<input type="text" name="product_price" id="product_price" placeholder="ราคาขาย" class="form-control text-right">
+	<?=$lang_saleprice?>
+	<input type="text" name="product_price" id="product_price" placeholder="<?=$lang_saleprice?>" class="form-control text-right">
 
 <p></p>
-	คะแนน
-	<input type="text" name="product_score" id="product_score" placeholder="คะแนน" class="form-control text-right">
+	<?=$lang_score?>
+	<input type="text" name="product_score" id="product_score" placeholder="<?=$lang_score?>" class="form-control text-right">
 
 	<p></p>
-	ที่จัดเก็บ
-	<input type="text" name="product_location" id="product_location" placeholder="ที่จัดเก็บ" class="form-control text-right">
+	<?=$lang_wherestore?>
+	<input type="text" name="product_location" id="product_location" placeholder="<?=$lang_wherestore?>" class="form-control text-right">
 
 	<p></p>
 
 
 
-<button class="btn btn-success" type="submit">บันทึก</button>
+<button class="btn btn-success" type="submit"><?=$lang_save?></button>
 </form>
 			</div>
 			<div class="modal-footer">
@@ -333,18 +296,18 @@ Supplier
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">รายการสินค้าจาก Excel .CSV</h4>
+				<h4 class="modal-title"><?=$lang_productlistfromexcel?></h4>
 			</div>
 			<div class="modal-body text-center">
 
 <form enctype="multipart/form-data" id="formexcel">
 <input type="file" accept=".csv" id="excel" name="excel" class="btn btn-default">   
 <br />
-<button class="btn btn-success" id="submitexcel" type="submit">อัฟโหลด</button>
+<button class="btn btn-success" id="submitexcel" type="submit"><?=$lang_upload?></button>
 </form>
 
 <hr />
-<font color="red">ตัวอย่างไฟล์ .CSV  UTF-8</font>
+<font color="red"><?=$lang_csvexsample?></font>
 <br />
 <img src="<?php echo $base_url;?>/pic/imcsv.png">
 			</div>
@@ -457,7 +420,7 @@ $http.post("Productlist/Add",{
 	product_score: product_score,
 	supplier_id: supplier_id
 	}).success(function(data){
-toastr.success('บันทึกเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.product_code = '';
 $scope.product_name = '';
 $scope.product_pricebase = '';
@@ -575,7 +538,7 @@ $scope.Deleteproduct = function(product_id){
 $http.post("Productlist/Delete",{
 	product_id: product_id
 	}).success(function(data){
-toastr.success('ลบเรียบร้อย');
+toastr.success('<?=$lang_success?>');
 $scope.getlist();
         });	
 };
@@ -594,7 +557,7 @@ var formData = new FormData($(this)[0]);
             processData: false,
    		 	contentType: false,
             success: function () {
-               toastr.success('เรียบร้อย');
+               toastr.success('<?=$lang_success?>');
                $('#Modalexcel').modal('hide');
                $scope.getlist('','1');
             }

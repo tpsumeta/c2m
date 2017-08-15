@@ -7,7 +7,7 @@
 <form class="form-inline">
 <div class="form-group">
 <select class="form-control" ng-model="food_brand_id" ng-change="Selectbrand()">
-<option value="0">กรุณาเลือก สาขา</option>
+<option value="0"><?=$lang_selectbrand?></option>
 	<option ng-repeat="x in listbrand" value="{{x.food_brand_id}}">
 		{{x.food_brand_name}}
 	</option>
@@ -15,10 +15,10 @@
 </div>
 
 <div class="form-group">
-<input type="text" ng-model="searchtext" class="form-control" placeholder="ค้นหาจากชื่ออาหาร" style="width: 300px;">
+<input type="text" ng-model="searchtext" class="form-control" placeholder="<?=$lang_searchfoodname?>" style="width: 300px;">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="getlist(searchtext,'1','',food_brand_id)" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="getlist(searchtext,'1','',food_brand_id)" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
 <!-- <div class="form-group">
 <button type="submit" ng-click="getlist('','1')" class="btn btn-default" placeholder="" title="รีเฟรส"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
@@ -29,20 +29,20 @@
 
 
 <center ng-if="list==''">
-<h1 style="font-weight: bold;">ไม่พบข้อมูล</h1>
+<h1 style="font-weight: bold;"><?=$lang_cannotfound?></h1>
 </center>
 
 <hr />
 <table id="headerTable" class="table table-hover table-bordered">
 	<thead>
 		<tr class="trheader">
-		<th style="width: 50px;">ลำดับ</th>
-			<th style="text-align: center;">ชื่ออาหาร</th>
-			<th style="text-align: center;">สาขา</th>
-			<th style="text-align: center;">ประเภท</th>
+		<th style="width: 50px;"><?=$lang_rank?></th>
+			<th style="text-align: center;"><?=$lang_foodname?></th>
+			<th style="text-align: center;"><?=$lang_brand?></th>
+			<th style="text-align: center;"><?=$lang_type?></th>
 
-			<th style="text-align: center;">ราคาขาย/บาท</th>
-			<th style="text-align: center;">สถานะ</th>
+			<th style="text-align: center;"><?=$lang_saleprice?></th>
+			<th style="text-align: center;"><?=$lang_status?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -60,8 +60,11 @@
 			
 		
 			<td align="right">
-			<span ng-if="x.food_status=='0'" style="color: green;">พร้อมขาย</span>
-			<span ng-if="x.food_status=='1'" style="color: red;">ไม่พร้อมขาย</span>
+			<span ng-if="x.food_status=='0'" style="color: green;">
+			<?=$lang_saleready?></span>
+			<span ng-if="x.food_status=='1'" style="color: red;">
+			<?=$lang_salenotready?>
+			</span>
 			</td>
 			
 
@@ -74,7 +77,7 @@
 
 <form class="form-inline">
 <div class="form-group">
-แสดง
+<?=$lang_show?>
 <select class="form-control" name="" id="" ng-model="perpage" ng-change="getlist(searchtext,'1',perpage,food_brand_id)">
 	<option value="10">10</option>
 	<option value="20">20</option>
@@ -85,7 +88,7 @@
 	<option value="300">300</option>
 </select>
 
-หน้า
+<?=$lang_page?>
 <select name="" id="" class="form-control" ng-model="selectthispage"  ng-change="getlist(searchtext,selectthispage,perpage)">
 	<option  ng-repeat="i in pagealladd" value="{{i.a}}">{{i.a}}</option>
 </select>
@@ -96,7 +99,8 @@
 
 <hr />
 
-<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> ดาวน์โหลดตาราง Excel </button>
+<button id="btnExport" class="btn btn-default" onclick="fnExcelReport();"> <span class="glyphicon glyphicon-save" aria-hidden="true"></span> 
+<?=$lang_downloadexcel?> </button>
 
 
 

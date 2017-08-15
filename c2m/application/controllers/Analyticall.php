@@ -40,7 +40,7 @@ class Analyticall extends MY_Controller {
 		
 
 $data['tab'] = 'analyticall';
-$data['title'] = 'สถิติโดยรวม';
+$data['title'] = 'Analytic All';
 		$this->ownerlayout('ownerbody/analyticall',$data);
 
 

@@ -35,7 +35,7 @@ class Pricebycus extends MY_Controller {
 		
 
 $data['tab'] = 'pricebycus';
-$data['title'] = 'ตั้งค่าราคาขายเฉพาะลูกค้า';
+$data['title'] = 'Price by Customer';
 		$this->salesettinglayout('salesetting/pricebycus',$data);
 }
 

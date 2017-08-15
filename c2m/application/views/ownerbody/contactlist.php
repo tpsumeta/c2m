@@ -6,39 +6,40 @@
 	<div class="panel-body">
 		
 
-<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>รายการติดต่อ ( {{allcontact}}  รายการ)</font>
+<font size="4"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> 
+<?=$lang_cuscontactlist?> ( {{allcontact}}  <?=$lang_list?>)</font>
 <hr />
 
 <form class="form-inline">
 <div class="form-group">
-<input type="text" name="search" ng-model="searchtext" class="form-control" placeholder="ค้นหาจาก รายละเอียด">
+<input type="text" name="search" ng-model="searchtext" class="form-control" placeholder="<?=$lang_search?> <?=$lang_detail?>">
 </div>
 <div class="form-group">
-<input type="text" id="datetime" name="searchdate" ng-model="searchdate" class="form-control" placeholder="ค้นหาจาก วันที่ทำรายการ">
+<input type="text" id="datetime" name="searchdate" ng-model="searchdate" class="form-control" placeholder="<?=$lang_search?> <?=$lang_day?>">
 </div>
 <div class="form-group">
-<button type="submit" ng-click="Searchsubmit(searchtext,'1')" class="btn btn-success" placeholder="" title="ค้นหา"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+<button type="submit" ng-click="Searchsubmit(searchtext,'1')" class="btn btn-success" placeholder="" title="<?=$lang_search?>"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 </div>
-<div class="form-group">
+<!-- <div class="form-group">
 <button class="btn btn-info"  ng-click="DownloadExcel()" title="ดาวน์โหลดรายชื่อลูกค้า" ><span class="glyphicon glyphicon-save" aria-hidden="true"></button> 
-</div>
+</div> -->
 <div class="form-group">
-<button type="submit" ng-click="Refreshsubmit(searchtype,searchtext,'1')" class="btn btn-default" placeholder="" title="รีเฟรสข้อมูล"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+<button type="submit" ng-click="Refreshsubmit(searchtype,searchtext,'1')" class="btn btn-default" placeholder="" title="<?=$lang_refresh?>"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 </div>
 <br /><br />
 </form>
 <table class="table table-hover">
 	<thead>
 		<tr style="background-color: #eee;">
-		<th width="5px">ลำดับ</th>
-		<th>ลูกค้า</th>
-			<th>รายละเอียด</th>
-			<th>ช่องทางติดต่อ</th>
-			<th>เกรด/คะแนน</th>
-			<th>สินค้า/บริการ</th>
-			<th>เหตุผลที่ซื้อ</th>
-			<th>เหตุผลที่ไม่ซื้อ</th>
-			<th>วันที่ทำรายการ</th>
+		<th width="5px"><?=$lang_rank?></th>
+		<th><?=$lang_cusname?></th>
+			<th><?=$lang_detail?></th>
+			<th><?=$lang_cuscontactchanel?></th>
+			<th><?=$lang_cusgrade?></th>
+			<th><?=$lang_cusproductservice?></th>
+			<th><?=$lang_cusreasonbuy?></th>
+			<th><?=$lang_cusreasonnotnuy?></th>
+			<th><?=$lang_day?></th>
 			
 		</tr>
 	</thead>
@@ -62,7 +63,7 @@
 
 <form class="form-inline">
 <div class="form-group">
-แสดง
+<?=$lang_show?>
 <select class="form-control" name="" id="" ng-model="perpage" ng-change="Contactlistallfunc(searchtext,'1',perpage)">
 	<option value="10">10</option>
 	<option value="20">20</option>
@@ -73,35 +74,13 @@
 	<option value="300">300</option>
 </select>
 
-หน้า
+<?=$lang_page?>
 <select name="" id="" class="form-control" ng-model="selectthispage"  ng-change="Contactlistallfunc(searchtext,selectthispage,perpage)">
 	<option  ng-repeat="i in pagealladd" value="{{i.a}}">{{i.a}}</option>
 </select>
 </div>
 
-<!-- <div class="form-group">
-<nav>
- <ul class="pagination">
- <li>
- <a href="" aria-label="Previous">
- <span aria-hidden="true">&laquo;</span>
- </a>
- </li>
 
- <li ng-repeat="i in pagealladd" >
- <a  ng-show="selectpage == i.a" href="#" ng-click="Contactlistallfunc(searchtext,i.a,perpage)" style="background-color: #eee;">{{i.a}}</a>
-  <a  ng-show="selectpage != i.a" href="#" ng-click="Contactlistallfunc(searchtext,i.a,perpage)">{{i.a}}</a>
- </li>
-
-
- <li>
- <a href="" aria-label="Next">
- <span aria-hidden="true">&raquo;</span>
- </a>
- </li>
- </ul>
- </nav>
- </div> -->
 
 </form>
 
