@@ -11,15 +11,6 @@ POS System , Restaurant System , Apartment Room System
 <br />
 
 <br />
-<b>สนับสนุน ธนาคารไทยพาณิชย์ นายอาณัติ ปัสสาสัย  106-243314-8</b>
-<br />
-<b>Anat Passasai </b></h2>
-<br />
-<a href="https://www.paypal.me/yogolas" width="200px">
-<img src="https://cus2mer.co/pic/donate.jpg">
-</a>
-
-<br />
 <img src="https://scontent.fbkk5-3.fna.fbcdn.net/v/t1.0-9/20429784_1368902496520193_7978697246194605241_n.jpg?oh=af27d5bf1212f80dd06acfaafa73fe7e&oe=59F00A83">
 
 
